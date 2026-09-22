@@ -17,27 +17,27 @@ export interface Vector3D {
 }
 
 export const ENTRY_VECTORS: Vector3D[] = [
-  { x: -280, y: -220, rotate: -22 },
-  { x: 40, y: -300, rotate: 16 },
-  { x: 300, y: -200, rotate: -18 },
-  { x: 0, y: -250, rotate: 25 },
-  { x: 320, y: 50, rotate: 20 },
-  { x: -300, y: 240, rotate: -24 },
-  { x: -40, y: 310, rotate: 18 },
-  { x: 280, y: 260, rotate: -20 },
-  { x: -320, y: -30, rotate: 22 },
+  { x: -240, y: -180, rotate: -20 },
+  { x: 30, y: -240, rotate: 15 },
+  { x: 260, y: -170, rotate: -16 },
+  { x: -250, y: 30, rotate: 22 },
+  { x: 0, y: 0, rotate: 0 },
+  { x: 270, y: 40, rotate: -18 },
+  { x: -240, y: 200, rotate: -22 },
+  { x: -30, y: 250, rotate: 16 },
+  { x: 240, y: 220, rotate: -18 },
 ];
 
 export const EXIT_VECTORS: Vector3D[] = [
-  { x: 320, y: 240, rotate: 24 },
-  { x: -280, y: 280, rotate: -20 },
-  { x: -320, y: -220, rotate: 22 },
-  { x: 0, y: 320, rotate: -25 },
-  { x: -340, y: 60, rotate: -22 },
-  { x: 280, y: -260, rotate: 20 },
-  { x: 80, y: -320, rotate: -18 },
-  { x: -300, y: -280, rotate: 25 },
-  { x: 340, y: -40, rotate: -20 },
+  { x: -280, y: -200, rotate: -24 },
+  { x: 40, y: -280, rotate: 18 },
+  { x: 290, y: -190, rotate: -20 },
+  { x: -280, y: 40, rotate: 24 },
+  { x: 0, y: 0, rotate: 0 },
+  { x: 300, y: 50, rotate: -22 },
+  { x: -270, y: 230, rotate: -24 },
+  { x: -40, y: 280, rotate: 20 },
+  { x: 270, y: 250, rotate: -22 },
 ];
 
 export const MOSAIC_SOLUTIONS: MosaicSolution[] = [

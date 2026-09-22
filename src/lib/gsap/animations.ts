@@ -2,6 +2,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Register ScrollTrigger safely in browser context
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 export const initGSAP = () => {
   if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);

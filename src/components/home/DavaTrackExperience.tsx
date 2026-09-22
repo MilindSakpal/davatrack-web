@@ -2,13 +2,13 @@
 
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import { Sparkles, ArrowUpRight } from "lucide-react";
+import { Sparkles, ArrowUpRight, RefreshCw } from "lucide-react";
 import { 
   MOSAIC_SOLUTIONS, 
   ENTRY_VECTORS, 
   MosaicSolution 
 } from "@/data/mosaicSolutions";
-import { gsap } from "@/lib/gsap/animations";
+import { gsap, ScrollTrigger } from "@/lib/gsap/animations";
 import { cn } from "@/lib/utils";
 
 /* ============================================================
@@ -35,46 +35,40 @@ function GlossyCard({ solution }: { solution: MosaicSolution }) {
           overflow-hidden
           rounded-[28px]
           border
-          border-white/35
-          shadow-[0_16px_45px_rgba(6,54,111,0.20)]
-          transition-all
+          border-white/30
+          shadow-[0_12px_32px_rgba(6,54,111,0.20)]
+          transition-transform
           duration-300
           ease-out
           hover:-translate-y-1.5
-          hover:shadow-[0_25px_65px_rgba(6,54,111,0.32)]
+          hover:shadow-[0_20px_45px_rgba(6,54,111,0.30)]
         "
         style={{
           background: `
             linear-gradient(
               135deg,
-              rgba(255,255,255,0.28) 0%,
-              rgba(255,255,255,0.10) 35%,
-              rgba(255,255,255,0.04) 65%,
-              rgba(0,0,0,0.15) 100%
+              rgba(255,255,255,0.24) 0%,
+              rgba(255,255,255,0.08) 40%,
+              rgba(0,0,0,0.18) 100%
             ),
             ${solution.color}
           `,
-          backdropFilter: "blur(18px)",
-          WebkitBackdropFilter: "blur(18px)",
         }}
       >
-        {/* Soft glass reflection */}
-        <div className="pointer-events-none absolute -top-[45%] -left-[15%] h-[90%] w-[130%] rotate-[-8deg] rounded-[50%] bg-white/[0.16] blur-[35px]" />
+        {/* Hardware-accelerated glossy top reflection */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.22)_0%,transparent_60%)]" />
 
-        {/* Diagonal shine */}
-        <div className="pointer-events-none absolute -left-[80%] top-[-30%] h-[180%] w-[65%] rotate-[25deg] bg-gradient-to-r from-transparent via-white/[0.22] to-transparent blur-[12px] transition-transform duration-[1200ms] ease-out group-hover:translate-x-[260%]" />
+        {/* Ambient bottom glow */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(6,182,212,0.25)_0%,transparent_65%)]" />
 
-        {/* Inner glass edge */}
+        {/* Diagonal shine on hover */}
+        <div className="pointer-events-none absolute -left-[100%] top-[-30%] h-[180%] w-[60%] rotate-[25deg] bg-gradient-to-r from-transparent via-white/[0.22] to-transparent transition-transform duration-1000 ease-out group-hover:translate-x-[350%]" />
+
+        {/* Inner glass border */}
         <div className="pointer-events-none absolute inset-[1px] rounded-[27px] border border-white/[0.18]" />
 
         {/* Top highlight */}
-        <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/40" />
-
-        {/* Bottom depth */}
-        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[45%] bg-gradient-to-t from-black/[0.25] via-black/[0.08] to-transparent" />
-
-        {/* Ambient glow */}
-        <div className="pointer-events-none absolute -bottom-[35%] -right-[20%] h-[65%] w-[65%] rounded-full bg-cyan-accent/[0.18] blur-[50px]" />
+        <div className="pointer-events-none absolute left-[10%] right-[10%] top-0 h-px bg-white/40" />
 
         {/* Logo Card Content */}
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center p-6 text-center text-white min-h-[220px]">
@@ -118,46 +112,40 @@ function GlossyCard({ solution }: { solution: MosaicSolution }) {
         overflow-hidden
         rounded-[28px]
         border
-        border-white/35
-        shadow-[0_16px_45px_rgba(6,54,111,0.18)]
-        transition-all
+        border-white/30
+        shadow-[0_12px_32px_rgba(6,54,111,0.16)]
+        transition-transform
         duration-300
         ease-out
         hover:-translate-y-1.5
-        hover:shadow-[0_25px_65px_rgba(6,54,111,0.30)]
+        hover:shadow-[0_20px_45px_rgba(6,54,111,0.26)]
       "
       style={{
         background: `
           linear-gradient(
             135deg,
-            rgba(255,255,255,0.26) 0%,
-            rgba(255,255,255,0.08) 35%,
-            rgba(255,255,255,0.04) 65%,
-            rgba(0,0,0,0.12) 100%
+            rgba(255,255,255,0.22) 0%,
+            rgba(255,255,255,0.06) 40%,
+            rgba(0,0,0,0.15) 100%
           ),
           ${solution.color}
         `,
-        backdropFilter: "blur(18px)",
-        WebkitBackdropFilter: "blur(18px)",
       }}
     >
-      {/* Soft top reflection */}
-      <div className="pointer-events-none absolute -top-[45%] -left-[15%] h-[90%] w-[130%] rotate-[-8deg] rounded-[50%] bg-white/[0.16] blur-[35px]" />
+      {/* Hardware-accelerated glossy top reflection */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.20)_0%,transparent_60%)]" />
 
-      {/* Diagonal glossy reflection */}
-      <div className="pointer-events-none absolute -left-[80%] top-[-30%] h-[180%] w-[65%] rotate-[25deg] bg-gradient-to-r from-transparent via-white/[0.18] to-transparent blur-[12px] transition-transform duration-[1200ms] ease-out group-hover:translate-x-[260%]" />
+      {/* Subtle depth */}
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-black/[0.20] to-transparent" />
+
+      {/* Diagonal shine sweep */}
+      <div className="pointer-events-none absolute -left-[100%] top-[-30%] h-[180%] w-[60%] rotate-[25deg] bg-gradient-to-r from-transparent via-white/[0.18] to-transparent transition-transform duration-1000 ease-out group-hover:translate-x-[350%]" />
 
       {/* Inner glass edge */}
-      <div className="pointer-events-none absolute inset-[1px] rounded-[27px] border border-white/[0.16]" />
+      <div className="pointer-events-none absolute inset-[1px] rounded-[27px] border border-white/[0.15]" />
 
-      {/* Top edge highlight */}
-      <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/40" />
-
-      {/* Bottom depth */}
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[45%] bg-gradient-to-t from-black/[0.20] via-black/[0.06] to-transparent" />
-
-      {/* Ambient glow */}
-      <div className="pointer-events-none absolute -bottom-[35%] -right-[20%] h-[65%] w-[65%] rounded-full bg-white/[0.07] blur-[50px]" />
+      {/* Top highlight */}
+      <div className="pointer-events-none absolute left-[10%] right-[10%] top-0 h-px bg-white/35" />
 
       {/* Normal Card Content */}
       <div
@@ -166,11 +154,11 @@ function GlossyCard({ solution }: { solution: MosaicSolution }) {
       >
         {/* Header */}
         <div className="flex items-start justify-between">
-          <div className="flex h-7 min-w-7 items-center justify-center rounded-full border border-white/20 bg-white/[0.1] px-2 font-mono text-[9px] tracking-[0.15em] backdrop-blur-md">
+          <div className="flex h-7 min-w-7 items-center justify-center rounded-full border border-white/20 bg-white/[0.15] px-2 font-mono text-[9px] tracking-[0.15em]">
             {solution.no}
           </div>
 
-          <div className="rounded-full border border-white/15 bg-black/[0.08] px-3 py-1.5 font-mono text-[7px] uppercase tracking-[0.25em] opacity-80">
+          <div className="rounded-full border border-white/15 bg-black/[0.1] px-3 py-1.5 font-mono text-[7px] uppercase tracking-[0.25em] opacity-80">
             DavaTrack
           </div>
         </div>
@@ -205,52 +193,70 @@ function GlossyCard({ solution }: { solution: MosaicSolution }) {
 
 /* ============================================================
    MAIN DAVATRACK INTERACTIVE MOSAIC EXPERIENCE
-   (Cards visible in-place, smoothly arrange on scroll)
+   (Ultra-Smooth Hardware-Accelerated Animation)
    ============================================================ */
 
 export function DavaTrackExperience() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
+  // Dramatic, expressive scatter-and-assemble animation with spring physics (60-120fps GPU accelerated)
+  const playAssembleAnimation = () => {
+    const cards = cardsRef.current.filter(Boolean);
+    if (!cards.length) return;
+
+    cards.forEach((card, idx) => {
+      const entry = ENTRY_VECTORS[idx % ENTRY_VECTORS.length];
+      gsap.fromTo(
+        card,
+        {
+          x: entry.x * 1.15,
+          y: entry.y * 1.15,
+          rotation: entry.rotate * 1.3,
+          scale: 0.76,
+          opacity: 0,
+          force3D: true,
+        },
+        {
+          x: 0,
+          y: 0,
+          rotation: 0,
+          scale: 1,
+          opacity: 1,
+          duration: 0.95,
+          delay: idx * 0.055,
+          ease: "back.out(1.5)",
+          force3D: true,
+          clearProps: "transform",
+        }
+      );
+    });
+  };
+
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (prefersReduced) return;
+    if (typeof window !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger);
+    }
 
-      const cards = cardsRef.current.filter(Boolean);
-      if (!cards.length || !sectionRef.current) return;
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) return;
 
-      // ScrollTrigger timeline that gently arranges cards from scattered state into grid as user scrolls in
-      cards.forEach((card, idx) => {
-        const entry = ENTRY_VECTORS[idx % ENTRY_VECTORS.length];
-        gsap.fromTo(
-          card,
-          {
-            x: entry.x * 0.45,
-            y: entry.y * 0.45,
-            rotation: entry.rotate * 0.6,
-            scale: 0.92,
-            opacity: 0.6,
-          },
-          {
-            x: 0,
-            y: 0,
-            rotation: 0,
-            scale: 1,
-            opacity: 1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 85%",
-              end: "top 35%",
-              scrub: 1.2,
-            },
-          }
-        );
-      });
-    }, sectionRef);
+    const cards = cardsRef.current.filter(Boolean);
+    if (!cards.length || !sectionRef.current) return;
 
-    return () => ctx.revert();
+    // Trigger assemble animation once cleanly when entering viewport
+    const trigger = ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top 78%",
+      onEnter: () => {
+        playAssembleAnimation();
+      },
+      once: true,
+    });
+
+    return () => {
+      trigger.kill();
+    };
   }, []);
 
   return (
@@ -261,21 +267,35 @@ export function DavaTrackExperience() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy text-white text-xs font-bold uppercase tracking-wider shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-cyan-accent" />
-            <span>Interactive Solutions Matrix</span>
+        {/* Section Header with Replay & Scatter Control */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 lg:mb-16">
+          <div className="space-y-3 max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy text-white text-xs font-bold uppercase tracking-wider shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-cyan-accent" />
+              <span>Interactive Solutions Matrix</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">
+              The DavaTrack Glossy Architecture
+            </h2>
+            <p className="text-sm sm:text-base text-muted">
+              Explore our interconnected healthcare solutions. Watch the capabilities scatter and assemble into our unified operational matrix.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">
-            The DavaTrack Glossy Architecture
-          </h2>
-          <p className="text-sm sm:text-base text-muted">
-            Explore our interconnected healthcare solutions. Scroll to see the capabilities arrange into an operational matrix.
-          </p>
+
+          {/* Interactive Replay Control */}
+          <div className="flex items-center gap-2.5 flex-shrink-0">
+            <button
+              onClick={playAssembleAnimation}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-navy text-white shadow-soft font-bold text-xs hover:bg-navy-700 transition-all active:scale-95"
+              title="Replay Assemble Animation"
+            >
+              <RefreshCw className="w-3.5 h-3.5 text-cyan-accent" />
+              <span>Replay Assembly</span>
+            </button>
+          </div>
         </div>
 
-        {/* Mosaic Grid Container (Always 100% visible & structured) */}
+        {/* Mosaic Grid Container */}
         <div
           className="
             grid
@@ -301,7 +321,12 @@ export function DavaTrackExperience() {
           ))}
         </div>
 
-
+        {/* Bottom Interactive Hint */}
+        <div className="mt-12 text-center">
+          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted">
+            Cards assemble dynamically on view • Click "Replay Assembly" to re-trigger • Hover for glossy reflections
+          </p>
+        </div>
 
       </div>
     </section>
