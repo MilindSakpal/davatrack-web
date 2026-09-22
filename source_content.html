@@ -1,0 +1,338 @@
+​<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DavaTrack — Healthcare Solutions & Execution Partner</title>
+<meta name="description" content="DavaTrack helps healthcare organizations with medical supply, pharmacy management, technology, staffing, accounting, manufacturing coordination, claims support and patient engagement.">
+<style>
+:root{
+  --navy:#06366f;
+  --blue:#0d6efd;
+  --cyan:#1ea7ff;
+  --ink:#10233f;
+  --muted:#62748a;
+  --line:#dfe8f2;
+  --soft:#f4f8fc;
+  --white:#fff;
+  --shadow:0 16px 45px rgba(18,54,91,.10);
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin:auto}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid #edf2f7}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.logo{font-weight:800;font-size:28px;letter-spacing:-1.2px;color:var(--navy)}
+.logo span{color:var(--blue)}
+.logo small{display:block;font-size:8px;letter-spacing:3px;color:#60758e;margin-top:-5px;text-align:center}
+.navlinks{display:flex;gap:32px;font-size:14px;font-weight:700;color:#30445e}
+.navlinks a:hover{color:var(--blue)}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:10px;padding:13px 21px;font-weight:750;font-size:14px;border:1px solid transparent;cursor:pointer}
+.btn-primary{background:var(--navy);color:#fff;box-shadow:0 8px 20px rgba(6,54,111,.18)}
+.btn-primary:hover{background:#052c5c}
+.btn-outline{border-color:#9bb1c9;color:var(--navy);background:#fff}
+.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#f7fbff 0%,#fff 48%,#eaf5ff 100%);padding:95px 0 75px}
+.hero:after{content:"";position:absolute;width:560px;height:560px;border-radius:50%;right:-160px;top:-170px;background:radial-gradient(circle,#d9efff 0%,rgba(217,239,255,0) 68%)}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:55px;position:relative;z-index:2}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:2px;color:var(--blue);text-transform:uppercase;margin-bottom:15px}
+h1{font-size:clamp(42px,5vw,68px);line-height:1.04;letter-spacing:-2.5px;margin:0 0 22px;color:#0b2442}
+h1 em{font-style:normal;color:var(--blue)}
+.hero h2{font-size:23px;line-height:1.3;margin:0 0 18px;color:#17385f}
+.lead{font-size:17px;color:#566a80;max-width:650px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-visual{min-height:430px;position:relative}
+.globe{position:absolute;inset:20px 0 0 30px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff 0 8%,#cce9ff 35%,#72b9f2 72%,#2d78ba 100%);opacity:.72;box-shadow:inset -25px -20px 60px rgba(4,44,86,.2)}
+.globe:before,.globe:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.75);border-radius:50%}
+.globe:before{inset:18% 33%;transform:rotate(25deg)}
+.globe:after{inset:33% 18%;transform:rotate(-25deg)}
+.device{position:absolute;right:8%;bottom:25px;width:70%;height:225px;background:#10233f;border:8px solid #d7e5f2;border-radius:22px;box-shadow:0 30px 50px rgba(7,42,78,.25);padding:24px;color:#fff}
+.device-title{font-weight:800;font-size:20px}.bars{display:flex;align-items:end;gap:10px;height:105px;margin-top:18px}.bar{width:12%;background:linear-gradient(#52b8ff,#1269c5);border-radius:6px 6px 0 0}
+.delivery{position:absolute;left:0;bottom:0;width:150px;height:75px;background:#0b5798;border-radius:18px 18px 8px 8px;box-shadow:0 18px 28px rgba(0,0,0,.18)}
+.delivery:before{content:"";position:absolute;right:-45px;bottom:0;width:58px;height:48px;background:#1d7fc4;border-radius:5px 15px 7px 5px}
+.wheel{position:absolute;bottom:-13px;width:34px;height:34px;border-radius:50%;background:#122238;border:7px solid #fff}.w1{left:20px}.w2{right:18px}
+.pill{position:absolute;right:0;top:32px;background:#fff;border:1px solid #d9e5ef;border-radius:13px;padding:12px 16px;box-shadow:var(--shadow);font-weight:750;color:var(--navy)}
+.section{padding:82px 0}.section.soft{background:var(--soft)}
+.center{text-align:center}.section-title{font-size:38px;line-height:1.12;letter-spacing:-1.3px;margin:0 0 12px;color:#0d2c52}.section-sub{max-width:720px;margin:0 auto;color:var(--muted)}
+.focus-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px;margin-top:38px}
+.focus{border:1px solid var(--line);border-radius:var(--radius);padding:35px;background:#fff;box-shadow:0 8px 25px rgba(16,48,79,.05)}
+.number{font-weight:900;color:var(--blue);font-size:13px;letter-spacing:2px}.focus h3{font-size:27px;margin:8px 0;color:var(--navy)}.focus p{color:var(--muted)}
+.taglist{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}.tag{padding:8px 12px;background:#eef6ff;border:1px solid #dcecff;border-radius:30px;font-size:12px;font-weight:700;color:#225789}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:25px;transition:.2s;box-shadow:0 8px 24px rgba(16,48,79,.04)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.icon{width:44px;height:44px;border-radius:12px;background:#eaf5ff;color:var(--blue);display:grid;place-items:center;font-weight:900;font-size:20px}
+.card h3{font-size:18px;line-height:1.25;margin:15px 0 8px;color:var(--navy)}.card p{font-size:14px;color:var(--muted);margin:0}
+.band{background:linear-gradient(110deg,#062f63,#0a5598);color:#fff;padding:35px 0}.band-grid{display:flex;align-items:center;justify-content:space-between;gap:25px}.band h2{margin:0 0 5px;font-size:28px}.band p{margin:0;color:#d7e8f8}
+.process{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:38px}.step{padding:22px 16px;text-align:center;background:#fff;border:1px solid var(--line);border-radius:14px}.step b{display:block;color:var(--blue);font-size:12px;letter-spacing:1px}.step strong{display:block;margin-top:7px;color:var(--navy)}
+.page-hero{padding:80px 0 55px;background:linear-gradient(120deg,#f3f8fd,#fff)}
+.page-hero h1{font-size:54px}.page-hero .lead{max-width:800px}
+.service-detail{padding:70px 0;border-bottom:1px solid var(--line)}.service-detail:nth-child(even){background:#fbfdff}
+.detail-grid{display:grid;grid-template-columns:.36fr .64fr;gap:55px}.service-no{font-size:14px;font-weight:900;color:var(--blue);letter-spacing:2px}.detail h2{font-size:35px;line-height:1.12;margin:8px 0 12px;color:var(--navy)}.detail h3{font-size:19px;margin:25px 0 8px}.detail p{color:var(--muted)}.bullets{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.bullets div{padding:11px 13px;background:#f4f8fc;border-radius:9px;font-size:13px;font-weight:700;color:#36506d}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:stretch}.about-box{border:1px solid var(--line);border-radius:18px;padding:32px;background:#fff}.about-box h2{margin-top:0;color:var(--navy);font-size:30px}.values{display:grid;gap:13px;margin-top:25px}.value{display:flex;gap:14px;padding:15px;border-radius:12px;background:#f5f9fd}.value span{font-weight:900;color:var(--blue)}.value b{color:var(--navy)}
+.contact{display:grid;grid-template-columns:.8fr 1.2fr;gap:30px}.contact-info{background:linear-gradient(145deg,#062f63,#0b65aa);color:#fff;border-radius:18px;padding:38px}.contact-info h2{font-size:34px;line-height:1.15;margin-top:0}.contact-info p{color:#d9e9f8}.form{border:1px solid var(--line);border-radius:18px;padding:30px;background:#fff;box-shadow:var(--shadow)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field label{display:block;font-size:12px;font-weight:800;color:#36506d;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;padding:13px;border:1px solid #ccd9e6;border-radius:9px;font:inherit;outline:none}.field textarea{min-height:125px;resize:vertical}.full{grid-column:1/-1}
+footer{background:#062d5c;color:#fff;padding:48px 0 25px}.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:35px}.footer-title{font-weight:900;margin-bottom:12px}.footer-text,.footer-links{color:#c6d8ea;font-size:13px}.footer-links a{display:block;margin:7px 0}.legal{border-top:1px solid rgba(255,255,255,.15);margin-top:35px;padding-top:18px;color:#a9c1d9;font-size:11px;display:flex;justify-content:space-between;gap:20px}
+.mobile-menu{display:none}
+@media(max-width:850px){
+  .navlinks,.nav>.btn{display:none}.mobile-menu{display:block}.hero-grid,.focus-grid,.detail-grid,.about-grid,.contact{grid-template-columns:1fr}.services-grid{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr 1fr}.hero-visual{min-height:340px}.device{width:76%;}.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  h1{font-size:42px}.page-hero h1{font-size:42px}.section{padding:60px 0}.services-grid,.bullets,.form-grid,.footer-grid{grid-template-columns:1fr}.hero{padding:65px 0}.hero-visual{min-height:300px}.band-grid{display:block}.band .btn{margin-top:18px}.legal{display:block}.legal span{display:block;margin-top:8px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo">Dava<span>Track</span><small>DIGITAL</small></a>
+    <nav class="navlinks">
+      <a href="#home">Home</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#about">About & Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary">Discuss Your Requirement</a>
+    <button class="mobile-menu btn btn-outline" onclick="document.querySelector('.navlinks').classList.toggle('show')">Menu</button>
+  </div>
+</header>
+
+<main id="home">
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Healthcare Solutions & Execution Partner</div>
+      <h1>Healthcare Solutions.<br><em>From Supply to Execution.</em></h1>
+      <h2>Your Healthcare Requirement. Our Complete Solution.</h2>
+      <p class="lead">DavaTrack helps healthcare organizations manage the systems behind their operations — from medical supply and delivery to pharmacy management, technology, manpower, accounting, manufacturing coordination, claims support and patient engagement.</p>
+      <p class="lead">We bring together <b>people, technology, processes and operational execution</b> to create practical healthcare solutions.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#contact">Discuss Your Requirement</a>
+        <a class="btn btn-outline" href="#solutions">Explore Our Solutions</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-label="Healthcare supply chain and digital operations visual">
+      <div class="globe"></div>
+      <div class="pill">Healthcare • Supply • Technology</div>
+      <div class="device">
+        <div class="device-title">DavaTrack Operations</div>
+        <div style="font-size:12px;color:#b9d3eb">Supply • Delivery • Pharmacy • Reports</div>
+        <div class="bars">
+          <div class="bar" style="height:35%"></div><div class="bar" style="height:58%"></div>
+          <div class="bar" style="height:48%"></div><div class="bar" style="height:76%"></div>
+          <div class="bar" style="height:64%"></div><div class="bar" style="height:90%"></div>
+        </div>
+      </div>
+      <div class="delivery"><div class="wheel w1"></div><div class="wheel w2"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="center">
+      <div class="eyebrow">Our Model</div>
+      <h2 class="section-title">We Don't Just Provide Services.<br>We Build Solutions Around Your Requirement.</h2>
+      <p class="section-sub">Healthcare organizations may need medicines, reliable delivery, vendors, people, software, accounting, pharmacy management, manufacturing support or better patient engagement. DavaTrack brings these capabilities together under one healthcare-focused partner.</p>
+    </div>
+    <div class="process">
+      <div class="step"><b>01</b><strong>Understand</strong></div>
+      <div class="step"><b>02</b><strong>Design</strong></div>
+      <div class="step"><b>03</b><strong>Build & Arrange</strong></div>
+      <div class="step"><b>04</b><strong>Deploy & Execute</strong></div>
+      <div class="step"><b>05</b><strong>Measure & Improve</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="section soft">
+  <div class="container">
+    <div class="center">
+      <div class="eyebrow">Two Core Focus Areas</div>
+      <h2 class="section-title">Supply Chain + Healthcare Management</h2>
+    </div>
+    <div class="focus-grid">
+      <div class="focus">
+        <div class="number">01 — MEDICAL SUPPLY CHAIN</div>
+        <h3>Reliable Supply. Structured Delivery. Better Visibility.</h3>
+        <p>We help healthcare organizations create dependable medicine and healthcare-product supply systems — from vendor discovery and procurement to delivery management and supply tracking.</p>
+        <div class="taglist"><span class="tag">Medicine Supply</span><span class="tag">Vendor Discovery</span><span class="tag">Procurement</span><span class="tag">Delivery</span><span class="tag">Distribution</span><span class="tag">Tracking</span></div>
+      </div>
+      <div class="focus">
+        <div class="number">02 — HEALTHCARE MANAGEMENT & TECHNOLOGY</div>
+        <h3>The Right People. Process. Technology.</h3>
+        <p>We support healthcare units with pharmacy management, technology, manpower, accounting, HR, manufacturing coordination, claims support, SOPs and patient engagement.</p>
+        <div class="taglist"><span class="tag">Pharmacy Management</span><span class="tag">Apps & Software</span><span class="tag">HR</span><span class="tag">Accounting</span><span class="tag">Claims</span><span class="tag">Patient Engagement</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="center"><div class="eyebrow">Complete Healthcare Solutions</div><h2 class="section-title">Everything Your Healthcare Unit May Need — Under One Partner.</h2></div>
+    <div class="services-grid">
+      <div class="card"><div class="icon">01</div><h3>Medical Supply & Delivery</h3><p>Reliable medicine and healthcare-product supply with structured delivery systems.</p></div>
+      <div class="card"><div class="icon">02</div><h3>Vendor Discovery & Procurement</h3><p>Finding and coordinating suitable sources for healthcare requirements.</p></div>
+      <div class="card"><div class="icon">03</div><h3>Pharmacy Management</h3><p>Procurement, inventory, staff, billing, reporting, technology and operations.</p></div>
+      <div class="card"><div class="icon">04</div><h3>Manufacturing & Private Label</h3><p>Coordination with appropriate manufacturing partners for healthcare products.</p></div>
+      <div class="card"><div class="icon">05</div><h3>Accounting, MIS & Reporting</h3><p>Accounting support, dashboards and customized management reporting.</p></div>
+      <div class="card"><div class="icon">06</div><h3>Apps & Digital Solutions</h3><p>Customized applications, portals, automation and healthcare software.</p></div>
+      <div class="card"><div class="icon">07</div><h3>HR & Healthcare Staffing</h3><p>Recruitment, hiring and workforce support for healthcare organizations.</p></div>
+      <div class="card"><div class="icon">08</div><h3>Medical Claims & Insurance</h3><p>Technology-enabled and process-oriented support for defined workflows.</p></div>
+      <div class="card"><div class="icon">09</div><h3>Patient Engagement</h3><p>Follow-up, feedback and continuity-of-care systems after patient visits.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="container band-grid">
+    <div><h2>Have a Healthcare Requirement?</h2><p>Tell us the problem. We'll explore the right solution.</p></div>
+    <a href="#contact" class="btn btn-outline">Discuss Your Requirement</a>
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section id="solutions" class="page-hero">
+  <div class="container">
+    <div class="eyebrow">Page 02 • Solutions</div>
+    <h1>Complete Healthcare<br><em>Solutions.</em></h1>
+    <p class="lead">Supply. Management. Technology. People. Execution. Engage us for one requirement or combine capabilities to create a complete healthcare support ecosystem.</p>
+  </div>
+</section>
+
+<section class="service-detail">
+<div class="container detail-grid"><div><div class="service-no">01</div><div class="detail"><h2>Medical Supply & Delivery</h2><p>Build a supply chain you can depend on. We help establish structured supply and delivery systems for recurring healthcare requirements.</p></div></div><div class="detail"><h3>We can support</h3><div class="bullets"><div>Medicine procurement</div><div>Medical consumables</div><div>Surgical products</div><div>Vendor coordination</div><div>Order management</div><div>Delivery management</div><div>Route management</div><div>Supply tracking</div></div><h3>Our objective</h3><p><b>Right Product. Right Place. Right Time.</b></p></div></div>
+</section>
+
+<section class="service-detail">
+<div class="container detail-grid"><div><div class="service-no">02</div><div class="detail"><h2>Vendor Discovery & Procurement</h2><p>Need a healthcare vendor? We help find and coordinate appropriate sources for medicines, medical products, consumables, equipment and other requirements.</p></div></div><div class="detail"><h3>Our process</h3><div class="process"><div class="step"><b>01</b><strong>Requirement</strong></div><div class="step"><b>02</b><strong>Vendor Discovery</strong></div><div class="step"><b>03</b><strong>Evaluation</strong></div><div class="step"><b>04</b><strong>Coordination</strong></div><div class="step"><b>05</b><strong>Procurement</strong></div></div></div></div>
+</section>
+
+<section class="service-detail">
+<div class="container detail-grid"><div><div class="service-no">03</div><div class="detail"><h2>Pharmacy Management</h2><p>Your pharmacy. Our operational support. We can provide end-to-end pharmacy management support across the operational ecosystem.</p></div></div><div class="detail"><h3>Pharmacy management can include</h3><div class="bullets"><div>Procurement & vendors</div><div>Inventory & stock</div><div>Expiry & reorder</div><div>Billing & sales</div><div>Staff & HR</div><div>Accounting coordination</div><div>MIS & reporting</div><div>SOP & process</div><div>Technology & software</div><div>Delivery management</div></div><h3>Managed Pharmacy Model</h3><p>For suitable engagements, DavaTrack can support complete pharmacy operations, subject to applicable licensing, professional and regulatory requirements.</p></div></div>
+</section>
+
+<section class="service-detail">
+<div class="container detail-grid"><div><div class="service-no">04</div><div class="detail"><h2>Medicine Manufacturing & Private Label</h2><p>Your healthcare product. Our manufacturing network. If a healthcare organization wants its own medicine or healthcare product without its own facility, we can coordinate with appropriate manufacturing partners.</p></div></div><div class="detail"><h3>We can support</h3><div class="bullets"><div>Manufacturer discovery</div><div>Contract manufacturing coordination</div><div>Private-label coordination</div><div>Product requirements</div><div>Packaging coordination</div><div>Production coordination</div><div>Supply planning</div><div>Procurement coordination</div></div><p style="margin-top:22px;font-size:12px">All manufacturing activities are subject to applicable regulatory, licensing and quality requirements.</p></div></div>
+</section>
+
+<section class="service-detail">
+<div class="container detail-grid"><div><div class="service-no">05</div><div class="detail"><h2>Accounting, MIS & Reporting</h2><p>Turn healthcare data into better decisions through structured accounting support, management information systems and reporting.</p></div></div><div class="detail"><div class="bullets"><div>Accounting support</div><div>Billing management</div><div>Sales reports</div><div>Purchase reports</div><div>Inventory reports</div><div>Expense reports</div><div>MIS dashboards</div><div>Management reporting</div><div>Performance reporting</div><div>Customized reports</div></div></div></div>
+</section>
+
+<section class="service-detail">
+<div class="container detail-grid"><div><div class="service-no">06</div><div class="detail"><h2>Apps, Software & Digital Transformation</h2><p>Don't change your business to fit software. We build around your business and its actual workflow.</p></div></div><div class="detail"><div class="bullets"><div>Mobile applications</div><div>Web applications</div><div>Healthcare portals</div><div>Pharmacy systems</div><div>Hospital solutions</div><div>Delivery systems</div><div>Inventory systems</div><div>Reporting dashboards</div><div>Workflow automation</div><div>AI-enabled solutions</div></div></div></div>
+</section>
+
+<section class="service-detail">
+<div class="container detail-grid"><div><div class="service-no">07</div><div class="detail"><h2>HR & Healthcare Staffing</h2><p>The right people for the right healthcare operation. We support recruitment, hiring and workforce requirements.</p></div></div><div class="detail"><div class="bullets"><div>Recruitment</div><div>Candidate sourcing</div><div>Staff hiring</div><div>Healthcare manpower</div><div>Pharmacy staff</div><div>Administrative staff</div><div>Operational staff</div><div>Technology personnel</div><div>Support personnel</div><div>HR process support</div></div></div></div>
+</section>
+
+<section class="service-detail">
+<div class="container detail-grid"><div><div class="service-no">08</div><div class="detail"><h2>Medical Claims & Health Insurance Support</h2><p>Better processes for healthcare claims. We can provide technology-enabled and process-oriented support for defined claims and healthcare insurance workflows.</p></div></div><div class="detail"><div class="bullets"><div>Claim data management</div><div>Documentation workflows</div><div>Claim tracking</div><div>Status management</div><div>Follow-up coordination</div><div>Reporting</div><div>Insurance coordination</div><div>Digital claim workflows</div></div><p style="margin-top:22px;font-size:12px">Services are provided within applicable legal, regulatory and professional requirements.</p></div></div>
+</section>
+
+<section class="service-detail">
+<div class="container detail-grid"><div><div class="service-no">09</div><div class="detail"><h2>Patient Engagement & Continuity of Care</h2><p>Care shouldn't end when the patient leaves. We help create structured post-service engagement systems for appropriate communication, feedback and follow-up.</p></div></div><div class="detail"><h3>The patient journey</h3><div class="process"><div class="step"><b>01</b><strong>Visit</strong></div><div class="step"><b>02</b><strong>Service</strong></div><div class="step"><b>03</b><strong>Engagement</strong></div><div class="step"><b>04</b><strong>Feedback</strong></div><div class="step"><b>05</b><strong>Follow-up</strong></div></div><h3>Support can include</h3><div class="bullets"><div>Follow-up communication</div><div>Appointment reminders</div><div>Patient feedback</div><div>Experience tracking</div><div>Follow-up coordination</div><div>Patient relationship systems</div></div><p style="margin-top:22px;font-size:12px">Patient communication should be designed and operated in accordance with applicable privacy, consent and healthcare requirements.</p></div></div>
+</section>
+
+<section class="service-detail">
+<div class="container detail-grid"><div><div class="service-no">10</div><div class="detail"><h2>Custom Healthcare Solutions</h2><p>If the solution doesn't exist, we can build it. We combine technology, supply, people, processes and management around the actual problem.</p></div></div><div class="detail"><div class="process"><div class="step"><b>01</b><strong>Problem</strong></div><div class="step"><b>02</b><strong>Assessment</strong></div><div class="step"><b>03</b><strong>Solution Design</strong></div><div class="step"><b>04</b><strong>Implementation</strong></div><div class="step"><b>05</b><strong>Improve</strong></div></div></div></div>
+</section>
+
+<section class="band"><div class="container band-grid"><div><h2>Tell us the problem.</h2><p>We'll explore the right healthcare solution.</p></div><a href="#contact" class="btn btn-outline">Discuss Your Requirement</a></div></section>
+
+<!-- PAGE 3 -->
+<section id="about" class="page-hero">
+  <div class="container">
+    <div class="eyebrow">Page 03 • About & Contact</div>
+    <h1>Building the Infrastructure<br><em>Behind Better Healthcare.</em></h1>
+    <p class="lead"><b>DavaTrack Digital LLP</b> is building a new kind of healthcare solutions company — combining supply chain, technology, people, processes and operational execution.</p>
+  </div>
+</section>
+
+<section class="section">
+<div class="container about-grid">
+  <div class="about-box">
+    <div class="eyebrow">Our Vision</div>
+    <h2>To Become a Trusted Healthcare Solutions & Execution Partner.</h2>
+    <p class="section-sub" style="margin:0">We envision a healthcare ecosystem where organizations can approach one partner with a requirement and receive a practical, end-to-end solution.</p>
+    <div class="values">
+      <div class="value"><span>01</span><b>Supply</b></div>
+      <div class="value"><span>02</span><b>Technology</b></div>
+      <div class="value"><span>03</span><b>People</b></div>
+      <div class="value"><span>04</span><b>Process</b></div>
+      <div class="value"><span>05</span><b>Management & Execution</b></div>
+    </div>
+  </div>
+  <div class="about-box">
+    <div class="eyebrow">Our Mission</div>
+    <h2>Make Healthcare Operations More Connected, Reliable & Efficient.</h2>
+    <p>We aim to help healthcare organizations improve operational efficiency, strengthen supply chains, reduce fragmentation, improve visibility, standardize workflows, build better digital systems, access the right resources and create better patient experiences.</p>
+    <div class="focus" style="margin-top:22px;padding:25px;background:#f5f9fd">
+      <div class="number">WHAT MAKES US DIFFERENT?</div>
+      <h3 style="font-size:22px">We Don't Stop at Digital.</h3>
+      <p>We look at the complete requirement — not just one component. If the solution needs software, people, supply, SOPs or operational support, we build the appropriate combination.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section soft">
+<div class="container center">
+  <div class="eyebrow">Our Working Model</div>
+  <h2 class="section-title">Think → Build → Deploy → Manage → Improve</h2>
+  <p class="section-sub">We start with the problem, build the right solution, arrange the required resources, support execution and continuously improve the outcome.</p>
+  <div class="process">
+    <div class="step"><b>01</b><strong>Think</strong><small>Understand the problem</small></div>
+    <div class="step"><b>02</b><strong>Build</strong><small>Design the solution</small></div>
+    <div class="step"><b>03</b><strong>Deploy</strong><small>People & systems</small></div>
+    <div class="step"><b>04</b><strong>Manage</strong><small>Support operations</small></div>
+    <div class="step"><b>05</b><strong>Improve</strong><small>Measure & optimize</small></div>
+  </div>
+</div>
+</section>
+
+<section id="contact" class="section">
+<div class="container contact">
+  <div class="contact-info">
+    <div class="eyebrow" style="color:#8ed2ff">Let's Build Better Healthcare Together</div>
+    <h2>Tell Us What You Need.</h2>
+    <p>You don't have to know whether the solution requires software, manpower, procurement, supply chain, accounting, HR, manufacturing, pharmacy management or something completely different.</p>
+    <p><b>Start with the problem.</b><br>We'll work with you to understand it and explore the right solution.</p>
+    <div class="taglist"><span class="tag">Supply</span><span class="tag">Technology</span><span class="tag">People</span><span class="tag">Process</span><span class="tag">Execution</span></div>
+  </div>
+  <form class="form" onsubmit="event.preventDefault(); alert('Thank you. Your requirement has been captured in this demo. Connect this form to your email/CRM before launch.');">
+    <div class="form-grid">
+      <div class="field"><label>Name *</label><input required placeholder="Your name"></div>
+      <div class="field"><label>Designation</label><input placeholder="Your designation"></div>
+      <div class="field"><label>Organization *</label><input required placeholder="Organization name"></div>
+      <div class="field"><label>Phone Number *</label><input required placeholder="+91"></div>
+      <div class="field"><label>Email</label><input type="email" placeholder="you@company.com"></div>
+      <div class="field"><label>Healthcare Segment</label><select><option>Select segment</option><option>Pharmacy</option><option>Hospital</option><option>Clinic</option><option>Diagnostic Centre</option><option>Government Healthcare</option><option>Private Healthcare</option><option>Corporate / Industrial Healthcare</option><option>Healthcare Startup</option><option>Other</option></select></div>
+      <div class="field full"><label>Your Requirement *</label><textarea required placeholder="Tell us briefly about your requirement or challenge..."></textarea></div>
+      <div class="field full"><button class="btn btn-primary" style="width:100%;border:0">Submit Requirement</button></div>
+    </div>
+  </form>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container">
+  <div class="footer-grid">
+    <div><div class="logo" style="color:#fff">Dava<span>Track</span><small style="color:#a8c3dd">DIGITAL</small></div><p class="footer-text">Healthcare Solutions & Execution Partner.<br><br>Healthcare Supply | Management | Technology | People | Process | Execution</p></div>
+    <div><div class="footer-title">Quick Links</div><div class="footer-links"><a href="#home">Home</a><a href="#solutions">Solutions</a><a href="#about">About & Contact</a></div></div>
+    <div><div class="footer-title">Our Solutions</div><div class="footer-links"><a href="#solutions">Supply Chain</a><a href="#solutions">Pharmacy Management</a><a href="#solutions">Digital Solutions</a><a href="#solutions">HR & Staffing</a><a href="#solutions">Patient Engagement</a></div></div>
+    <div><div class="footer-title">Connect</div><div class="footer-links"><a href="#contact">Discuss Your Requirement</a><a href="#contact">Request a Consultation</a></div></div>
+  </div>
+  <div class="legal"><span>© 2026 DavaTrack Digital LLP. All Rights Reserved.</span><span>DavaTrack is the brand name of DavaTrack Digital LLP.</span></div>
+</div>
+</footer>
+
+</body>
+</html>

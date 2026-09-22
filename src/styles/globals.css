@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --navy: #06366F;
+    --blue: #0D6EFD;
+    --cyan: #1EA7FF;
+    --ink: #10233F;
+    --muted: #62748A;
+    --line: #DFE8F2;
+    --soft: #F4F8FC;
+    --white: #FFFFFF;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color: var(--ink);
+    background-color: #FFFFFF;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    overflow-x: hidden;
+    min-height: 100vh;
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: rgba(13, 110, 253, 0.18);
+    color: #06366F;
+  }
+}
+
+/* Glassmorphic Elements */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(24px) saturate(1.8);
+  -webkit-backdrop-filter: blur(24px) saturate(1.8);
+  border: 1px solid rgba(223, 232, 242, 0.7);
+}
+
+.glass-nav-stuck {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(28px) saturate(1.8);
+  -webkit-backdrop-filter: blur(28px) saturate(1.8);
+  border: 1px solid rgba(223, 232, 242, 0.95);
+  box-shadow: 0 16px 40px -14px rgba(6, 54, 111, 0.12), 0 2px 8px rgba(6, 54, 111, 0.04);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(223, 232, 242, 0.85);
+}
+
+.glass-card-dark {
+  background: linear-gradient(135deg, rgba(6, 54, 111, 0.95) 0%, rgba(4, 34, 71, 0.98) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(30, 167, 255, 0.2);
+}
+
+/* Subtle Technical Grid Background */
+.bg-tech-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(6, 54, 111, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6, 54, 111, 0.035) 1px, transparent 1px);
+}
+
+.bg-tech-dots {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(13, 110, 253, 0.12) 1px, transparent 1px);
+}
+
+/* Radar Pulse / Micro KPI Badge Animation */
+@keyframes radarSweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.radar-sweep {
+  animation: radarSweep 3s linear infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatGentle 5s ease-in-out infinite;
+  animation-delay: 2.5s;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4F8FC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
