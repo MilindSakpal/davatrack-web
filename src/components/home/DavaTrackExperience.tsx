@@ -15,175 +15,102 @@ import { cn } from "@/lib/utils";
    GLOSSY GLASS CARD COMPONENT
    ============================================================ */
 
-function GlossyCard({ solution }: { solution: MosaicSolution }) {
-  const textColor = solution.onLight ? "#10233F" : "#ffffff";
+function GlossyCard({ 
+  solution,
+  className 
+}: { 
+  solution: MosaicSolution;
+  className?: string;
+}) {
+  const isLight = solution.onLight;
+  const textColor = isLight ? "#15332B" : "#ffffff";
+  const subColor = isLight ? "rgba(21, 51, 43, 0.75)" : "rgba(255, 255, 255, 0.78)";
+  const tagColor = isLight ? "rgba(21, 51, 43, 0.65)" : "rgba(255, 255, 255, 0.65)";
+  const borderColor = isLight ? "border-black/10" : "border-white/25";
+  const badgeBg = isLight ? "bg-black/[0.08]" : "bg-white/[0.14]";
 
-  // ------------------------------------------------------------
-  // CUSTOM / MIDDLE CARD (Logo & Core Brand Identity)
-  // ------------------------------------------------------------
-  if (solution.key === "custom") {
-    return (
-      <Link
-        href={`/solutions/${solution.slug}`}
-        className="
-          group
-          relative
-          block
-          h-full
-          w-full
-          min-h-[220px]
-          overflow-hidden
-          rounded-[28px]
-          border
-          border-white/30
-          shadow-[0_12px_32px_rgba(6,54,111,0.20)]
-          transition-transform
-          duration-300
-          ease-out
-          hover:-translate-y-1.5
-          hover:shadow-[0_20px_45px_rgba(6,54,111,0.30)]
-        "
-        style={{
-          background: `
-            linear-gradient(
-              135deg,
-              rgba(255,255,255,0.24) 0%,
-              rgba(255,255,255,0.08) 40%,
-              rgba(0,0,0,0.18) 100%
-            ),
-            ${solution.color}
-          `,
-        }}
-      >
-        {/* Hardware-accelerated glossy top reflection */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.22)_0%,transparent_60%)]" />
-
-        {/* Ambient bottom glow */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(6,182,212,0.25)_0%,transparent_65%)]" />
-
-        {/* Diagonal shine on hover */}
-        <div className="pointer-events-none absolute -left-[100%] top-[-30%] h-[180%] w-[60%] rotate-[25deg] bg-gradient-to-r from-transparent via-white/[0.22] to-transparent transition-transform duration-1000 ease-out group-hover:translate-x-[350%]" />
-
-        {/* Inner glass border */}
-        <div className="pointer-events-none absolute inset-[1px] rounded-[27px] border border-white/[0.18]" />
-
-        {/* Top highlight */}
-        <div className="pointer-events-none absolute left-[10%] right-[10%] top-0 h-px bg-white/40" />
-
-        {/* Logo Card Content */}
-        <div className="relative z-10 flex h-full w-full flex-col items-center justify-center p-6 text-center text-white min-h-[220px]">
-          <div className="flex items-center gap-2 mb-2">
-            <div className="w-11 h-11 rounded-2xl bg-white flex items-center justify-center text-navy font-black text-xl shadow-lg border border-white/40 group-hover:scale-105 transition-transform">
-              <span>D</span>
-              <span className="text-cyan-accent text-sm -ml-0.5">T</span>
-            </div>
-          </div>
-          <div className="font-extrabold text-xl sm:text-2xl tracking-tight text-white leading-none">
-            Dava<span className="text-cyan-accent">Track</span>
-          </div>
-          <div className="text-[8px] font-mono uppercase tracking-[0.25em] text-cyan-200 mt-1">
-            DIGITAL LLP
-          </div>
-          <div className="mt-3 text-[10px] text-white/85 font-medium max-w-[190px] leading-tight">
-            Healthcare Solutions & Execution Partner
-          </div>
-          <span className="mt-3 inline-flex items-center gap-1 text-[9px] font-bold text-cyan-accent uppercase tracking-wider bg-white/10 px-3 py-1 rounded-full border border-white/20">
-            <span>Explore Custom</span>
-            <ArrowUpRight className="w-3 h-3" />
-          </span>
-        </div>
-      </Link>
-    );
-  }
-
-  // ------------------------------------------------------------
-  // NORMAL GLOSSY SOLUTION CARDS
-  // ------------------------------------------------------------
   return (
     <Link
       href={`/solutions/${solution.slug}`}
-      className="
-        group
-        relative
-        block
-        h-full
-        w-full
-        min-h-[220px]
-        overflow-hidden
-        rounded-[28px]
-        border
-        border-white/30
-        shadow-[0_12px_32px_rgba(6,54,111,0.16)]
-        transition-transform
-        duration-300
-        ease-out
-        hover:-translate-y-1.5
-        hover:shadow-[0_20px_45px_rgba(6,54,111,0.26)]
-      "
+      className={cn(
+        "group relative block h-full w-full overflow-hidden rounded-[28px] border shadow-[0_12px_32px_rgba(6,54,111,0.16)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[0_22px_48px_rgba(6,54,111,0.26)]",
+        borderColor,
+        className
+      )}
       style={{
-        background: `
-          linear-gradient(
-            135deg,
-            rgba(255,255,255,0.22) 0%,
-            rgba(255,255,255,0.06) 40%,
-            rgba(0,0,0,0.15) 100%
-          ),
-          ${solution.color}
-        `,
+        background: isLight
+          ? `
+            linear-gradient(
+              145deg,
+              rgba(255,255,255,0.40) 0%,
+              rgba(255,255,255,0.15) 45%,
+              rgba(0,0,0,0.08) 100%
+            ),
+            ${solution.color}
+          `
+          : `
+            linear-gradient(
+              145deg,
+              rgba(255,255,255,0.22) 0%,
+              rgba(255,255,255,0.05) 45%,
+              rgba(0,0,0,0.22) 100%
+            ),
+            ${solution.color}
+          `,
       }}
     >
       {/* Hardware-accelerated glossy top reflection */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.20)_0%,transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.22)_0%,transparent_60%)]" />
 
       {/* Subtle depth */}
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-black/[0.20] to-transparent" />
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-black/[0.18] to-transparent" />
 
-      {/* Diagonal shine sweep */}
-      <div className="pointer-events-none absolute -left-[100%] top-[-30%] h-[180%] w-[60%] rotate-[25deg] bg-gradient-to-r from-transparent via-white/[0.18] to-transparent transition-transform duration-1000 ease-out group-hover:translate-x-[350%]" />
+      {/* Diagonal shine sweep on hover */}
+      <div className="pointer-events-none absolute -left-[100%] top-[-30%] h-[180%] w-[60%] rotate-[25deg] bg-gradient-to-r from-transparent via-white/[0.20] to-transparent transition-transform duration-1000 ease-out group-hover:translate-x-[350%]" />
 
       {/* Inner glass edge */}
-      <div className="pointer-events-none absolute inset-[1px] rounded-[27px] border border-white/[0.15]" />
+      <div className={cn("pointer-events-none absolute inset-[1px] rounded-[27px] border", isLight ? "border-white/40" : "border-white/15")} />
 
       {/* Top highlight */}
-      <div className="pointer-events-none absolute left-[10%] right-[10%] top-0 h-px bg-white/35" />
+      <div className="pointer-events-none absolute left-[10%] right-[10%] top-0 h-px bg-white/40" />
 
-      {/* Normal Card Content */}
+      {/* Card Content */}
       <div
-        className="relative z-10 flex h-full flex-col justify-between p-5 sm:p-6 min-h-[220px]"
+        className="relative z-10 flex h-full flex-col justify-between p-5 sm:p-6"
         style={{ color: textColor }}
       >
-        {/* Header */}
+        {/* Header (Number badge & DAVATRACK) */}
         <div className="flex items-start justify-between">
-          <div className="flex h-7 min-w-7 items-center justify-center rounded-full border border-white/20 bg-white/[0.15] px-2 font-mono text-[9px] tracking-[0.15em]">
-            {solution.no}
+          <div className={cn("flex h-7 min-w-7 items-center justify-center rounded-full border px-2 font-mono text-[9px] font-bold tracking-[0.15em]", borderColor, badgeBg)}>
+            #{solution.no}
           </div>
 
-          <div className="rounded-full border border-white/15 bg-black/[0.1] px-3 py-1.5 font-mono text-[7px] uppercase tracking-[0.25em] opacity-80">
-            DavaTrack
+          <div className={cn("rounded-full border px-2.5 py-1 font-mono text-[7px] uppercase tracking-[0.25em] font-semibold", borderColor, badgeBg)}>
+            DAVATRACK
           </div>
         </div>
 
-        {/* Main Content */}
+        {/* Main Title & Objective */}
         <div className="my-auto py-2">
-          <div className="mb-2 h-px w-8 bg-white/30" />
+          <div className={cn("mb-2 h-px w-8", isLight ? "bg-black/20" : "bg-white/30")} />
 
-          <h3 className="font-display text-[17px] sm:text-[19px] font-bold leading-[1.1] tracking-tight group-hover:text-cyan-200 transition-colors">
+          <h3 className="font-display text-[17px] sm:text-[19px] lg:text-[20px] font-bold leading-[1.12] tracking-tight group-hover:text-cyan-200 transition-colors">
             {solution.tileTitle}
           </h3>
 
-          <p className="mt-1.5 text-[10px] sm:text-[11px] leading-[1.45] opacity-80 line-clamp-2">
+          <p className="mt-1.5 text-[10px] sm:text-[11px] leading-[1.45] line-clamp-2" style={{ color: subColor }}>
             {solution.objective}
           </p>
         </div>
 
         {/* Bottom Metadata */}
         <div className="flex items-end justify-between pt-2">
-          <span className="font-mono text-[7px] uppercase tracking-[0.22em] opacity-60">
-            Healthcare
+          <span className="font-mono text-[7px] uppercase tracking-[0.22em]" style={{ color: tagColor }}>
+            HEALTHCARE
           </span>
 
-          <span className="font-mono text-[7px] uppercase tracking-[0.22em] opacity-85 text-cyan-200 group-hover:translate-x-1 transition-transform inline-flex items-center gap-0.5">
-            {solution.key} →
+          <span className="font-mono text-[7px] uppercase tracking-[0.22em] font-bold group-hover:translate-x-1 transition-transform inline-flex items-center gap-0.5" style={{ color: textColor }}>
+            {solution.tag}
           </span>
         </div>
       </div>
@@ -193,14 +120,15 @@ function GlossyCard({ solution }: { solution: MosaicSolution }) {
 
 /* ============================================================
    MAIN DAVATRACK INTERACTIVE MOSAIC EXPERIENCE
-   (Ultra-Smooth Hardware-Accelerated Animation)
+   (Exact Bento Box Layout + Satisfying Middle Bump Animation)
    ============================================================ */
 
 export function DavaTrackExperience() {
   const sectionRef = useRef<HTMLElement | null>(null);
+  const gridRef = useRef<HTMLDivElement | null>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Dramatic, expressive scatter-and-assemble animation with spring physics (60-120fps GPU accelerated)
+  // Elastic assemble animation with tactile middle bump (back.out(1.8))
   const playAssembleAnimation = () => {
     const cards = cardsRef.current.filter(Boolean);
     if (!cards.length) return;
@@ -210,10 +138,10 @@ export function DavaTrackExperience() {
       gsap.fromTo(
         card,
         {
-          x: entry.x * 1.15,
-          y: entry.y * 1.15,
+          x: entry.x * 1.3,
+          y: entry.y * 1.3,
           rotation: entry.rotate * 1.3,
-          scale: 0.76,
+          scale: 0.65,
           opacity: 0,
           force3D: true,
         },
@@ -223,13 +151,31 @@ export function DavaTrackExperience() {
           rotation: 0,
           scale: 1,
           opacity: 1,
-          duration: 0.95,
-          delay: idx * 0.055,
-          ease: "back.out(1.5)",
+          duration: 1.35,
+          delay: idx * 0.075,
+          ease: "back.out(1.8)", // Tactile middle overshoot bump when locking in!
           force3D: true,
           clearProps: "transform",
         }
       );
+    });
+  };
+
+  // Reset cards back to scattered state when leaving to the top
+  const resetCards = () => {
+    const cards = cardsRef.current.filter(Boolean);
+    if (!cards.length) return;
+
+    cards.forEach((card, idx) => {
+      const entry = ENTRY_VECTORS[idx % ENTRY_VECTORS.length];
+      gsap.set(card, {
+        x: entry.x * 1.3,
+        y: entry.y * 1.3,
+        rotation: entry.rotate * 1.3,
+        scale: 0.65,
+        opacity: 0,
+        force3D: true,
+      });
     });
   };
 
@@ -242,16 +188,28 @@ export function DavaTrackExperience() {
     if (prefersReduced) return;
 
     const cards = cardsRef.current.filter(Boolean);
-    if (!cards.length || !sectionRef.current) return;
+    const targetElement = gridRef.current || sectionRef.current;
+    if (!cards.length || !targetElement) return;
 
-    // Trigger assemble animation once cleanly when entering viewport
+    // Initialize cards in scattered state on page load
+    resetCards();
+
+    // Trigger assemble animation when the cards grid enters viewport (top 72% of screen)
+    // Reset on scrolling back to top so it restarts every time you come back down
     const trigger = ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: "top 78%",
+      trigger: targetElement,
+      start: "top 72%",
       onEnter: () => {
         playAssembleAnimation();
       },
-      once: true,
+      onLeaveBack: () => {
+        // When user scrolls back up to the top (hero), reset cards to scatter state
+        resetCards();
+      },
+      onEnterBack: () => {
+        // When user scrolls back up into the section from below
+        playAssembleAnimation();
+      },
     });
 
     return () => {
@@ -259,15 +217,26 @@ export function DavaTrackExperience() {
     };
   }, []);
 
+  // Map solution data by key for explicit bento placement
+  const supplySolution = MOSAIC_SOLUTIONS.find((s) => s.key === "supply")!;
+  const vendorSolution = MOSAIC_SOLUTIONS.find((s) => s.key === "vendor")!;
+  const pharmacySolution = MOSAIC_SOLUTIONS.find((s) => s.key === "pharmacy")!;
+  const mfgSolution = MOSAIC_SOLUTIONS.find((s) => s.key === "manufacturing")!;
+  const staffingSolution = MOSAIC_SOLUTIONS.find((s) => s.key === "staffing")!;
+  const appsSolution = MOSAIC_SOLUTIONS.find((s) => s.key === "apps")!;
+  const claimsSolution = MOSAIC_SOLUTIONS.find((s) => s.key === "claims")!;
+  const accountingSolution = MOSAIC_SOLUTIONS.find((s) => s.key === "accounting")!;
+  const patientSolution = MOSAIC_SOLUTIONS.find((s) => s.key === "patient")!;
+
   return (
     <section
       ref={sectionRef}
       id="glossy-architecture"
-      className="py-20 lg:py-28 bg-[#F4F8FC] text-navy border-b border-border relative overflow-hidden"
+      className="py-20 lg:py-28 bg-[#F5F8FA] text-navy border-b border-border relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header with Replay & Scatter Control */}
+        {/* Section Header with Replay Control */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 lg:mb-16">
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy text-white text-xs font-bold uppercase tracking-wider shadow-sm">
@@ -295,36 +264,143 @@ export function DavaTrackExperience() {
           </div>
         </div>
 
-        {/* Mosaic Grid Container */}
+        {/* Bento Box Mosaic Container (Matching Screenshot Exactly) */}
         <div
-          className="
-            grid
-            grid-cols-1
-            sm:grid-cols-2
-            lg:grid-cols-3
-            gap-6
-            w-full
-            max-w-6xl
-            mx-auto
-          "
+          ref={gridRef}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-5 w-full max-w-7xl mx-auto items-stretch"
         >
-          {MOSAIC_SOLUTIONS.map((solution, index) => (
+          {/* ============================================================
+              COLUMN 1 (Left): Supply & Delivery + Vendor Discovery (lg:col-span-3)
+              ============================================================ */}
+          <div className="lg:col-span-3 flex flex-col gap-4 sm:gap-5">
+            {/* 01 Supply & Delivery */}
             <div
-              key={solution.key}
-              ref={(el) => {
-                cardsRef.current[index] = el;
-              }}
-              className="h-full w-full min-h-[220px] will-change-transform"
+              ref={(el) => { cardsRef.current[0] = el; }}
+              className="h-[200px] will-change-transform"
             >
-              <GlossyCard solution={solution} />
+              <GlossyCard solution={supplySolution} />
             </div>
-          ))}
+
+            {/* 06 Vendor Discovery */}
+            <div
+              ref={(el) => { cardsRef.current[1] = el; }}
+              className="flex-1 min-h-[310px] will-change-transform"
+            >
+              <GlossyCard solution={vendorSolution} />
+            </div>
+          </div>
+
+          {/* ============================================================
+              COLUMN 2 (Center-Left): Pharmacy + Mfg + Center Pill + HR Staffing (lg:col-span-4)
+              ============================================================ */}
+          <div className="lg:col-span-4 flex flex-col gap-4 sm:gap-5">
+            {/* 02 Pharmacy Management */}
+            <div
+              ref={(el) => { cardsRef.current[2] = el; }}
+              className="h-[235px] will-change-transform"
+            >
+              <GlossyCard solution={pharmacySolution} />
+            </div>
+
+            {/* Sub-row: Manufacturing on left, Center Pill + HR on right */}
+            <div className="flex gap-4 sm:gap-5 items-stretch flex-1 min-h-[275px]">
+              {/* 07 Manufacturing */}
+              <div
+                ref={(el) => { cardsRef.current[3] = el; }}
+                className="w-1/2 flex-1 will-change-transform"
+              >
+                <GlossyCard solution={mfgSolution} />
+              </div>
+
+              {/* Right Stack: Center Pill Badge + 08 HR & Staffing */}
+              <div className="w-1/2 flex-1 flex flex-col gap-4 sm:gap-5">
+                {/* Center Pill Badge: Dava Track */}
+                <div
+                  ref={(el) => { cardsRef.current[4] = el; }}
+                  className="h-[72px] will-change-transform flex items-center justify-center"
+                >
+                  <Link
+                    href="/solutions"
+                    className="
+                      group
+                      relative
+                      h-full
+                      w-full
+                      rounded-[24px] sm:rounded-full
+                      bg-gradient-to-b from-white via-[#F9FBFA] to-[#EAEFEB]
+                      border border-white/90
+                      shadow-[0_12px_28px_rgba(6,54,111,0.12),inset_0_1px_2px_rgba(255,255,255,1),inset_0_-2px_4px_rgba(0,0,0,0.06)]
+                      flex items-center justify-center px-4
+                      transition-transform duration-300 hover:scale-[1.03] hover:shadow-[0_16px_36px_rgba(6,54,111,0.18)]
+                    "
+                  >
+                    <div className="flex items-center gap-1 font-display text-lg sm:text-xl font-black text-navy tracking-tight">
+                      <span>Dava</span>
+                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-cyan-500 mx-0.5 animate-pulse" />
+                      <span>Track</span>
+                    </div>
+                  </Link>
+                </div>
+
+                {/* 08 HR & Staffing */}
+                <div
+                  ref={(el) => { cardsRef.current[5] = el; }}
+                  className="flex-1 min-h-[188px] will-change-transform"
+                >
+                  <GlossyCard solution={staffingSolution} />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ============================================================
+              COLUMN 3 (Center-Right): Apps & Software + Claims Support (lg:col-span-3)
+              ============================================================ */}
+          <div className="lg:col-span-3 flex flex-col gap-4 sm:gap-5">
+            {/* 03 Apps & Software */}
+            <div
+              ref={(el) => { cardsRef.current[6] = el; }}
+              className="flex-1 min-h-[325px] will-change-transform"
+            >
+              <GlossyCard solution={appsSolution} />
+            </div>
+
+            {/* 09 Claims Support */}
+            <div
+              ref={(el) => { cardsRef.current[7] = el; }}
+              className="h-[185px] will-change-transform"
+            >
+              <GlossyCard solution={claimsSolution} />
+            </div>
+          </div>
+
+          {/* ============================================================
+              COLUMN 4 (Right): Accounting & MIS + Patient Engagement (lg:col-span-2)
+              ============================================================ */}
+          <div className="lg:col-span-2 flex flex-col gap-4 sm:gap-5">
+            {/* 04 Accounting & MIS */}
+            <div
+              ref={(el) => { cardsRef.current[8] = el; }}
+              className="h-[185px] will-change-transform"
+            >
+              <GlossyCard solution={accountingSolution} />
+            </div>
+
+            {/* 05 Patient Engagement */}
+            <div
+              ref={(el) => { cardsRef.current[9] = el; }}
+              className="flex-1 min-h-[325px] will-change-transform"
+            >
+              <GlossyCard solution={patientSolution} />
+            </div>
+          </div>
+
         </div>
 
         {/* Bottom Interactive Hint */}
         <div className="mt-12 text-center">
           <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted">
-            Cards assemble dynamically on view • Click "Replay Assembly" to re-trigger • Hover for glossy reflections
+            Cards assemble dynamically into the operational matrix • Click "Replay Assembly" to re-trigger • Hover for glossy reflections
           </p>
         </div>
 

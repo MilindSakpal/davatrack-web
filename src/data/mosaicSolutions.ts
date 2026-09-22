@@ -5,9 +5,8 @@ export interface MosaicSolution {
   tileTitle: string;
   objective: string;
   color: string;
+  tag: string;
   onLight?: boolean;
-  area: string;
-  areaSm: string;
 }
 
 export interface Vector3D {
@@ -17,27 +16,16 @@ export interface Vector3D {
 }
 
 export const ENTRY_VECTORS: Vector3D[] = [
-  { x: -240, y: -180, rotate: -20 },
-  { x: 30, y: -240, rotate: 15 },
-  { x: 260, y: -170, rotate: -16 },
-  { x: -250, y: 30, rotate: 22 },
-  { x: 0, y: 0, rotate: 0 },
-  { x: 270, y: 40, rotate: -18 },
-  { x: -240, y: 200, rotate: -22 },
-  { x: -30, y: 250, rotate: 16 },
-  { x: 240, y: 220, rotate: -18 },
-];
-
-export const EXIT_VECTORS: Vector3D[] = [
-  { x: -280, y: -200, rotate: -24 },
-  { x: 40, y: -280, rotate: 18 },
-  { x: 290, y: -190, rotate: -20 },
-  { x: -280, y: 40, rotate: 24 },
-  { x: 0, y: 0, rotate: 0 },
-  { x: 300, y: 50, rotate: -22 },
-  { x: -270, y: 230, rotate: -24 },
-  { x: -40, y: 280, rotate: 20 },
-  { x: 270, y: 250, rotate: -22 },
+  { x: -340, y: -220, rotate: -22 }, // 01 Supply & Delivery
+  { x: -360, y: 200, rotate: 18 },   // 06 Vendor Discovery
+  { x: -90, y: -320, rotate: -16 },  // 02 Pharmacy Management
+  { x: -160, y: 280, rotate: 20 },   // 07 Manufacturing
+  { x: 0, y: -160, rotate: -10 },    // Center Pill Badge
+  { x: 40, y: 340, rotate: 16 },     // 08 HR & Staffing
+  { x: 200, y: -300, rotate: 22 },   // 03 Apps & Software
+  { x: 210, y: 280, rotate: -20 },   // 09 Claims Support
+  { x: 340, y: -230, rotate: -18 },  // 04 Accounting & MIS
+  { x: 360, y: 240, rotate: 22 },    // 05 Patient Engagement
 ];
 
 export const MOSAIC_SOLUTIONS: MosaicSolution[] = [
@@ -45,99 +33,90 @@ export const MOSAIC_SOLUTIONS: MosaicSolution[] = [
     key: "supply",
     slug: "medical-supply-delivery",
     no: "01",
-    tileTitle: "Medical Supply & Delivery",
-    objective: "Right Product. Right Place. Right Time.",
-    color: "#083B76",
+    tileTitle: "Supply & Delivery",
+    objective: "Right product. Right place. Right time.",
+    color: "#234E48",
+    tag: "SUPPLY",
     onLight: false,
-    area: "lg:col-span-4 lg:row-span-3",
-    areaSm: "col-span-6 row-span-2",
   },
   {
     key: "vendor",
     slug: "vendor-discovery",
-    no: "02",
-    tileTitle: "Vendor Discovery & Procurement",
-    objective: "Finding and coordinating suitable healthcare sources.",
-    color: "#0B4C8C",
+    no: "06",
+    tileTitle: "Vendor Discovery",
+    objective: "You bring the requirement. We bring the source.",
+    color: "#5C744C",
+    tag: "VENDOR",
     onLight: false,
-    area: "lg:col-span-4 lg:row-span-3",
-    areaSm: "col-span-6 row-span-2",
   },
   {
     key: "pharmacy",
     slug: "pharmacy-management",
-    no: "03",
+    no: "02",
     tileTitle: "Pharmacy Management",
-    objective: "Your pharmacy. Our complete operational support.",
-    color: "#0D5E7A",
+    objective: "One pharmacy. One operating system.",
+    color: "#3D4952",
+    tag: "PHARMACY",
     onLight: false,
-    area: "lg:col-span-4 lg:row-span-3",
-    areaSm: "col-span-6 row-span-2",
-  },
-  {
-    key: "custom",
-    slug: "custom-healthcare-solutions",
-    no: "DT",
-    tileTitle: "DavaTrack Core",
-    objective: "Healthcare Solutions & Execution Partner",
-    color: "#062952",
-    onLight: false,
-    area: "lg:col-span-4 lg:row-span-3",
-    areaSm: "col-span-6 row-span-2",
   },
   {
     key: "manufacturing",
     slug: "manufacturing",
-    no: "04",
-    tileTitle: "Medicine Manufacturing",
-    objective: "Your product. Our manufacturing network.",
-    color: "#115473",
-    onLight: false,
-    area: "lg:col-span-4 lg:row-span-3",
-    areaSm: "col-span-6 row-span-2",
-  },
-  {
-    key: "apps",
-    slug: "apps-and-software",
-    no: "06",
-    tileTitle: "Apps & Software Systems",
-    objective: "Tailored around your actual clinical workflows.",
-    color: "#123B7A",
-    onLight: false,
-    area: "lg:col-span-4 lg:row-span-3",
-    areaSm: "col-span-6 row-span-2",
-  },
-  {
-    key: "accounting",
-    slug: "accounting-mis",
-    no: "05",
-    tileTitle: "Accounting & MIS Reporting",
-    objective: "Turn healthcare data into actionable decisions.",
-    color: "#0F465C",
-    onLight: false,
-    area: "lg:col-span-4 lg:row-span-3",
-    areaSm: "col-span-6 row-span-2",
+    no: "07",
+    tileTitle: "Manufacturing",
+    objective: "Your label. Our network.",
+    color: "#8EACA0",
+    tag: "MFG",
+    onLight: true,
   },
   {
     key: "staffing",
     slug: "hr-staffing",
-    no: "07",
-    tileTitle: "HR & Healthcare Staffing",
-    objective: "The right people for the right healthcare unit.",
-    color: "#16345A",
+    no: "08",
+    tileTitle: "HR & Staffing",
+    objective: "Staffed for the operation you actually run.",
+    color: "#1E6C6D",
+    tag: "STAFFING",
     onLight: false,
-    area: "lg:col-span-4 lg:row-span-3",
-    areaSm: "col-span-6 row-span-2",
+  },
+  {
+    key: "apps",
+    slug: "apps-and-software",
+    no: "03",
+    tileTitle: "Apps & Software",
+    objective: "Software that follows the workflow.",
+    color: "#354555",
+    tag: "APPS",
+    onLight: false,
+  },
+  {
+    key: "claims",
+    slug: "claims-support",
+    no: "09",
+    tileTitle: "Claims Support",
+    objective: "Fewer stuck claims.",
+    color: "#5B434C",
+    tag: "CLAIMS",
+    onLight: false,
+  },
+  {
+    key: "accounting",
+    slug: "accounting-mis",
+    no: "04",
+    tileTitle: "Accounting & MIS",
+    objective: "Numbers you can act on.",
+    color: "#A87C64",
+    tag: "ACCOUNTS",
+    onLight: false,
   },
   {
     key: "patient",
     slug: "patient-engagement",
-    no: "09",
+    no: "05",
     tileTitle: "Patient Engagement",
-    objective: "Care shouldn't end when the patient leaves.",
-    color: "#0A5699",
+    objective: "The visit ends. The care doesn't.",
+    color: "#664A57",
+    tag: "PATIENT",
     onLight: false,
-    area: "lg:col-span-4 lg:row-span-3",
-    areaSm: "col-span-6 row-span-2",
   },
 ];
