@@ -1,0 +1,314 @@
+"use client";
+
+import React, { useEffect, useRef } from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { gsap, ScrollTrigger } from "@/lib/gsap/animations";
+
+interface StatItem {
+  id: string;
+  targetNumber: number;
+  suffix: string;
+  prefix?: string;
+  progressPercent: number;
+  gradient: {
+    start: string;
+    end: string;
+  };
+  headline: string;
+  boldPhrase: string;
+  afterPhrase?: string;
+}
+
+const STATS_ITEMS: StatItem[] = [
+  {
+    id: "stat-1",
+    targetNumber: 45,
+    prefix: "-",
+    suffix: "%",
+    progressPercent: 45,
+    gradient: {
+      start: "#035748",
+      end: "#58EDA2",
+    },
+    headline: "Up to",
+    boldPhrase: "45% lower procurement lead time",
+    afterPhrase: "across surgical and clinical consumables",
+  },
+  {
+    id: "stat-2",
+    targetNumber: 82,
+    prefix: "-",
+    suffix: "%",
+    progressPercent: 82,
+    gradient: {
+      start: "#0D50B8",
+      end: "#61A0FF",
+    },
+    headline: "Achieve up to",
+    boldPhrase: "82% reduction in pharmacy expiry",
+    afterPhrase: "through active batch rotation SOPs",
+  },
+  {
+    id: "stat-3",
+    targetNumber: 97,
+    suffix: "%",
+    progressPercent: 97,
+    gradient: {
+      start: "#035748",
+      end: "#26C9DF",
+    },
+    headline: "Eliminate up to",
+    boldPhrase: "97% of billing & procurement leakage",
+    afterPhrase: "with unified vendor coordination",
+  },
+  {
+    id: "stat-4",
+    targetNumber: 100,
+    suffix: "%",
+    progressPercent: 100,
+    gradient: {
+      start: "#06366F",
+      end: "#1EA7FF",
+    },
+    headline: "Guarantee",
+    boldPhrase: "100% batch-traceable audit compliance",
+    afterPhrase: "under single-SLA governance",
+  },
+];
+
+function StatCardItem({
+  stat,
+  idx,
+  isAnimated,
+  radius,
+  circumference,
+}: {
+  stat: StatItem;
+  idx: number;
+  isAnimated: boolean;
+  radius: number;
+  circumference: number;
+}) {
+  const numberRef = useRef<HTMLSpanElement>(null);
+  const targetOffset = circumference - (circumference * stat.progressPercent) / 100;
+
+  React.useEffect(() => {
+    if (!isAnimated) {
+      if (numberRef.current) {
+        numberRef.current.textContent = `${stat.prefix || ""}0${stat.suffix}`;
+      }
+      return;
+    }
+
+    let startTime: number | null = null;
+    const duration = 1100; // 1.1s snappy count-up
+    const target = stat.targetNumber;
+
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const val = Math.round(ease * target);
+
+      if (numberRef.current) {
+        numberRef.current.textContent = `${stat.prefix || ""}${val}${stat.suffix}`;
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    };
+
+    const id = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(id);
+  }, [isAnimated, stat.prefix, stat.suffix, stat.targetNumber]);
+
+  return (
+    <div
+      className="group flex flex-col items-center text-center p-6 sm:p-7 rounded-3xl bg-white border border-white/80 shadow-[0_16px_36px_rgba(0,0,0,0.18)] hover:-translate-y-1.5 hover:shadow-[0_24px_48px_rgba(0,0,0,0.28)] transition-all duration-300 text-[#0B1E3B] transform-gpu will-change-transform"
+    >
+      {/* Radial Progress SVG Container */}
+      <div className="relative w-36 h-36 mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 transform-gpu">
+        <svg
+          className="w-full h-full -rotate-90 transform-gpu"
+          viewBox="0 0 140 140"
+          aria-hidden="true"
+        >
+          <defs>
+            <linearGradient id={`stat-grad-${idx}`} x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor={stat.gradient.start} />
+              <stop offset="100%" stopColor={stat.gradient.end} />
+            </linearGradient>
+          </defs>
+
+          {/* Background Track Circle */}
+          <circle
+            cx="70"
+            cy="70"
+            r={radius}
+            fill="transparent"
+            stroke="#EAEFF5"
+            strokeWidth="8"
+          />
+
+          {/* Animated Foreground Progress Circle - Pure GPU Hardware Acceleration */}
+          <circle
+            cx="70"
+            cy="70"
+            r={radius}
+            fill="transparent"
+            stroke={`url(#stat-grad-${idx})`}
+            strokeWidth="8"
+            strokeLinecap="round"
+            strokeDasharray={circumference}
+            strokeDashoffset={isAnimated ? targetOffset : circumference}
+            style={{
+              transition: isAnimated
+                ? "stroke-dashoffset 1.3s cubic-bezier(0.16, 1, 0.3, 1)"
+                : "stroke-dashoffset 0.3s ease-out",
+              willChange: "stroke-dashoffset",
+            }}
+          />
+        </svg>
+
+        {/* Stat Counter in Center */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <span
+            ref={numberRef}
+            className="text-2xl sm:text-3xl font-black text-[#0B1E3B] tracking-tight font-mono"
+          >
+            {stat.prefix || ""}0{stat.suffix}
+          </span>
+        </div>
+      </div>
+
+      {/* Description Headline & Content */}
+      <div className="text-sm text-slate-600 leading-snug space-y-1">
+        <p>
+          {stat.headline}{" "}
+          <strong className="font-bold text-[#0B1E3B]">
+            {stat.boldPhrase}
+          </strong>{" "}
+          {stat.afterPhrase}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export function AboutSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isAnimated, setIsAnimated] = React.useState(false);
+  const RADIUS = 54;
+  const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+
+  useEffect(() => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) {
+      setIsAnimated(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsAnimated(true);
+          } else {
+            // Reset when leaving the viewport so animation repeats when returning
+            setIsAnimated(false);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: "0px",
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      id="about-davatrack"
+      className="py-24 lg:py-32 text-white relative z-20 overflow-hidden rounded-t-[36px] sm:rounded-t-[48px] shadow-[0_-30px_60px_-15px_rgba(0,0,0,0.50),0_-10px_20px_-8px_rgba(0,0,0,0.30)] border-t border-white/20"
+      style={{
+        background: `
+          linear-gradient(
+            145deg,
+            rgba(255,255,255,0.28) 0%,
+            rgba(255,255,255,0.06) 45%,
+            rgba(0,0,0,0.22) 100%
+          ),
+          #5B434C
+        `,
+      }}
+    >
+      {/* Hardware-accelerated glossy top-left specular reflection */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.28)_0%,transparent_60%)]" />
+
+      {/* Crisp top edge highlight line */}
+      <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/50" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
+        
+        {/* Header Section */}
+        <div className="text-center space-y-4 max-w-3xl mx-auto">
+          {/* Pill Badge */}
+          <div className="inline-block">
+            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-white/90 bg-white/[0.14] border border-white/25 px-3.5 py-1 rounded-full backdrop-blur-sm shadow-inner">
+              OPERATIONAL IMPACT &amp; SAVINGS
+            </span>
+          </div>
+
+          {/* Headline matching Maven Clinic style */}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.18]">
+            Lowering costs by{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F7C6D9] via-[#E2B2C8] to-white">
+              improving execution
+            </span>
+          </h2>
+
+          {/* Subtitle */}
+          <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto font-normal leading-relaxed">
+            By guiding healthcare providers through unified supply chains, managed pharmacy SOPs, and clinical workflows, we eliminate operational leakage and accelerate results.
+          </p>
+        </div>
+
+        {/* 4 Radial Circular Progress Stats Grid (Solid White Cards) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 pt-4">
+          {STATS_ITEMS.map((stat, idx) => (
+            <StatCardItem
+              key={stat.id}
+              stat={stat}
+              idx={idx}
+              isAnimated={isAnimated}
+              radius={RADIUS}
+              circumference={CIRCUMFERENCE}
+            />
+          ))}
+        </div>
+
+        {/* Minimal Action Link */}
+        <div className="text-center pt-4">
+          <Link
+            href="/about"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-white/90 hover:text-white transition-colors group"
+          >
+            <span>Read more about our operational model</span>
+            <ArrowRight className="w-4 h-4 text-[#F7C6D9] transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
+
+      </div>
+    </section>
+  );
+}

@@ -3,8 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Quote, Building, Sparkles, Star, CheckCircle2, ArrowRight } from "lucide-react";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Button } from "@/components/ui/Button";
 import { TESTIMONIALS_DATA, TestimonialItem } from "@/data/testimonials";
 import { cn } from "@/lib/utils";
 
@@ -18,36 +16,44 @@ export default function TestimonialsPage() {
     : TESTIMONIALS_DATA.filter((t) => t.segment === activeSegment);
 
   return (
-    <div className="pt-28 pb-24 bg-white">
-      {/* Hero */}
-      <section className="bg-hero-gradient bg-tech-grid py-16 lg:py-24 border-b border-border/80 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <Breadcrumbs
-            items={[{ label: "Testimonials" }]}
-            className="mb-8"
-          />
+    <div className="min-h-screen bg-[#EDF3F0] text-[#122631] pt-28 pb-24 relative overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-b from-[#6BB0BF]/15 via-[#266573]/5 to-transparent rounded-full blur-[150px]" />
+      <div className="pointer-events-none absolute top-1/3 right-10 w-96 h-96 bg-[#CAD7D0]/30 rounded-full blur-[130px]" />
 
+      {/* Subtle tech grid */}
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(38,101,115,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(38,101,115,0.04)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_35%,#000_60%,transparent_100%)]" />
+
+      {/* ============================================================
+          PAGE HERO
+          ============================================================ */}
+      <section className="relative z-10 pt-10 pb-16 border-b border-[#CAD7D0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-accent/10 border border-blue-accent/20 text-blue-accent text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#266573]/10 border border-[#266573]/20 text-[#266573] text-xs font-mono uppercase tracking-wider shadow-sm font-semibold">
+              <Sparkles className="w-3.5 h-3.5 text-[#266573]" />
               <span>Operational Impact & Perspectives</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-ink leading-[1.08]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#122631] leading-[1.08]">
               Healthcare Execution
               <br />
-              <span className="text-blue-accent">In Practice.</span>
+              <span className="bg-gradient-to-r from-[#122631] via-[#266573] to-[#6BB0BF] bg-clip-text text-transparent">
+                In Practice.
+              </span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-muted leading-relaxed">
-              Explore how DavaTrack’s integrated models in supply, pharmacy operations, technology, and staffing solve tangible operational bottlenecks.
+            <p className="text-base sm:text-lg text-[#122631]/75 leading-relaxed">
+              Explore how DavaTrack’s integrated models across medicine supply, managed pharmacy operations, technology, and clinical staffing eliminate operational bottlenecks for hospitals and pharmacy chains.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Directory */}
-      <section className="py-16 lg:py-24 bg-white">
+      {/* ============================================================
+          TESTIMONIALS DIRECTORY
+          ============================================================ */}
+      <section className="py-16 lg:py-24 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           {/* Segment Filter Tabs */}
@@ -57,10 +63,10 @@ export default function TestimonialsPage() {
                 key={seg}
                 onClick={() => setActiveSegment(seg)}
                 className={cn(
-                  "px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 flex-shrink-0",
+                  "px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 flex-shrink-0 font-mono",
                   activeSegment === seg
-                    ? "bg-navy text-white shadow-md"
-                    : "bg-surface-soft text-navy hover:bg-navy-50 border border-border"
+                    ? "bg-[#122631] text-white shadow-md"
+                    : "bg-white text-[#122631] hover:bg-[#EDF3F0] border border-[#CAD7D0] shadow-sm"
                 )}
               >
                 {seg === "All" ? "All Healthcare Sectors" : seg}
@@ -73,32 +79,32 @@ export default function TestimonialsPage() {
             {filtered.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-3xl p-8 sm:p-10 border border-border shadow-card hover:shadow-cardHover transition-all duration-300 flex flex-col justify-between relative group"
+                className="bg-white hover:bg-[#F9FBFA] rounded-3xl p-8 sm:p-10 border border-[#CAD7D0] hover:border-[#266573]/40 transition-all duration-300 flex flex-col justify-between relative group shadow-[0_4px_20px_rgba(18,38,49,0.04)] hover:shadow-[0_12px_30px_rgba(18,38,49,0.08)]"
               >
-                <Quote className="absolute top-6 right-8 w-16 h-16 text-navy-50/80 -z-0 pointer-events-none" />
+                <Quote className="absolute top-6 right-8 w-16 h-16 text-[#CAD7D0]/30 pointer-events-none" />
 
                 <div className="relative z-10 space-y-5">
                   <div className="flex items-center justify-between">
-                    <span className="px-3 py-1 rounded-full bg-navy-50 text-navy text-xs font-extrabold uppercase tracking-wider">
+                    <span className="px-3 py-1 rounded-full bg-[#266573]/10 border border-[#266573]/20 text-[#266573] text-xs font-mono uppercase tracking-wider font-bold">
                       {item.segment}
                     </span>
-                    <span className="text-[11px] font-semibold text-muted bg-surface-soft px-2.5 py-1 rounded-md border border-border">
+                    <span className="text-[11px] font-mono font-semibold text-[#266573] bg-[#EDF3F0] px-2.5 py-1 rounded-full border border-[#CAD7D0]">
                       Case Highlight
                     </span>
                   </div>
 
-                  <blockquote className="text-base sm:text-lg font-bold text-navy leading-relaxed">
+                  <blockquote className="text-base sm:text-lg font-bold text-[#122631] leading-relaxed">
                     “{item.quote}”
                   </blockquote>
 
                   {item.metrics && (
                     <div className="grid grid-cols-2 gap-3 pt-3">
                       {item.metrics.map((m, idx) => (
-                        <div key={idx} className="bg-surface-soft p-3 rounded-xl border border-border-subtle">
-                          <div className="text-lg font-black text-blue-accent">
+                        <div key={idx} className="bg-[#EDF3F0] p-3 rounded-xl border border-[#CAD7D0]">
+                          <div className="text-xl font-black font-mono text-[#122631]">
                             {m.value}
                           </div>
-                          <div className="text-[10px] font-semibold text-muted">
+                          <div className="text-[11px] text-[#266573] font-medium">
                             {m.label}
                           </div>
                         </div>
@@ -107,45 +113,43 @@ export default function TestimonialsPage() {
                   )}
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-border/70 flex items-center justify-between relative z-10">
+                <div className="pt-6 mt-6 border-t border-[#CAD7D0]/60 flex items-center justify-between">
                   <div>
-                    <div className="text-sm font-extrabold text-navy">
+                    <div className="text-sm font-bold text-[#122631]">
                       {item.role}
                     </div>
-                    <div className="text-xs text-muted">
+                    <div className="text-xs text-[#122631]/60">
                       {item.organizationType}
                     </div>
                   </div>
-                  <div className="flex items-center text-amber-400 gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                    ))}
+
+                  <div className="text-xs font-mono text-[#266573] font-bold uppercase tracking-wider">
+                    VERIFIED PARTNER
                   </div>
                 </div>
-
               </div>
             ))}
           </div>
 
-          {/* Consultation Banner */}
-          <div className="bg-navy-900 rounded-3xl p-8 sm:p-12 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="space-y-2">
-              <h3 className="text-2xl sm:text-3xl font-extrabold">
-                Want to achieve similar operational reliability?
+          {/* Bottom Callout Banner */}
+          <div className="bg-[#122631] rounded-3xl p-8 sm:p-12 text-center space-y-5 shadow-[0_20px_50px_rgba(18,38,49,0.3)] mt-12 relative overflow-hidden">
+            <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#266573]/30 rounded-full blur-[100px]" />
+            <div className="relative z-10 space-y-5">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+                Ready to create your operational success story?
               </h3>
-              <p className="text-xs sm:text-sm text-navy-200 max-w-xl">
-                Consult with our healthcare execution team to design a workflow suited specifically to your facility.
+              <p className="text-sm sm:text-base text-[#CAD7D0]/80 max-w-xl mx-auto">
+                Connect with our solutions team to discuss hospital procurement, managed pharmacy operations, or healthcare technology.
               </p>
+              <div className="pt-2 flex flex-wrap justify-center gap-4">
+                <Link
+                  href="/inquiry"
+                  className="px-8 py-3.5 rounded-full bg-white hover:bg-[#EDF3F0] text-[#122631] font-bold text-sm sm:text-base shadow-lg transition-all active:scale-95"
+                >
+                  Discuss Your Requirement
+                </Link>
+              </div>
             </div>
-            <Button
-              href="/inquiry"
-              variant="cyan"
-              size="lg"
-              icon="arrow"
-              className="flex-shrink-0 font-bold"
-            >
-              Discuss Your Requirement
-            </Button>
           </div>
 
         </div>

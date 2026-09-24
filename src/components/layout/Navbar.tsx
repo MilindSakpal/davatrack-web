@@ -3,19 +3,68 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, ArrowRight, Menu, X, Sparkles } from "lucide-react";
+import { 
+  ChevronDown, 
+  ArrowRight, 
+  Menu, 
+  X, 
+  Sparkles, 
+  LogIn,
+  Truck,
+  Store,
+  Cpu,
+  BarChart3,
+  Users
+} from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/Button";
-import { DynamicIcon } from "@/components/ui/Icons";
-import { SOLUTIONS_MEGA_MENU, PRIMARY_NAV_LINKS } from "@/data/navigation";
 
+/**
+ * Dropdown navigation items for the Primary Solutions category.
+ * Used in both desktop floating capsule menu and mobile drawer accordion.
+ */
+const SOLUTIONS_DROPDOWN = [
+  {
+    title: "Supply Chain & Delivery",
+    icon: Truck,
+    href: "/solutions/medical-supply-delivery",
+    color: "text-[#6BB0BF]",
+  },
+  {
+    title: "Pharmacy Management",
+    icon: Store,
+    href: "/solutions/pharmacy-management",
+    color: "text-[#6BB0BF]",
+  },
+  {
+    title: "Apps & Software Systems",
+    icon: Cpu,
+    href: "/solutions/apps-and-software",
+    color: "text-[#6BB0BF]",
+  },
+  {
+    title: "Healthcare Administration",
+    icon: BarChart3,
+    href: "/solutions/accounting-mis",
+    color: "text-[#6BB0BF]",
+  },
+];
+
+/**
+ * Main Global Floating Capsule Navbar.
+ * Features:
+ * - Responsive scroll detection (condenses padding on scroll).
+ * - Interactive desktop hover dropdowns with safety delay bridges.
+ * - Mobile navigation drawer with nested solutions accordion.
+ * - Direct action CTAs for Partner Login and Consultation Booking.
+ */
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const [companyOpen, setCompanyOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
   const pathname = usePathname();
-  const megaMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,328 +82,320 @@ export function Navbar() {
   // Close menus on route change
   useEffect(() => {
     setMobileMenuOpen(false);
-    setMegaMenuOpen(false);
+    setSolutionsOpen(false);
+    setCompanyOpen(false);
   }, [pathname]);
 
-  const handleMouseEnter = () => {
-    if (megaMenuTimeoutRef.current) {
-      clearTimeout(megaMenuTimeoutRef.current);
-    }
-    setMegaMenuOpen(true);
+  const handleMouseEnterSolutions = () => {
+    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+    setSolutionsOpen(true);
+    setCompanyOpen(false);
+  };
+
+  const handleMouseEnterCompany = () => {
+    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+    setCompanyOpen(true);
+    setSolutionsOpen(false);
   };
 
   const handleMouseLeave = () => {
-    megaMenuTimeoutRef.current = setTimeout(() => {
-      setMegaMenuOpen(false);
-    }, 150);
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setSolutionsOpen(false);
+      setCompanyOpen(false);
+    }, 300); // 300ms generous buffer
   };
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out px-4 sm:px-6 lg:px-8",
-        isScrolled ? "pt-2.5 pb-2.5" : "pt-4 pb-4"
+        isScrolled ? "pt-3 pb-3" : "pt-5 pb-5"
       )}
     >
       <div
         className={cn(
-          "max-w-7xl mx-auto rounded-2xl transition-all duration-300 ease-out",
-          isScrolled
-            ? "glass-nav-stuck py-2.5 px-4 sm:px-6 shadow-nav"
-            : "glass-nav py-3.5 px-5 sm:px-7 shadow-soft"
+          "max-w-7xl mx-auto rounded-full transition-all duration-300 ease-out flex items-center justify-between gap-4 px-5 sm:px-6 py-2.5 relative z-50",
+          "bg-[#122631] border border-[#266573]/40 shadow-[0_12px_36px_rgba(0,0,0,0.4)]"
         )}
       >
-        <div className="flex items-center justify-between gap-4">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-accent/50 rounded-lg p-1"
-          >
-            <div className="w-9 h-9 rounded-xl bg-navy flex items-center justify-center text-white font-black text-lg shadow-sm border border-navy-400/30 group-hover:bg-navy-700 transition-colors">
-              <span className="text-white">D</span>
-              <span className="text-cyan-accent text-sm -ml-0.5">T</span>
-            </div>
-            <div className="flex flex-col">
-              <div className="font-extrabold text-lg sm:text-xl tracking-tight text-navy leading-none">
-                Dava<span className="text-blue-accent">Track</span>
-              </div>
-              <div className="text-[9px] font-bold tracking-[0.25em] text-muted uppercase mt-0.5">
-                DIGITAL LLP
-              </div>
-            </div>
-          </Link>
-
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1.5 lg:gap-2">
-            {PRIMARY_NAV_LINKS.map((link) => {
-              const isActive =
-                link.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(link.href);
-
-              if (link.hasDropdown) {
-                return (
-                  <div
-                    key={link.label}
-                    className="relative"
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <Link
-                      href={link.href}
-                      className={cn(
-                        "inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-all duration-200",
-                        isActive || megaMenuOpen
-                          ? "text-navy bg-navy-50/80 shadow-xs"
-                          : "text-ink hover:text-navy hover:bg-navy-50/50"
-                      )}
-                    >
-                      <span>{link.label}</span>
-                      <ChevronDown
-                        className={cn(
-                          "w-4 h-4 text-muted transition-transform duration-200",
-                          megaMenuOpen && "transform rotate-180 text-blue-accent"
-                        )}
-                      />
-                    </Link>
-
-                    {/* Mega Menu Dropdown */}
-                    <div
-                      className={cn(
-                        "absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[860px] max-w-[92vw] transition-all duration-250 ease-out origin-top",
-                        megaMenuOpen
-                          ? "opacity-100 visible translate-y-0 pointer-events-auto"
-                          : "opacity-0 invisible -translate-y-2 pointer-events-none"
-                      )}
-                    >
-                      <div className="bg-white/95 backdrop-blur-2xl rounded-2xl p-6 shadow-2xl border border-border shadow-navy/15">
-                        <div className="flex items-center justify-between pb-4 mb-5 border-b border-border/70">
-                          <div>
-                            <div className="text-xs font-bold uppercase tracking-wider text-blue-accent">
-                              Healthcare Solutions & Execution
-                            </div>
-                            <div className="text-base font-bold text-navy">
-                              Explore Our 4 Solution Domains
-                            </div>
-                          </div>
-                          <Link
-                            href="/solutions"
-                            className="inline-flex items-center gap-1.5 text-xs font-bold text-navy hover:text-blue-accent transition-colors bg-navy-50 px-3 py-1.5 rounded-lg"
-                          >
-                            <span>View All Solutions</span>
-                            <ArrowRight className="w-3.5 h-3.5" />
-                          </Link>
-                        </div>
-
-                        {/* 4 Categories Mega Grid */}
-                        <div className="grid grid-cols-2 gap-5">
-                          {SOLUTIONS_MEGA_MENU.map((category) => (
-                            <div
-                              key={category.title}
-                              className="rounded-xl p-3.5 bg-surface-soft/60 border border-border-subtle hover:border-blue-accent/20 transition-colors"
-                            >
-                              <div className="text-[11px] font-extrabold uppercase tracking-widest text-navy-600 mb-2.5 flex items-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-blue-accent"></span>
-                                {category.title}
-                              </div>
-                              <div className="space-y-1.5">
-                                {category.items.map((item) => (
-                                  <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    className="group/item flex items-start gap-3 p-2 rounded-lg hover:bg-white hover:shadow-xs transition-all duration-150"
-                                  >
-                                    <div className="p-1.5 rounded-md bg-navy-50 text-blue-accent group-hover/item:bg-navy group-hover/item:text-white transition-colors mt-0.5">
-                                      <DynamicIcon
-                                        name={item.icon}
-                                        className="w-4 h-4"
-                                      />
-                                    </div>
-                                    <div className="flex-1 min-w-0">
-                                      <div className="text-xs font-bold text-navy group-hover/item:text-blue-accent transition-colors truncate">
-                                        {item.title}
-                                      </div>
-                                      <div className="text-[11px] text-muted truncate">
-                                        {item.description}
-                                      </div>
-                                    </div>
-                                  </Link>
-                                ))}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-
-                        {/* Bottom Banner */}
-                        <div className="mt-4 pt-3.5 border-t border-border/60 flex items-center justify-between text-xs text-muted">
-                          <span className="flex items-center gap-1.5">
-                            <Sparkles className="w-3.5 h-3.5 text-cyan-accent" />
-                            Need a custom combination? We build bespoke healthcare workflows.
-                          </span>
-                          <Link
-                            href="/solutions/custom-healthcare-solutions"
-                            className="font-bold text-navy hover:text-blue-accent transition-colors"
-                          >
-                            Custom Healthcare Solutions →
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              }
-
-              return (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className={cn(
-                    "px-3.5 py-2 rounded-xl text-sm font-semibold transition-all duration-200",
-                    isActive
-                      ? "text-navy bg-navy-50/80 shadow-xs"
-                      : "text-ink hover:text-navy hover:bg-navy-50/50"
-                  )}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
-
-          {/* Desktop Right CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <Button
-              href="/inquiry"
-              variant="primary"
-              size="sm"
-              icon="arrow"
-              className="rounded-xl shadow-xs"
+        {/* ============================================================
+            LEFT: BRAND LOGO
+            ============================================================ */}
+        <Link
+          href="/"
+          className="flex items-center gap-2.5 group focus-visible:outline-none rounded-full p-1 flex-shrink-0"
+        >
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#122631] via-[#266573] to-[#6BB0BF] border border-[#6BB0BF]/30 flex items-center justify-center text-white shadow-[0_0_15px_rgba(107,176,191,0.45)] group-hover:scale-105 transition-transform">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="w-4 h-4 text-white"
             >
-              Discuss Your Requirement
-            </Button>
+              <polygon points="12 2 2 7 12 12 22 7 12 2" />
+              <polyline points="2 17 12 22 22 17" />
+              <polyline points="2 12 12 17 22 12" />
+            </svg>
           </div>
+          <span className="font-extrabold text-lg sm:text-xl tracking-tight text-white leading-none">
+            Dava<span className="text-[#6BB0BF]">Track</span>
+          </span>
+        </Link>
 
-          {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center gap-2">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-xl bg-navy-50 text-navy hover:bg-navy-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-accent"
-              aria-label="Toggle navigation menu"
-              aria-expanded={mobileMenuOpen}
-            >
-              {mobileMenuOpen ? (
-                <X className="w-5 h-5" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Full-Screen / Slide Mobile Menu Drawer */}
-      <div
-        className={cn(
-          "md:hidden fixed inset-x-4 top-20 bottom-4 z-40 bg-white/98 backdrop-blur-2xl rounded-3xl p-6 shadow-2xl border border-border overflow-y-auto transition-all duration-300 ease-out flex flex-col",
-          mobileMenuOpen
-            ? "opacity-100 scale-100 translate-y-0 visible pointer-events-auto"
-            : "opacity-0 scale-95 -translate-y-4 invisible pointer-events-none"
-        )}
-      >
-        <div className="space-y-3 flex-1">
+        {/* ============================================================
+            CENTER: FLOATING PILL CAPSULE NAVIGATION
+            ============================================================ */}
+        <nav className="hidden lg:flex items-center gap-1 bg-[#122631] border border-[#266573]/30 rounded-full px-4 py-1.5 relative">
+          
+          {/* 1. Home Link */}
           <Link
             href="/"
             className={cn(
-              "block px-4 py-3 rounded-xl text-base font-bold transition-colors",
-              pathname === "/" ? "bg-navy text-white" : "text-navy hover:bg-navy-50"
+              "px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors",
+              pathname === "/" ? "text-white bg-white/15" : "text-white/80 hover:text-white hover:bg-white/10"
             )}
           >
             Home
           </Link>
 
-          <Link
-            href="/about"
-            className={cn(
-              "block px-4 py-3 rounded-xl text-base font-bold transition-colors",
-              pathname === "/about" ? "bg-navy text-white" : "text-navy hover:bg-navy-50"
-            )}
+          {/* 2. Solutions Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={handleMouseEnterSolutions}
+            onMouseLeave={handleMouseLeave}
           >
-            About Us
-          </Link>
-
-          {/* Collapsible Mobile Solutions Section */}
-          <div className="rounded-xl border border-border/80 overflow-hidden bg-surface-soft/40">
-            <button
-              onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
-              className="w-full flex items-center justify-between px-4 py-3 text-base font-bold text-navy"
+            <Link
+              href="/solutions"
+              className={cn(
+                "inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors",
+                pathname.startsWith("/solutions") ? "text-white bg-white/15" : "text-white/80 hover:text-white hover:bg-white/10"
+              )}
             >
               <span>Solutions</span>
-              <ChevronDown
-                className={cn(
-                  "w-4 h-4 text-muted transition-transform duration-200",
-                  mobileSolutionsOpen && "transform rotate-180 text-blue-accent"
-                )}
-              />
-            </button>
+              <ChevronDown className={cn("w-3.5 h-3.5 text-white/60 transition-transform duration-200", solutionsOpen && "rotate-180 text-[#6BB0BF]")} />
+            </Link>
 
-            {mobileSolutionsOpen && (
-              <div className="px-3 pb-4 pt-1 space-y-4 border-t border-border/50">
-                {SOLUTIONS_MEGA_MENU.map((cat) => (
-                  <div key={cat.title} className="space-y-1">
-                    <div className="text-[10px] font-extrabold tracking-wider text-muted uppercase px-2">
-                      {cat.title}
-                    </div>
-                    {cat.items.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-semibold text-navy hover:bg-white hover:text-blue-accent"
-                      >
-                        <DynamicIcon name={item.icon} className="w-3.5 h-3.5 text-blue-accent" />
-                        <span>{item.title}</span>
-                      </Link>
-                    ))}
-                  </div>
-                ))}
-                <Link
-                  href="/solutions"
-                  className="block text-center py-2 text-xs font-bold text-blue-accent bg-blue-accent/10 rounded-lg mt-2"
-                >
-                  Explore All Solutions →
-                </Link>
+            {/* Simple Solutions Dropdown */}
+            <div
+              className={cn(
+                "absolute top-full left-1/2 -translate-x-1/2 pt-4 w-64 transition-all duration-200 origin-top z-50",
+                solutionsOpen
+                  ? "opacity-100 visible translate-y-0 pointer-events-auto"
+                  : "opacity-0 invisible -translate-y-2 pointer-events-none"
+              )}
+            >
+              {/* Invisible Hover Bridge */}
+              <div className="absolute top-0 left-0 right-0 h-4 bg-transparent" />
+
+              <div className="bg-[#122631] rounded-2xl p-2 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-[#266573]/40 space-y-1">
+                {SOLUTIONS_DROPDOWN.map((item) => {
+                  const IconComp = item.icon;
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-bold text-white hover:bg-white/10 hover:text-[#6BB0BF] transition-colors"
+                    >
+                      <IconComp className={cn("w-4 h-4 flex-shrink-0", item.color)} />
+                      <span>{item.title}</span>
+                    </Link>
+                  );
+                })}
               </div>
-            )}
+            </div>
           </div>
 
+          {/* 3. Customers (Testimonials) */}
           <Link
             href="/testimonials"
             className={cn(
-              "block px-4 py-3 rounded-xl text-base font-bold transition-colors",
-              pathname === "/testimonials"
-                ? "bg-navy text-white"
-                : "text-navy hover:bg-navy-50"
+              "px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors",
+              pathname === "/testimonials" ? "text-white bg-white/15" : "text-white/80 hover:text-white hover:bg-white/10"
             )}
           >
-            Testimonials
+            Customers
           </Link>
-        </div>
 
-        {/* Mobile Bottom CTA */}
-        <div className="pt-5 border-t border-border space-y-2 mt-4">
-          <Button
-            href="/inquiry"
-            variant="primary"
-            size="md"
-            icon="arrow"
-            className="w-full justify-center text-sm py-3.5 rounded-xl shadow-md"
+          {/* 4. Company (About & Stories) */}
+          <div
+            className="relative"
+            onMouseEnter={handleMouseEnterCompany}
+            onMouseLeave={handleMouseLeave}
           >
-            Discuss Your Requirement
-          </Button>
-          <p className="text-center text-[11px] text-muted pt-1">
-            Healthcare Solutions & Execution Partner
-          </p>
+            <button
+              className={cn(
+                "inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors",
+                companyOpen ? "text-white bg-white/15" : "text-white/80 hover:text-white hover:bg-white/10"
+              )}
+            >
+              <span>Company</span>
+              <ChevronDown className={cn("w-3.5 h-3.5 text-white/60 transition-transform duration-200", companyOpen && "rotate-180 text-[#6BB0BF]")} />
+            </button>
+
+            {/* Company Dropdown */}
+            <div
+              className={cn(
+                "absolute top-full left-1/2 -translate-x-1/2 pt-4 w-60 transition-all duration-200 origin-top z-50",
+                companyOpen
+                  ? "opacity-100 visible translate-y-0 pointer-events-auto"
+                  : "opacity-0 invisible -translate-y-2 pointer-events-none"
+              )}
+            >
+              {/* Invisible Hover Bridge */}
+              <div className="absolute top-0 left-0 right-0 h-4 bg-transparent" />
+
+              <div className="bg-[#122631] rounded-2xl p-2 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-[#266573]/40 space-y-1">
+                <Link
+                  href="/about"
+                  className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-bold text-white hover:bg-white/10 hover:text-[#6BB0BF] transition-colors"
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-[#6BB0BF]" />
+                  <span>About DavaTrack</span>
+                </Link>
+                <Link
+                  href="/testimonials"
+                  className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-bold text-white hover:bg-white/10 hover:text-[#6BB0BF] transition-colors"
+                >
+                  <Users className="w-3.5 h-3.5 text-[#6BB0BF]" />
+                  <span>Customer Stories</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* 5. Contact Us (Direct Top-Level Link replacing Resources) */}
+          <Link
+            href="/inquiry"
+            className={cn(
+              "px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors",
+              pathname === "/inquiry" ? "text-white bg-white/15" : "text-white/80 hover:text-white hover:bg-white/10"
+            )}
+          >
+            Contact Us
+          </Link>
+
+        </nav>
+
+        {/* ============================================================
+            RIGHT: ACTION BUTTONS (Partner Sign In & Book a Demo)
+            ============================================================ */}
+        <div className="flex items-center gap-2.5 flex-shrink-0">
+          
+          {/* Partner Sign In (Deep Teal Button leading to /login) */}
+          <Link
+            href="/login"
+            className="hidden sm:inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#266573] hover:bg-[#1f525e] text-white font-bold text-xs shadow-[0_0_18px_rgba(38,101,115,0.45)] transition-all active:scale-95"
+          >
+            <span>Partner Sign In</span>
+          </Link>
+
+          {/* Book a demo (Crisp White Pill Button) */}
+          <Link
+            href="/inquiry"
+            className="inline-flex items-center justify-center px-5 py-2 rounded-full bg-white hover:bg-[#CAD7D0] text-[#122631] font-bold text-xs shadow-md transition-all active:scale-95"
+          >
+            Book a demo
+          </Link>
+
+          {/* Mobile Hamburger Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-2 rounded-xl bg-white/10 text-white hover:bg-white/20 transition-colors"
+            aria-label="Toggle Navigation Menu"
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
       </div>
+
+      {/* ============================================================
+          MOBILE NAVIGATION DRAWER
+          ============================================================ */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden fixed inset-x-4 top-24 z-50 bg-[#122631] rounded-3xl border border-[#266573]/40 p-6 shadow-2xl space-y-5 animate-in fade-in slide-in-from-top-4 duration-200">
+          
+          <div className="space-y-2">
+            <Link
+              href="/"
+              className="block p-3 rounded-xl text-sm font-bold text-white hover:bg-white/10 transition-colors"
+            >
+              Home
+            </Link>
+
+            {/* Mobile Solutions Accordion */}
+            <div>
+              <button
+                onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
+                className="w-full flex items-center justify-between p-3 rounded-xl text-sm font-bold text-white hover:bg-white/10 transition-colors"
+              >
+                <span>Solutions</span>
+                <ChevronDown className={cn("w-4 h-4 transition-transform", mobileSolutionsOpen && "rotate-180 text-[#6BB0BF]")} />
+              </button>
+
+              {mobileSolutionsOpen && (
+                <div className="pl-4 pr-2 py-2 space-y-1">
+                  {SOLUTIONS_DROPDOWN.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="block p-2 rounded-lg text-xs text-white/80 hover:text-white hover:bg-white/10 font-medium"
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                  <Link
+                    href="/solutions"
+                    className="block p-2 rounded-lg text-xs text-[#6BB0BF] hover:underline font-bold"
+                  >
+                    View All Solutions →
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <Link
+              href="/testimonials"
+              className="block p-3 rounded-xl text-sm font-bold text-white hover:bg-white/10 transition-colors"
+            >
+              Customers
+            </Link>
+
+            <Link
+              href="/about"
+              className="block p-3 rounded-xl text-sm font-bold text-white hover:bg-white/10 transition-colors"
+            >
+              About DavaTrack
+            </Link>
+
+            <Link
+              href="/inquiry"
+              className="block p-3 rounded-xl text-sm font-bold text-white hover:bg-white/10 transition-colors"
+            >
+              Contact Us
+            </Link>
+
+            <Link
+              href="/login"
+              className="block p-3 rounded-xl text-sm font-bold text-[#6BB0BF] hover:bg-white/10 transition-colors"
+            >
+              Partner Sign In (Portal)
+            </Link>
+          </div>
+
+          <div className="pt-4 border-t border-white/10 flex flex-col gap-2">
+            <Link
+              href="/inquiry"
+              className="w-full py-3 rounded-full bg-[#266573] text-white font-bold text-xs text-center shadow-lg"
+            >
+              Book a Demo
+            </Link>
+          </div>
+
+        </div>
+      )}
     </header>
   );
 }

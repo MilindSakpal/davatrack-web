@@ -4,34 +4,37 @@
 
 @layer base {
   :root {
-    --navy: #06366F;
-    --blue: #0D6EFD;
-    --cyan: #1EA7FF;
-    --ink: #10233F;
-    --muted: #62748A;
-    --line: #DFE8F2;
-    --soft: #F4F8FC;
+    --navy: #122631;
+    --teal-dark: #266573;
+    --teal-light: #6BB0BF;
+    --sage-bg: #CAD7D0;
+    --ink: #122631;
+    --muted: #4A6572;
+    --line: #CBD9D2;
+    --soft: #EDF3F0;
     --white: #FFFFFF;
   }
 
   html {
     scroll-behavior: smooth;
     color: var(--ink);
-    background-color: #FFFFFF;
+    background-color: #EDF3F0;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: clip;
   }
 
   body {
-    overflow-x: hidden;
+    overflow-x: clip;
     min-height: 100vh;
+    background-color: #EDF3F0;
     font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    background-color: rgba(13, 110, 253, 0.18);
-    color: #06366F;
+    background-color: rgba(107, 176, 191, 0.35);
+    color: #122631;
   }
 }
 

@@ -12,7 +12,6 @@ import {
   MessageSquare,
   Layers
 } from "lucide-react";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { InquiryForm } from "@/components/inquiry/InquiryForm";
 
 export const metadata: Metadata = {
@@ -23,36 +22,33 @@ export const metadata: Metadata = {
 
 export default function InquiryPage() {
   return (
-    <div className="pt-28 pb-24 bg-white">
+    <div className="pt-28 pb-24 bg-[#EDF3F0]">
       {/* Page Hero */}
-      <section className="bg-hero-gradient bg-tech-grid py-16 lg:py-24 border-b border-border/80 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <Breadcrumbs
-            items={[{ label: "Discuss Your Requirement" }]}
-            className="mb-8"
-          />
+      <section className="py-16 lg:py-24 border-b border-[#CAD7D0] relative overflow-hidden bg-[#EDF3F0]">
+        <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-b from-[#6BB0BF]/15 via-[#266573]/5 to-transparent rounded-full blur-[140px]" />
 
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-accent/10 border border-blue-accent/20 text-blue-accent text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#266573]/10 border border-[#266573]/20 text-[#266573] text-xs font-bold uppercase tracking-wider font-semibold">
+              <Sparkles className="w-3.5 h-3.5 text-[#266573]" />
               <span>Let’s Build Better Healthcare Together</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-ink leading-[1.08]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#122631] leading-[1.08]">
               Tell Us What
               <br />
-              <span className="text-blue-accent">You Need.</span>
+              <span className="text-[#266573]">You Need.</span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-muted leading-relaxed">
+            <p className="text-lg sm:text-xl text-[#122631]/80 leading-relaxed">
               You don’t have to know whether the solution requires software, manpower, procurement, supply chain, accounting, HR, manufacturing, pharmacy management or something completely different.
             </p>
 
-            <div className="p-4 rounded-2xl bg-white border border-blue-accent/30 shadow-soft max-w-xl">
-              <div className="text-xs font-bold uppercase tracking-wider text-blue-accent mb-1">
+            <div className="p-4 rounded-2xl bg-white border border-[#CAD7D0] shadow-sm max-w-xl">
+              <div className="text-xs font-bold uppercase tracking-wider text-[#266573] mb-1">
                 The DavaTrack Approach
               </div>
-              <div className="text-sm font-extrabold text-navy">
+              <div className="text-sm font-extrabold text-[#122631]">
                 “Start with the problem. We’ll work with you to understand it and explore the right solution.”
               </div>
             </div>
@@ -61,7 +57,7 @@ export default function InquiryPage() {
       </section>
 
       {/* Main Intake Section: 2 Columns */}
-      <section className="py-16 lg:py-24 bg-surface-soft">
+      <section className="py-16 lg:py-24 bg-[#EDF3F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
@@ -69,79 +65,81 @@ export default function InquiryPage() {
             <div className="lg:col-span-5 space-y-8">
               
               {/* Pillar Badges Card */}
-              <div className="bg-navy rounded-3xl p-8 text-white shadow-xl space-y-6">
-                <div className="space-y-2">
-                  <div className="text-xs font-extrabold uppercase tracking-widest text-cyan-accent">
+              <div className="bg-[#122631] rounded-3xl p-8 text-white shadow-xl space-y-6 border border-[#266573]/30 relative overflow-hidden">
+                <div className="pointer-events-none absolute -top-16 -right-16 w-48 h-48 bg-[#266573]/30 rounded-full blur-2xl" />
+                
+                <div className="space-y-2 relative z-10">
+                  <div className="text-xs font-extrabold uppercase tracking-widest text-[#6BB0BF]">
                     Multi-Disciplinary Execution
                   </div>
                   <h2 className="text-2xl font-extrabold text-white">
                     One Partner. Total Accountability.
                   </h2>
-                  <p className="text-xs sm:text-sm text-navy-200 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#CAD7D0]/80 leading-relaxed">
                     We combine all five core operational layers into an executable roadmap for your facility:
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-2.5 text-xs font-bold">
-                  <div className="p-3 rounded-xl bg-navy-800/90 border border-navy-700 flex items-center justify-between">
+                <div className="grid grid-cols-1 gap-2.5 text-xs font-bold relative z-10">
+                  <div className="p-3 rounded-xl bg-[#266573]/20 border border-[#6BB0BF]/20 flex items-center justify-between">
                     <span>01 • Physical Supply & Logistics</span>
-                    <span className="text-cyan-accent font-normal">Sourcing & Delivery</span>
+                    <span className="text-[#6BB0BF] font-normal">Sourcing & Delivery</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-navy-800/90 border border-navy-700 flex items-center justify-between">
+                  <div className="p-3 rounded-xl bg-[#266573]/20 border border-[#6BB0BF]/20 flex items-center justify-between">
                     <span>02 • Technology & Portals</span>
-                    <span className="text-cyan-accent font-normal">Bespoke Software</span>
+                    <span className="text-[#6BB0BF] font-normal">Bespoke Software</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-navy-800/90 border border-navy-700 flex items-center justify-between">
+                  <div className="p-3 rounded-xl bg-[#266573]/20 border border-[#6BB0BF]/20 flex items-center justify-between">
                     <span>03 • Healthcare Staffing</span>
-                    <span className="text-cyan-accent font-normal">Verified Manpower</span>
+                    <span className="text-[#6BB0BF] font-normal">Verified Manpower</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-navy-800/90 border border-navy-700 flex items-center justify-between">
+                  <div className="p-3 rounded-xl bg-[#266573]/20 border border-[#6BB0BF]/20 flex items-center justify-between">
                     <span>04 • Process & SOPs</span>
-                    <span className="text-cyan-accent font-normal">Standardization</span>
+                    <span className="text-[#6BB0BF] font-normal">Standardization</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-navy-800/90 border border-navy-700 flex items-center justify-between">
+                  <div className="p-3 rounded-xl bg-[#266573]/20 border border-[#6BB0BF]/20 flex items-center justify-between">
                     <span>05 • Management & Reporting</span>
-                    <span className="text-cyan-accent font-normal">MIS & Dashboards</span>
+                    <span className="text-[#6BB0BF] font-normal">MIS & Dashboards</span>
                   </div>
                 </div>
 
-                <div className="pt-2 flex flex-wrap gap-2 text-[11px] font-bold text-cyan-accent">
-                  <span className="px-2.5 py-1 rounded-md bg-navy-800 border border-navy-700">Supply</span>
-                  <span className="px-2.5 py-1 rounded-md bg-navy-800 border border-navy-700">Technology</span>
-                  <span className="px-2.5 py-1 rounded-md bg-navy-800 border border-navy-700">People</span>
-                  <span className="px-2.5 py-1 rounded-md bg-navy-800 border border-navy-700">Process</span>
-                  <span className="px-2.5 py-1 rounded-md bg-navy-800 border border-navy-700">Execution</span>
+                <div className="pt-2 flex flex-wrap gap-2 text-[11px] font-bold text-[#6BB0BF] relative z-10">
+                  <span className="px-2.5 py-1 rounded-md bg-[#266573]/30 border border-[#6BB0BF]/20">Supply</span>
+                  <span className="px-2.5 py-1 rounded-md bg-[#266573]/30 border border-[#6BB0BF]/20">Technology</span>
+                  <span className="px-2.5 py-1 rounded-md bg-[#266573]/30 border border-[#6BB0BF]/20">People</span>
+                  <span className="px-2.5 py-1 rounded-md bg-[#266573]/30 border border-[#6BB0BF]/20">Process</span>
+                  <span className="px-2.5 py-1 rounded-md bg-[#266573]/30 border border-[#6BB0BF]/20">Execution</span>
                 </div>
               </div>
 
               {/* Consultation Process Expectations */}
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-border shadow-soft space-y-4">
-                <h3 className="text-base font-extrabold text-navy">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#CAD7D0] shadow-[0_4px_20px_rgba(18,38,49,0.04)] space-y-4">
+                <h3 className="text-base font-extrabold text-[#122631]">
                   What Happens After You Submit:
                 </h3>
-                <div className="space-y-3 text-xs text-muted">
+                <div className="space-y-3 text-xs text-[#122631]/70">
                   <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-blue-accent/10 text-blue-accent flex items-center justify-center font-bold flex-shrink-0 mt-0.5">
+                    <div className="w-5 h-5 rounded-full bg-[#266573]/10 text-[#266573] flex items-center justify-center font-bold flex-shrink-0 mt-0.5">
                       1
                     </div>
                     <div>
-                      <b className="text-navy font-semibold">Initial Intake Review:</b> Our healthcare operations team evaluates your institutional parameters.
+                      <b className="text-[#122631] font-semibold">Initial Intake Review:</b> Our healthcare operations team evaluates your institutional parameters.
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-blue-accent/10 text-blue-accent flex items-center justify-center font-bold flex-shrink-0 mt-0.5">
+                    <div className="w-5 h-5 rounded-full bg-[#266573]/10 text-[#266573] flex items-center justify-center font-bold flex-shrink-0 mt-0.5">
                       2
                     </div>
                     <div>
-                      <b className="text-navy font-semibold">Discovery Session:</b> A technical and operational consultation to map scope, licensing, and timelines.
+                      <b className="text-[#122631] font-semibold">Discovery Session:</b> A technical and operational consultation to map scope, licensing, and timelines.
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-blue-accent/10 text-blue-accent flex items-center justify-center font-bold flex-shrink-0 mt-0.5">
+                    <div className="w-5 h-5 rounded-full bg-[#266573]/10 text-[#266573] flex items-center justify-center font-bold flex-shrink-0 mt-0.5">
                       3
                     </div>
                     <div>
-                      <b className="text-navy font-semibold">Custom Blueprint:</b> Structured proposal detailing supply lines, software architecture, or managed staffing.
+                      <b className="text-[#122631] font-semibold">Custom Blueprint:</b> Structured proposal detailing supply lines, software architecture, or managed staffing.
                     </div>
                   </div>
                 </div>

@@ -155,61 +155,57 @@ export function InquiryForm() {
 
   if (isSubmitted) {
     return (
-      <div className="bg-white rounded-3xl p-8 sm:p-12 border border-border shadow-card text-center space-y-6 max-w-2xl mx-auto">
-        <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto ring-8 ring-emerald-50/50">
+      <div className="bg-white rounded-3xl p-8 sm:p-12 border border-[#CAD7D0] shadow-[0_4px_20px_rgba(18,38,49,0.04)] text-center space-y-6 max-w-2xl mx-auto">
+        <div className="w-16 h-16 rounded-full bg-[#EDF3F0] text-[#266573] flex items-center justify-center mx-auto ring-8 ring-[#CAD7D0]/30">
           <CheckCircle2 className="w-8 h-8" />
         </div>
 
         <div className="space-y-2">
-          <div className="text-xs font-extrabold uppercase tracking-wider text-blue-accent">
+          <div className="text-xs font-extrabold uppercase tracking-wider text-[#266573]">
             Requirement Successfully Logged
           </div>
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-navy">
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-[#122631]">
             Thank You, {formData.name}
           </h3>
-          <p className="text-sm text-muted max-w-md mx-auto">
-            Your healthcare operational requirement has been recorded with reference <b className="text-navy font-bold">{referenceId}</b>.
+          <p className="text-sm text-[#122631]/70 max-w-md mx-auto">
+            Your healthcare operational requirement has been recorded with reference <b className="text-[#122631] font-bold">{referenceId}</b>.
           </p>
         </div>
 
-        <div className="bg-surface-soft p-5 rounded-2xl border border-border text-left space-y-3 text-xs text-muted">
-          <div className="flex justify-between border-b border-border/70 pb-2">
-            <span className="font-semibold text-navy">Organization:</span>
-            <span className="font-bold text-navy-800">{formData.organization}</span>
+        <div className="bg-[#EDF3F0] p-5 rounded-2xl border border-[#CAD7D0] text-left space-y-3 text-xs text-[#122631]/80">
+          <div className="flex justify-between border-b border-[#CAD7D0]/60 pb-2">
+            <span className="font-semibold text-[#122631]">Organization:</span>
+            <span className="font-bold text-[#122631]">{formData.organization}</span>
           </div>
-          <div className="flex justify-between border-b border-border/70 pb-2">
-            <span className="font-semibold text-navy">Segment:</span>
-            <span className="font-bold text-navy-800">{formData.segment || "Healthcare Unit"}</span>
+          <div className="flex justify-between border-b border-[#CAD7D0]/60 pb-2">
+            <span className="font-semibold text-[#122631]">Segment:</span>
+            <span className="font-bold text-[#122631]">{formData.segment || "Healthcare Unit"}</span>
           </div>
-          <div className="flex justify-between border-b border-border/70 pb-2">
-            <span className="font-semibold text-navy">Contact Phone:</span>
-            <span className="font-bold text-navy-800">{formData.phone}</span>
+          <div className="flex justify-between border-b border-[#CAD7D0]/60 pb-2">
+            <span className="font-semibold text-[#122631]">Contact Phone:</span>
+            <span className="font-bold text-[#122631]">{formData.phone}</span>
           </div>
           <div>
-            <span className="font-semibold text-navy block mb-1">Requirement Overview:</span>
-            <p className="text-navy-700 italic bg-white p-3 rounded-lg border border-border">
+            <span className="font-semibold text-[#122631] block mb-1">Requirement Overview:</span>
+            <p className="text-[#122631]/90 italic bg-white p-3 rounded-lg border border-[#CAD7D0]">
               “{formData.requirement}”
             </p>
           </div>
         </div>
 
         <div className="pt-2 flex flex-wrap justify-center gap-4">
-          <Button
+          <button
             onClick={handleReset}
-            variant="outline"
-            size="md"
-            className="rounded-xl"
+            className="px-6 py-2.5 rounded-xl border border-[#CAD7D0] bg-white text-[#122631] font-semibold text-xs hover:bg-[#EDF3F0] transition-colors"
           >
             Submit Another Requirement
-          </Button>
-          <Button
+          </button>
+          <a
             href="/"
-            variant="primary"
-            size="md"
-            className="rounded-xl"
+            className="px-6 py-2.5 rounded-xl bg-[#122631] text-white font-semibold text-xs hover:bg-[#266573] transition-colors"
           >
             Back to Homepage
-          </Button>
+          </a>
         </div>
       </div>
     );
@@ -219,20 +215,20 @@ export function InquiryForm() {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="bg-white rounded-3xl p-6 sm:p-10 border border-border shadow-card space-y-8"
+      className="bg-white rounded-3xl p-6 sm:p-10 border border-[#CAD7D0] shadow-[0_4px_20px_rgba(18,38,49,0.04)] space-y-8"
     >
-      <div className="space-y-2 pb-4 border-b border-border">
-        <h3 className="text-xl sm:text-2xl font-extrabold text-navy">
+      <div className="space-y-2 pb-4 border-b border-[#CAD7D0]/60">
+        <h3 className="text-xl sm:text-2xl font-extrabold text-[#122631]">
           Requirement Intake Form
         </h3>
-        <p className="text-xs sm:text-sm text-muted">
+        <p className="text-xs sm:text-sm text-[#122631]/70">
           Fields marked with <span className="text-rose-500 font-bold">*</span> are required for our solutions team to analyze your requirement.
         </p>
       </div>
 
       {/* Multi-Select Capability Tags */}
       <div className="space-y-3">
-        <label className="block text-xs font-bold uppercase tracking-wider text-navy">
+        <label className="block text-xs font-bold uppercase tracking-wider text-[#122631]">
           Areas of Interest (Optional)
         </label>
         <div className="flex flex-wrap gap-2">
@@ -246,8 +242,8 @@ export function InquiryForm() {
                 className={cn(
                   "px-3.5 py-2 rounded-xl text-xs font-semibold transition-all duration-150 border text-left",
                   isSelected
-                    ? "bg-navy text-white border-navy shadow-xs"
-                    : "bg-surface-soft text-navy-700 hover:bg-navy-50 border-border"
+                    ? "bg-[#122631] text-white border-[#122631] shadow-xs"
+                    : "bg-[#EDF3F0] text-[#122631] hover:bg-[#CAD7D0]/50 border-[#CAD7D0]"
                 )}
               >
                 {isSelected ? "✓ " : "+ "}
@@ -263,7 +259,7 @@ export function InquiryForm() {
         
         {/* Full Name */}
         <div className="space-y-1.5">
-          <label className="block text-xs font-bold text-navy-800">
+          <label className="block text-xs font-bold text-[#122631]">
             Full Name <span className="text-rose-500">*</span>
           </label>
           <div className="relative">
@@ -276,10 +272,10 @@ export function InquiryForm() {
               }}
               placeholder="e.g. Dr. Rajesh Kumar"
               className={cn(
-                "w-full px-4 py-3 rounded-xl border text-sm text-ink outline-none transition-all placeholder:text-muted/60",
+                "w-full px-4 py-3 rounded-xl border text-sm text-[#122631] outline-none transition-all placeholder:text-[#122631]/40",
                 errors.name
                   ? "border-rose-400 bg-rose-50/30 focus:ring-2 focus:ring-rose-300"
-                  : "border-border bg-white focus:border-blue-accent focus:ring-2 focus:ring-blue-accent/20"
+                  : "border-[#CAD7D0] bg-[#EDF3F0]/30 focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20"
               )}
             />
           </div>
@@ -292,7 +288,7 @@ export function InquiryForm() {
 
         {/* Designation */}
         <div className="space-y-1.5">
-          <label className="block text-xs font-bold text-navy-800">
+          <label className="block text-xs font-bold text-[#122631]">
             Designation
           </label>
           <input
@@ -300,13 +296,13 @@ export function InquiryForm() {
             value={formData.designation}
             onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
             placeholder="e.g. Medical Director / Operations Head"
-            className="w-full px-4 py-3 rounded-xl border border-border bg-white text-sm text-ink outline-none focus:border-blue-accent focus:ring-2 focus:ring-blue-accent/20 transition-all placeholder:text-muted/60"
+            className="w-full px-4 py-3 rounded-xl border border-[#CAD7D0] bg-[#EDF3F0]/30 text-sm text-[#122631] outline-none focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20 transition-all placeholder:text-[#122631]/40"
           />
         </div>
 
         {/* Organization */}
         <div className="space-y-1.5">
-          <label className="block text-xs font-bold text-navy-800">
+          <label className="block text-xs font-bold text-[#122631]">
             Organization / Facility Name <span className="text-rose-500">*</span>
           </label>
           <input
@@ -318,10 +314,10 @@ export function InquiryForm() {
             }}
             placeholder="e.g. Apollo Diagnostics / Care Pharmacy"
             className={cn(
-              "w-full px-4 py-3 rounded-xl border text-sm text-ink outline-none transition-all placeholder:text-muted/60",
+              "w-full px-4 py-3 rounded-xl border text-sm text-[#122631] outline-none transition-all placeholder:text-[#122631]/40",
               errors.organization
                 ? "border-rose-400 bg-rose-50/30 focus:ring-2 focus:ring-rose-300"
-                : "border-border bg-white focus:border-blue-accent focus:ring-2 focus:ring-blue-accent/20"
+                : "border-[#CAD7D0] bg-[#EDF3F0]/30 focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20"
             )}
           />
           {errors.organization && (
@@ -333,7 +329,7 @@ export function InquiryForm() {
 
         {/* Phone Number */}
         <div className="space-y-1.5">
-          <label className="block text-xs font-bold text-navy-800">
+          <label className="block text-xs font-bold text-[#122631]">
             Phone Number <span className="text-rose-500">*</span>
           </label>
           <input
@@ -345,10 +341,10 @@ export function InquiryForm() {
             }}
             placeholder="+91 98765 43210"
             className={cn(
-              "w-full px-4 py-3 rounded-xl border text-sm text-ink outline-none transition-all placeholder:text-muted/60",
+              "w-full px-4 py-3 rounded-xl border text-sm text-[#122631] outline-none transition-all placeholder:text-[#122631]/40",
               errors.phone
                 ? "border-rose-400 bg-rose-50/30 focus:ring-2 focus:ring-rose-300"
-                : "border-border bg-white focus:border-blue-accent focus:ring-2 focus:ring-blue-accent/20"
+                : "border-[#CAD7D0] bg-[#EDF3F0]/30 focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20"
             )}
           />
           {errors.phone && (
@@ -360,7 +356,7 @@ export function InquiryForm() {
 
         {/* Email */}
         <div className="space-y-1.5">
-          <label className="block text-xs font-bold text-navy-800">
+          <label className="block text-xs font-bold text-[#122631]">
             Email Address
           </label>
           <input
@@ -372,10 +368,10 @@ export function InquiryForm() {
             }}
             placeholder="you@organization.com"
             className={cn(
-              "w-full px-4 py-3 rounded-xl border text-sm text-ink outline-none transition-all placeholder:text-muted/60",
+              "w-full px-4 py-3 rounded-xl border text-sm text-[#122631] outline-none transition-all placeholder:text-[#122631]/40",
               errors.email
                 ? "border-rose-400 bg-rose-50/30 focus:ring-2 focus:ring-rose-300"
-                : "border-border bg-white focus:border-blue-accent focus:ring-2 focus:ring-blue-accent/20"
+                : "border-[#CAD7D0] bg-[#EDF3F0]/30 focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20"
             )}
           />
           {errors.email && (
@@ -387,13 +383,13 @@ export function InquiryForm() {
 
         {/* Healthcare Segment */}
         <div className="space-y-1.5">
-          <label className="block text-xs font-bold text-navy-800">
+          <label className="block text-xs font-bold text-[#122631]">
             Healthcare Segment
           </label>
           <select
             value={formData.segment}
             onChange={(e) => setFormData({ ...formData, segment: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border border-border bg-white text-sm text-ink outline-none focus:border-blue-accent focus:ring-2 focus:ring-blue-accent/20 transition-all cursor-pointer"
+            className="w-full px-4 py-3 rounded-xl border border-[#CAD7D0] bg-[#EDF3F0]/30 text-sm text-[#122631] outline-none focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20 transition-all cursor-pointer"
           >
             <option value="">Select healthcare segment...</option>
             {HEALTHCARE_SEGMENTS.map((seg) => (
@@ -406,7 +402,7 @@ export function InquiryForm() {
 
         {/* Your Requirement Textarea */}
         <div className="space-y-1.5 md:col-span-2">
-          <label className="block text-xs font-bold text-navy-800">
+          <label className="block text-xs font-bold text-[#122631]">
             Your Requirement or Operational Challenge <span className="text-rose-500">*</span>
           </label>
           <textarea
@@ -418,10 +414,10 @@ export function InquiryForm() {
             }}
             placeholder="Describe your requirement, e.g. We need scheduled pharmaceutical restocking, pharmacy management support for our 3 retail outlets, or custom clinical workflow software..."
             className={cn(
-              "w-full px-4 py-3 rounded-xl border text-sm text-ink outline-none transition-all placeholder:text-muted/60 resize-y min-h-[120px]",
+              "w-full px-4 py-3 rounded-xl border text-sm text-[#122631] outline-none transition-all placeholder:text-[#122631]/40 resize-y min-h-[120px]",
               errors.requirement
                 ? "border-rose-400 bg-rose-50/30 focus:ring-2 focus:ring-rose-300"
-                : "border-border bg-white focus:border-blue-accent focus:ring-2 focus:ring-blue-accent/20"
+                : "border-[#CAD7D0] bg-[#EDF3F0]/30 focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20"
             )}
           ></textarea>
           {errors.requirement && (
@@ -434,18 +430,16 @@ export function InquiryForm() {
       </div>
 
       {/* Submit Action */}
-      <div className="pt-4 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="text-xs text-muted flex items-center gap-2">
-          <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+      <div className="pt-4 border-t border-[#CAD7D0]/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="text-xs text-[#122631]/70 flex items-center gap-2">
+          <CheckCircle2 className="w-4 h-4 text-[#266573] flex-shrink-0" />
           <span>Strict confidentiality. Your data is never shared.</span>
         </div>
 
-        <Button
+        <button
           type="submit"
-          variant="primary"
-          size="lg"
           disabled={isSubmitting}
-          className="w-full sm:w-auto px-8 rounded-xl shadow-md"
+          className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#122631] hover:bg-[#266573] text-white font-bold text-sm shadow-[0_10px_25px_rgba(18,38,49,0.25)] transition-all active:scale-95 flex items-center justify-center gap-2"
         >
           {isSubmitting ? (
             <span className="flex items-center gap-2">
@@ -454,11 +448,11 @@ export function InquiryForm() {
             </span>
           ) : (
             <span className="flex items-center gap-2">
-              <Send className="w-4 h-4" />
+              <Send className="w-4 h-4 text-[#6BB0BF]" />
               Submit Requirement
             </span>
           )}
-        </Button>
+        </button>
       </div>
     </form>
   );

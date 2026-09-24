@@ -9,6 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        brand: {
+          primary: "#122631",
+          secondary: "#266573",
+          accent: "#6BB0BF",
+          bg: "#EDF3F0",
+          border: "#CAD7D0",
+          dark: "#122631",
+          teal: "#266573",
+          cyan: "#6BB0BF",
+          soft: "#EDF3F0",
+          sage: "#CAD7D0",
+        },
         navy: {
           DEFAULT: "#06366F",
           50: "#EEF5FC",

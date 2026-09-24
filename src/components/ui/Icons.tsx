@@ -120,12 +120,23 @@ const iconMap: Record<string, React.ElementType> = {
   LineChart,
 };
 
-interface DynamicIconProps {
+/**
+ * Props for dynamic Lucide icon rendering by name string.
+ */
+export interface DynamicIconProps {
+  /** Name of the icon matching Lucide icon names */
   name: string;
+  /** Tailwind class for sizing/colors (defaults to "w-5 h-5") */
   className?: string;
+  /** Explicit pixel size */
   size?: number;
 }
 
+/**
+ * Dynamic Lucide Icon component.
+ * Allows rendering icons dynamically from data config files (e.g. solutions.ts, navigation.ts).
+ * Falls back gracefully to `Sparkles` if an unknown icon name is provided.
+ */
 export function DynamicIcon({ name, className = "w-5 h-5", size }: DynamicIconProps) {
   const IconComponent = iconMap[name] || Sparkles;
   return <IconComponent className={className} size={size} />;

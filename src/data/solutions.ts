@@ -161,7 +161,6 @@ export const SOLUTIONS_DATA: Record<string, SolutionItem> = {
       "Medical consumables",
       "Surgical products",
       "Vendor coordination",
-      "Order management",
       "Delivery management",
       "Route management",
       "Supply tracking",
