@@ -46,7 +46,7 @@ export const SOLUTION_CATEGORIES: SolutionCategory[] = [
     subtitle: "Medical Supply Chain & Sourcing",
     description: "Build a dependable medicine and healthcare-product supply system — from discovery and procurement to delivery management and real-time tracking.",
     iconName: "Truck",
-    accentColor: "#0D6EFD",
+    accentColor: "#266573",
     solutions: [
       {
         slug: "vendor-discovery",
@@ -75,7 +75,7 @@ export const SOLUTION_CATEGORIES: SolutionCategory[] = [
     subtitle: "Pharmacy Operations & Patient Lifecycle",
     description: "End-to-end pharmacy management, continuous post-service patient engagement, and specialized insurance claims workflows.",
     iconName: "HeartPulse",
-    accentColor: "#1EA7FF",
+    accentColor: "#122631",
     solutions: [
       {
         slug: "pharmacy-management",
@@ -104,7 +104,7 @@ export const SOLUTION_CATEGORIES: SolutionCategory[] = [
     subtitle: "Technology & Software Transformation",
     description: "Tailored applications, healthcare portals, workflow automation, and custom digital systems built strictly around your actual clinical and administrative operations.",
     iconName: "Cpu",
-    accentColor: "#06366F",
+    accentColor: "#1E4A56",
     solutions: [
       {
         slug: "apps-and-software",
@@ -127,7 +127,7 @@ export const SOLUTION_CATEGORIES: SolutionCategory[] = [
     subtitle: "Staffing, MIS & Operational Governance",
     description: "Structured accounting, real-time MIS analytics, executive dashboards, and specialized healthcare staffing to keep operations compliant and running smoothly.",
     iconName: "Building2",
-    accentColor: "#0D6EFD",
+    accentColor: "#1A3644",
     solutions: [
       {
         slug: "accounting-mis",

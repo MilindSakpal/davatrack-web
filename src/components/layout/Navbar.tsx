@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { 
   ChevronDown, 
@@ -123,26 +124,16 @@ export function Navbar() {
             ============================================================ */}
         <Link
           href="/"
-          className="flex items-center gap-2.5 group focus-visible:outline-none rounded-full p-1 flex-shrink-0"
+          className="flex items-center group focus-visible:outline-none rounded-full py-1 px-1.5 flex-shrink-0"
         >
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#122631] via-[#266573] to-[#6BB0BF] border border-[#6BB0BF]/30 flex items-center justify-center text-white shadow-[0_0_15px_rgba(107,176,191,0.45)] group-hover:scale-105 transition-transform">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-4 h-4 text-white"
-            >
-              <polygon points="12 2 2 7 12 12 22 7 12 2" />
-              <polyline points="2 17 12 22 22 17" />
-              <polyline points="2 12 12 17 22 12" />
-            </svg>
-          </div>
-          <span className="font-extrabold text-lg sm:text-xl tracking-tight text-white leading-none">
-            Dava<span className="text-[#6BB0BF]">Track</span>
-          </span>
+          <Image
+            src="/logo-navbar.png"
+            alt="DavaTrack Digital LLP"
+            width={160}
+            height={36}
+            priority
+            className="h-7 sm:h-8 w-auto object-contain transition-transform duration-200 group-hover:scale-105 filter drop-shadow-[0_2px_8px_rgba(107,176,191,0.25)]"
+          />
         </Link>
 
         {/* ============================================================

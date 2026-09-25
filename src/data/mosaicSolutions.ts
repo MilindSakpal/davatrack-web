@@ -41,7 +41,7 @@ export const FOUR_CORE_SOLUTIONS: CoreSolutionDomain[] = [
     categoryLabel: "MEDICAL SUPPLY CHAIN & SOURCING",
     title: "Supply Chain",
     description: "Build a dependable medicine and healthcare-product supply system — from discovery and procurement to delivery management and real-time tracking.",
-    color: "#234E48", // Rich glossy forest teal
+    color: "#266573", // Deep Ocean Teal (Swatch #266573)
     tag: "SUPPLY CHAIN",
     slug: "medical-supply-delivery",
     subSolutions: [
@@ -56,7 +56,7 @@ export const FOUR_CORE_SOLUTIONS: CoreSolutionDomain[] = [
     categoryLabel: "PHARMACY OPERATIONS & PATIENT LIFECYCLE",
     title: "Pharmacy & Care",
     description: "End-to-end pharmacy management, continuous post-service patient engagement, and specialized insurance claims workflows.",
-    color: "#3D4952", // Rich glossy slate gray
+    color: "#122631", // Dark Midnight Slate (Swatch #122631)
     tag: "PHARMACY & CARE",
     slug: "pharmacy-management",
     subSolutions: [
@@ -71,7 +71,7 @@ export const FOUR_CORE_SOLUTIONS: CoreSolutionDomain[] = [
     categoryLabel: "TECHNOLOGY & SOFTWARE TRANSFORMATION",
     title: "Digital Health",
     description: "Tailored applications, healthcare portals, workflow automation, and custom digital systems built strictly around your actual clinical and administrative operations.",
-    color: "#354555", // Rich glossy steel navy
+    color: "#1E4A56", // Rich Deep Ocean Slate (Harmonized blend of #122631 and #266573)
     tag: "DIGITAL HEALTH",
     slug: "apps-and-software",
     subSolutions: [
@@ -85,7 +85,7 @@ export const FOUR_CORE_SOLUTIONS: CoreSolutionDomain[] = [
     categoryLabel: "STAFFING, MIS & OPERATIONAL GOVERNANCE",
     title: "Healthcare Administration",
     description: "Structured accounting, real-time MIS analytics, executive dashboards, and specialized healthcare staffing to keep operations compliant and running smoothly.",
-    color: "#5B434C", // Rich glossy mocha bronze / espresso
+    color: "#1A3644", // Deep Slate Marine (Replaced old brown with #122631/#266573 palette harmony)
     tag: "ADMINISTRATION",
     slug: "accounting-mis",
     subSolutions: [

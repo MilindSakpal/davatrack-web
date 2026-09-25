@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import {
   ArrowLeft,
@@ -148,25 +149,17 @@ function LoginContent() {
 
             <div className="relative z-10 space-y-6">
               {/* Brand Header */}
-              <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-[#122631] via-[#266573] to-[#6BB0BF] border border-[#6BB0BF]/30 flex items-center justify-center text-white shadow-sm">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-3.5 h-3.5 text-white"
-                  >
-                    <polygon points="12 2 2 7 12 12 22 7 12 2" />
-                    <polyline points="2 17 12 22 22 17" />
-                    <polyline points="2 12 12 17 22 12" />
-                  </svg>
-                </div>
-                <div className="font-extrabold text-base tracking-tight text-white">
-                  Dava<span className="text-[#6BB0BF]">Track</span> <span className="text-white/40 text-xs font-mono font-normal">| Portal</span>
-                </div>
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/logo-navbar.png"
+                  alt="DavaTrack Digital LLP"
+                  width={150}
+                  height={34}
+                  className="h-7 w-auto object-contain filter drop-shadow-[0_2px_8px_rgba(107,176,191,0.20)]"
+                />
+                <span className="text-white/40 text-xs font-mono font-medium pl-2.5 border-l border-white/20">
+                  Partner Portal
+                </span>
               </div>
 
               {/* Dynamic Role Showcase Content */}

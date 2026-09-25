@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Sparkles, ArrowUpRight, RefreshCw } from "lucide-react";
 import { 
   FOUR_CORE_SOLUTIONS, 
@@ -31,35 +32,35 @@ function GlossyPinwheelCard({
   return (
     <div
       className={cn(
-        "group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-[32px] border border-white/25 p-6 sm:p-8 lg:p-9 shadow-[0_16px_40px_rgba(6,54,111,0.18)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(6,54,111,0.28)]",
+        "group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-[32px] border border-white/25 p-6 sm:p-8 lg:p-9 shadow-[0_16px_40px_rgba(18,38,49,0.20)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(18,38,49,0.30)]",
         className
       )}
       style={{
         background: `
           linear-gradient(
             145deg,
-            rgba(255,255,255,0.28) 0%,
-            rgba(255,255,255,0.06) 45%,
-            rgba(0,0,0,0.22) 100%
+            rgba(255,255,255,0.22) 0%,
+            rgba(255,255,255,0.05) 45%,
+            rgba(0,0,0,0.25) 100%
           ),
           ${domain.color}
         `,
       }}
     >
       {/* Hardware-accelerated glossy top-left specular reflection */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.28)_0%,transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.24)_0%,transparent_60%)]" />
 
       {/* Deep subtle bottom shadow gradient */}
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-black/[0.20] to-transparent" />
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-black/[0.25] to-transparent" />
 
       {/* Diagonal shine sweep on hover */}
-      <div className="pointer-events-none absolute -left-[100%] top-[-30%] h-[180%] w-[60%] rotate-[25deg] bg-gradient-to-r from-transparent via-white/[0.25] to-transparent transition-transform duration-1000 ease-out group-hover:translate-x-[350%]" />
+      <div className="pointer-events-none absolute -left-[100%] top-[-30%] h-[180%] w-[60%] rotate-[25deg] bg-gradient-to-r from-transparent via-white/[0.22] to-transparent transition-transform duration-1000 ease-out group-hover:translate-x-[350%]" />
 
       {/* Inner glass bezel ring */}
       <div className="pointer-events-none absolute inset-[1px] rounded-[31px] border border-white/20" />
 
       {/* Crisp top edge highlight line */}
-      <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/50" />
+      <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/40" />
 
       {/* ============================================================
           CARD CONTENT
@@ -69,7 +70,7 @@ function GlossyPinwheelCard({
         {/* Top Header: Badge + Title */}
         <div className="space-y-3 sm:space-y-4">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-white/90 bg-white/[0.14] border border-white/25 px-3 py-1 rounded-full shadow-inner">
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#CAD7D0] bg-white/[0.12] border border-[#CAD7D0]/30 px-3 py-1 rounded-full shadow-inner">
               #{domain.number}
             </span>
           </div>
@@ -95,14 +96,14 @@ function GlossyPinwheelCard({
                 key={idx}
                 href={`/solutions/${sub.slug}`}
                 className={cn(
-                  "group/pill flex items-center justify-between rounded-xl border border-white/20 bg-white/[0.12] hover:bg-white/[0.24] font-semibold text-white shadow-sm transition-all duration-200 active:scale-[0.98] backdrop-blur-md",
+                  "group/pill flex items-center justify-between rounded-xl border border-white/18 bg-white/[0.10] hover:bg-white/[0.22] font-semibold text-white shadow-sm transition-all duration-200 active:scale-[0.98] backdrop-blur-md hover:border-[#6BB0BF]/40",
                   isHorizontal 
                     ? "px-3.5 py-2.5 sm:py-3 text-xs sm:text-[13px] leading-snug" 
                     : "px-4 py-3 sm:py-3.5 text-xs sm:text-sm leading-snug"
                 )}
               >
                 <span className={cn(isHorizontal ? "line-clamp-2" : "line-clamp-1")}>{sub.title}</span>
-                <span className="font-mono text-cyan-200 group-hover/pill:translate-x-0.5 group-hover/pill:-translate-y-0.5 transition-transform flex items-center ml-2 flex-shrink-0">
+                <span className="font-mono text-[#6BB0BF] group-hover/pill:text-white group-hover/pill:translate-x-0.5 group-hover/pill:-translate-y-0.5 transition-all flex items-center ml-2 flex-shrink-0">
                   <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </span>
               </Link>
@@ -262,20 +263,22 @@ export function DavaTrackExperience() {
             <GlossyPinwheelCard domain={pharmacyDomain} layout="horizontal" />
           </div>
 
-          {/* 3. CENTER BOX: Dava · Track Logo (Centerpiece - Cols 6 to 7, Row 2) */}
+          {/* 3. CENTER BOX: DavaTrack Logo (Centerpiece - Cols 6 to 7, Row 2) */}
           <div
             ref={(el) => { elementsRef.current[2] = el; }}
             className="lg:col-span-2 flex items-center justify-center will-change-transform self-center py-1.5"
           >
-            <div className="group relative flex items-center justify-center rounded-[20px] bg-white px-4 sm:px-5 py-2.5 sm:py-3 shadow-[0_10px_30px_rgba(6,54,111,0.12)] border border-black/8 hover:shadow-[0_16px_40px_rgba(6,54,111,0.20)] hover:scale-105 transition-all duration-300 w-full">
+            <div className="group relative flex items-center justify-center rounded-[20px] bg-white px-4 sm:px-5 py-2.5 sm:py-3 shadow-[0_10px_30px_rgba(18,38,49,0.12)] border border-[#CAD7D0] hover:shadow-[0_16px_40px_rgba(18,38,49,0.22)] hover:scale-105 transition-all duration-300 w-full">
               {/* Glossy top edge highlight */}
-              <div className="pointer-events-none absolute left-[15%] right-[15%] top-0 h-px bg-white/80" />
+              <div className="pointer-events-none absolute left-[15%] right-[15%] top-0 h-px bg-[#CAD7D0]/60" />
               
-              <span className="font-extrabold text-sm sm:text-base tracking-tight text-[#070913] flex items-center gap-1.5 whitespace-nowrap">
-                <span>Dava</span>
-                <span className="text-[#06B6D4] font-bold text-lg">·</span>
-                <span>Track</span>
-              </span>
+              <Image
+                src="/logo-transparent.png"
+                alt="DavaTrack"
+                width={140}
+                height={32}
+                className="h-6 sm:h-7 w-auto object-contain"
+              />
             </div>
           </div>
 

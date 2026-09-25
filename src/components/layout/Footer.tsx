@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, ShieldCheck, Mail, Phone, MapPin, Sparkles, CheckCircle2 } from "lucide-react";
 
 export function Footer() {
@@ -18,25 +19,14 @@ export function Footer() {
           
           {/* Brand & Mission Column (lg:col-span-2) */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#122631] via-[#266573] to-[#6BB0BF] border border-[#6BB0BF]/30 flex items-center justify-center text-white shadow-[0_0_15px_rgba(107,176,191,0.25)]">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="w-4 h-4 text-white"
-                >
-                  <polygon points="12 2 2 7 12 12 22 7 12 2" />
-                  <polyline points="2 17 12 22 22 17" />
-                  <polyline points="2 12 12 17 22 12" />
-                </svg>
-              </div>
-              <div className="font-extrabold text-xl tracking-tight text-white leading-none">
-                Dava<span className="text-[#6BB0BF]">Track</span>
-              </div>
+            <Link href="/" className="inline-block group focus-visible:outline-none">
+              <Image
+                src="/logo-navbar.png"
+                alt="DavaTrack Digital LLP"
+                width={180}
+                height={40}
+                className="h-8 sm:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105 filter drop-shadow-[0_2px_8px_rgba(107,176,191,0.20)]"
+              />
             </Link>
 
             <p className="text-xs sm:text-sm text-[#CAD7D0]/80 leading-relaxed max-w-sm">

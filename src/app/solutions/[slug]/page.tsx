@@ -74,9 +74,6 @@ export default function SolutionDetailPage({ params }: PageProps) {
       <div className="pointer-events-none absolute top-1/3 right-10 w-96 h-96 bg-[#CAD7D0]/30 rounded-full blur-[130px]" />
       <div className="pointer-events-none absolute bottom-1/4 left-10 w-96 h-96 bg-[#6BB0BF]/10 rounded-full blur-[130px]" />
       
-      {/* Subtle tech grid background */}
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(38,101,115,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(38,101,115,0.04)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_35%,#000_60%,transparent_100%)]" />
-
       {/* ============================================================
           HERO SECTION
           ============================================================ */}
@@ -307,169 +304,95 @@ export default function SolutionDetailPage({ params }: PageProps) {
                 </p>
               </div>
 
-              {/* Sober, Clean Healthcare Graphic Showcase Cards (Brand Palette, No Dark Techy boxes) */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                {relatedSolutions.map((related, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-white rounded-3xl p-6 sm:p-7 border border-[#CAD7D0] hover:border-[#266573]/50 shadow-[0_8px_30px_rgba(18,38,49,0.05)] transition-all duration-200 flex flex-col justify-between space-y-5"
-                  >
-                    <div className="space-y-4">
-                      {/* Badge and Tag Row */}
-                      {/* <div className="flex items-center justify-between gap-2 pb-1">
-                        <span className="px-3 py-1 rounded-full bg-[#EDF3F0] border border-[#CAD7D0] text-[#266573] text-[11px] font-mono font-bold shadow-xs">
-                          CAPABILITY #{related.number}
-                        </span>
-                        <span className="px-3 py-1 rounded-full bg-[#266573]/10 text-[#266573] text-[10px] font-mono font-bold uppercase tracking-wider">
-                          {related.categoryTitle}
-                        </span>
-                      </div> */}
+              {/* Glossy Homepage-Style Solution Cards with Small Details Right on This Page */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+                {relatedSolutions.map((related, idx) => {
+                  const cardColor = ["#266573", "#122631", "#1E4A56", "#1A3644"][idx % 4];
 
-                      {/* ============================================================
-                          SOBER & CLEAN HEALTHCARE GRAPHIC CONTAINER
-                          ============================================================ */}
-                      {related.slug === "vendor-discovery" ? (
-                        <div className="w-full h-44 rounded-2xl bg-[#EDF3F0] p-4 border border-[#CAD7D0] flex flex-col justify-between shadow-xs">
+                  return (
+                    <div
+                      key={idx}
+                      className="group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-[32px] border border-white/25 p-6 sm:p-7 shadow-[0_16px_40px_rgba(18,38,49,0.20)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(18,38,49,0.30)]"
+                      style={{
+                        background: `
+                          linear-gradient(
+                            145deg,
+                            rgba(255,255,255,0.22) 0%,
+                            rgba(255,255,255,0.05) 45%,
+                            rgba(0,0,0,0.25) 100%
+                          ),
+                          ${cardColor}
+                        `,
+                      }}
+                    >
+                      {/* Glossy top-left specular reflection */}
+                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.24)_0%,transparent_60%)]" />
+
+                      {/* Deep subtle bottom shadow gradient */}
+                      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-black/[0.25] to-transparent" />
+
+                      {/* Diagonal shine sweep on hover */}
+                      <div className="pointer-events-none absolute -left-[100%] top-[-30%] h-[180%] w-[60%] rotate-[25deg] bg-gradient-to-r from-transparent via-white/[0.22] to-transparent transition-transform duration-1000 ease-out group-hover:translate-x-[350%]" />
+
+                      {/* Inner glass bezel ring */}
+                      <div className="pointer-events-none absolute inset-[1px] rounded-[31px] border border-white/20" />
+
+                      {/* Crisp top edge highlight line */}
+                      <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/40" />
+
+                      {/* Card Content */}
+                      <div className="relative z-10 flex h-full flex-col justify-between space-y-5 text-white">
+                        {/* Top Header: Badge + Title + Icon */}
+                        <div className="space-y-3.5">
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                              <div className="w-2.5 h-2.5 rounded-full bg-[#266573]" />
-                              <span className="text-[11px] font-mono text-[#266573] font-bold">VERIFIED SOURCING NETWORK</span>
-                            </div>
-                            <span className="px-2.5 py-0.5 rounded-full bg-white border border-[#CAD7D0] text-[#122631] text-[10px] font-mono font-bold">
-                              500+ AUDITED
+                            <span className="text-xs font-mono font-bold uppercase tracking-[0.18em] text-[#CAD7D0] bg-white/[0.12] border border-[#CAD7D0]/30 px-3 py-1 rounded-full shadow-inner">
+                              #{related.number || `0${idx + 1}`} • {related.categoryTitle || "CAPABILITY"}
                             </span>
-                          </div>
-
-                          <div className="grid grid-cols-3 gap-2 py-1 text-center">
-                            <div className="p-2 rounded-xl bg-white border border-[#CAD7D0] shadow-xs">
-                              <div className="text-[10px] font-mono text-[#266573] font-bold">CDSCO Hub</div>
-                              <div className="text-[9px] text-[#122631]/70">Direct OEM</div>
-                            </div>
-                            <div className="p-2 rounded-xl bg-white border-2 border-[#266573] shadow-xs">
-                              <div className="text-[10px] font-mono text-[#266573] font-bold">Sourcing Hub</div>
-                              <div className="text-[9px] text-[#122631] font-semibold">Rate Contract</div>
-                            </div>
-                            <div className="p-2 rounded-xl bg-white border border-[#CAD7D0] shadow-xs">
-                              <div className="text-[10px] font-mono text-[#266573] font-bold">Consumables</div>
-                              <div className="text-[9px] text-[#122631]/70">Bulk Rates</div>
+                            <div className="w-9 h-9 rounded-xl bg-white/[0.12] text-[#6BB0BF] flex items-center justify-center border border-white/20 shadow-inner">
+                              <DynamicIcon name={related.iconName} className="w-4 h-4" />
                             </div>
                           </div>
 
-                          <div className="pt-2 border-t border-[#CAD7D0] flex items-center justify-between text-[10px] font-mono text-[#122631]">
-                            <span>NETWORK: <strong className="text-[#266573]">PAN-INDIA</strong></span>
-                            <span className="text-[#266573] font-bold">DIRECT CONTRACTS ✓</span>
-                          </div>
-                        </div>
-                      ) : related.slug === "pharmacy-management" ? (
-                        <div className="w-full h-44 rounded-2xl bg-[#EDF3F0] p-4 border border-[#CAD7D0] flex flex-col justify-between shadow-xs">
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                              <div className="w-2.5 h-2.5 rounded-full bg-[#266573]" />
-                              <span className="text-[11px] font-mono text-[#266573] font-bold">SMART DISPENSARY CONSOLE</span>
-                            </div>
-                            <span className="px-2.5 py-0.5 rounded-full bg-white border border-[#CAD7D0] text-[#122631] text-[10px] font-mono font-bold">
-                              POS SYNCED
-                            </span>
-                          </div>
-
-                          <div className="space-y-2 py-1">
-                            <div>
-                              <div className="flex justify-between text-[10px] font-mono text-[#122631] mb-1">
-                                <span>Stock Optimization Level</span>
-                                <span className="text-[#266573] font-bold">98.4%</span>
-                              </div>
-                              <div className="h-2 w-full bg-white rounded-full overflow-hidden border border-[#CAD7D0]">
-                                <div className="h-full bg-[#266573] rounded-full w-[98%]" />
-                              </div>
-                            </div>
-                            <div>
-                              <div className="flex justify-between text-[10px] font-mono text-[#122631] mb-1">
-                                <span>Near-Expiry Auto-Rotation</span>
-                                <span className="text-[#6BB0BF] font-bold font-mono">ACTIVE</span>
-                              </div>
-                              <div className="h-2 w-full bg-white rounded-full overflow-hidden border border-[#CAD7D0]">
-                                <div className="h-full bg-[#6BB0BF] rounded-full w-[88%]" />
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="pt-2 border-t border-[#CAD7D0] flex items-center justify-between text-[10px] font-mono text-[#122631]">
-                            <span>INVENTORY: <strong className="text-[#266573]">REAL-TIME</strong></span>
-                            <span className="text-[#266573] font-bold">ZERO STOCKOUTS ✓</span>
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="w-full h-44 rounded-2xl bg-[#EDF3F0] p-4 border border-[#CAD7D0] flex flex-col justify-between shadow-xs">
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                              <div className="w-2.5 h-2.5 rounded-full bg-[#266573]" />
-                              <span className="text-[11px] font-mono text-[#266573] font-bold">GMP PRODUCTION MATRIX</span>
-                            </div>
-                            <span className="px-2.5 py-0.5 rounded-full bg-white border border-[#CAD7D0] text-[#122631] text-[10px] font-mono font-bold">
-                              WHO-GMP
-                            </span>
-                          </div>
-
-                          <div className="grid grid-cols-2 gap-2 py-1">
-                            <div className="p-2.5 rounded-xl bg-white border border-[#CAD7D0] shadow-xs flex items-center gap-2">
-                              <div className="w-7 h-7 rounded-lg bg-[#266573]/15 text-[#266573] flex items-center justify-center text-xs font-bold flex-shrink-0">
-                                ✓
-                              </div>
-                              <div>
-                                <div className="text-[10px] font-mono font-bold text-[#122631]">Private Label</div>
-                                <div className="text-[9px] text-[#122631]/70">Formulations</div>
-                              </div>
-                            </div>
-                            <div className="p-2.5 rounded-xl bg-white border border-[#CAD7D0] shadow-xs flex items-center gap-2">
-                              <div className="w-7 h-7 rounded-lg bg-[#6BB0BF]/20 text-[#266573] flex items-center justify-center text-[10px] font-mono font-bold flex-shrink-0">
-                                COA
-                              </div>
-                              <div>
-                                <div className="text-[10px] font-mono font-bold text-[#122631]">Batch Certified</div>
-                                <div className="text-[9px] text-[#122631]/70">100% Sealed</div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="pt-2 border-t border-[#CAD7D0] flex items-center justify-between text-[10px] font-mono text-[#122631]">
-                            <span>QUALITY: <strong className="text-[#266573]">CLINICAL GRADE</strong></span>
-                            <span className="text-[#266573] font-bold">STANDARDIZED ✓</span>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Icon & Title */}
-                      <div className="flex items-center gap-3 pt-1">
-                        <div className="w-11 h-11 rounded-2xl bg-[#122631] text-[#6BB0BF] flex items-center justify-center flex-shrink-0 shadow-sm border border-[#266573]/20">
-                          <DynamicIcon name={related.iconName} className="w-5 h-5" />
-                        </div>
-                        <div>
-                          <h3 className="text-base sm:text-lg font-extrabold text-[#122631] leading-snug">
+                          <h3 className="font-display font-extrabold tracking-tight text-white text-xl sm:text-2xl leading-[1.2]">
                             {related.title}
                           </h3>
+
+                          <p className="text-xs text-[#CAD7D0]/90 leading-relaxed">
+                            {related.headline || related.shortDescription}
+                          </p>
+                        </div>
+
+                        {/* Operational Scope & Capabilities (Small details on this page) */}
+                        <div className="pt-2 border-t border-white/15 space-y-2.5">
+                          <div className="text-[10px] font-mono uppercase tracking-wider text-[#6BB0BF] font-bold">
+                            Operational Scope &amp; Deliverables:
+                          </div>
+                          <div className="space-y-2">
+                            {related.weCanSupport.slice(0, 3).map((item, sIdx) => (
+                              <div key={sIdx} className="flex items-start gap-2 text-xs text-white/95 leading-snug">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-[#6BB0BF] flex-shrink-0 mt-0.5" />
+                                <span>{item}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Key Measurable Outcomes Badges */}
+                        <div className="pt-2 border-t border-white/10 space-y-1.5">
+                          {related.keyOutcomes.slice(0, 2).map((outcome, oIdx) => (
+                            <div
+                              key={oIdx}
+                              className="flex items-center gap-2 p-2.5 rounded-xl border border-white/18 bg-white/[0.10] text-xs font-semibold text-white shadow-xs backdrop-blur-md"
+                            >
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#6BB0BF] flex-shrink-0" />
+                              <span className="line-clamp-1 text-[11px] sm:text-xs text-[#CAD7D0]">{outcome}</span>
+                            </div>
+                          ))}
                         </div>
                       </div>
-
-                      {/* Short, Punchy 1-Line Copy */}
-                      <p className="text-xs text-[#122631]/75 leading-relaxed">
-                        {related.headline || related.shortDescription}
-                      </p>
-
-                      {/* Key Feature Badges */}
-                      <div className="flex flex-wrap gap-2 pt-1">
-                        {related.keyOutcomes.slice(0, 2).map((outcome, oIdx) => (
-                          <span 
-                            key={oIdx}
-                            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-[#EDF3F0] border border-[#CAD7D0] text-[11px] text-[#122631] font-semibold"
-                          >
-                            <CheckCircle2 className="w-3.5 h-3.5 text-[#266573]" />
-                            <span>{outcome}</span>
-                          </span>
-                        ))}
-                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}
