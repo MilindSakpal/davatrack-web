@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Sparkles, ArrowUpRight, RefreshCw } from "lucide-react";
+import { Sparkles, ArrowUpRight } from "lucide-react";
 import { 
   FOUR_CORE_SOLUTIONS, 
   PINWHEEL_ENTRY_VECTORS, 
@@ -32,51 +32,51 @@ function GlossyPinwheelCard({
   return (
     <div
       className={cn(
-        "group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-[32px] border border-white/25 p-6 sm:p-8 lg:p-9 shadow-[0_16px_40px_rgba(18,38,49,0.20)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(18,38,49,0.30)]",
+        "group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-[32px] border border-white/60 p-6 sm:p-8 lg:p-9 shadow-[0_16px_40px_rgba(18,38,49,0.10)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(18,38,49,0.20)]",
         className
       )}
       style={{
         background: `
           linear-gradient(
             145deg,
-            rgba(255,255,255,0.22) 0%,
-            rgba(255,255,255,0.05) 45%,
-            rgba(0,0,0,0.25) 100%
+            rgba(255,255,255,0.45) 0%,
+            rgba(255,255,255,0.15) 45%,
+            rgba(18,38,49,0.06) 100%
           ),
-          ${domain.color}
+          #6EBCBF
         `,
       }}
     >
       {/* Hardware-accelerated glossy top-left specular reflection */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.24)_0%,transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.45)_0%,transparent_60%)]" />
 
       {/* Deep subtle bottom shadow gradient */}
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-black/[0.25] to-transparent" />
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[35%] bg-gradient-to-t from-[#122631]/[0.08] to-transparent" />
 
       {/* Diagonal shine sweep on hover */}
-      <div className="pointer-events-none absolute -left-[100%] top-[-30%] h-[180%] w-[60%] rotate-[25deg] bg-gradient-to-r from-transparent via-white/[0.22] to-transparent transition-transform duration-1000 ease-out group-hover:translate-x-[350%]" />
+      <div className="pointer-events-none absolute -left-[100%] top-[-30%] h-[180%] w-[60%] rotate-[25deg] bg-gradient-to-r from-transparent via-white/[0.35] to-transparent transition-transform duration-1000 ease-out group-hover:translate-x-[350%]" />
 
       {/* Inner glass bezel ring */}
-      <div className="pointer-events-none absolute inset-[1px] rounded-[31px] border border-white/20" />
+      <div className="pointer-events-none absolute inset-[1px] rounded-[31px] border border-white/40" />
 
       {/* Crisp top edge highlight line */}
-      <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/40" />
+      <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/70" />
 
       {/* ============================================================
           CARD CONTENT
           ============================================================ */}
-      <div className="relative z-10 flex h-full flex-col justify-between space-y-6 text-white">
+      <div className="relative z-10 flex h-full flex-col justify-between space-y-6 text-[#122631]">
         
         {/* Top Header: Badge + Title */}
         <div className="space-y-3 sm:space-y-4">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#CAD7D0] bg-white/[0.12] border border-[#CAD7D0]/30 px-3 py-1 rounded-full shadow-inner">
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-white bg-[#122631] border border-[#122631]/20 px-3 py-1 rounded-full shadow-sm">
               #{domain.number}
             </span>
           </div>
 
           <h3 className={cn(
-            "font-display font-extrabold tracking-tight text-white leading-[1.1]",
+            "font-display font-extrabold tracking-tight text-[#122631] leading-[1.1]",
             isHorizontal ? "text-2xl sm:text-3xl" : "text-2xl sm:text-3xl lg:text-[34px]"
           )}>
             {domain.title}
@@ -96,14 +96,14 @@ function GlossyPinwheelCard({
                 key={idx}
                 href={`/solutions/${sub.slug}`}
                 className={cn(
-                  "group/pill flex items-center justify-between rounded-xl border border-white/18 bg-white/[0.10] hover:bg-white/[0.22] font-semibold text-white shadow-sm transition-all duration-200 active:scale-[0.98] backdrop-blur-md hover:border-[#6BB0BF]/40",
+                  "group/pill flex items-center justify-between rounded-xl border border-white/70 bg-white/80 hover:bg-white font-bold text-[#122631] shadow-xs transition-all duration-200 active:scale-[0.98] backdrop-blur-md hover:border-white hover:shadow-md",
                   isHorizontal 
                     ? "px-3.5 py-2.5 sm:py-3 text-xs sm:text-[13px] leading-snug" 
                     : "px-4 py-3 sm:py-3.5 text-xs sm:text-sm leading-snug"
                 )}
               >
                 <span className={cn(isHorizontal ? "line-clamp-2" : "line-clamp-1")}>{sub.title}</span>
-                <span className="font-mono text-[#6BB0BF] group-hover/pill:text-white group-hover/pill:translate-x-0.5 group-hover/pill:-translate-y-0.5 transition-all flex items-center ml-2 flex-shrink-0">
+                <span className="font-mono text-[#266573] group-hover/pill:text-[#122631] group-hover/pill:translate-x-0.5 group-hover/pill:-translate-y-0.5 transition-all flex items-center ml-2 flex-shrink-0">
                   <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </span>
               </Link>
@@ -203,38 +203,20 @@ export function DavaTrackExperience() {
     <section
       ref={sectionRef}
       id="glossy-architecture"
-      className="py-20 lg:py-28 bg-[#EDF3F0] text-[#122631] border-b border-[#CBD9D2]/70 relative overflow-hidden"
+      className="py-20 lg:py-28 bg-[#EDEDE5] text-[#122631] border-b border-[#CBD9D2]/70 relative overflow-hidden"
     >
       {/* Soft top gradient blend from Hero section */}
       <div className="pointer-events-none absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#122631]/[0.025] to-transparent z-0" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header with Replay Control */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 lg:mb-16">
-          <div className="space-y-3 max-w-2xl">
-            {/* <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#122631] text-white text-xs font-mono uppercase tracking-wider shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-[#6BB0BF]" />
-              <span>Core Solutions Matrix</span>
-            </div> */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#122631] tracking-tight">
-              The DavaTrack Architecture
-            </h2>
-            <p className="text-sm sm:text-base text-[#4A6572] max-w-xl">
-              Interconnected operational pillars combining medical supply, pharmacy operations, custom software, and governance.
-            </p>
-          </div>
-
-          {/* Interactive Replay Control */}
-          <div className="flex items-center gap-2.5 flex-shrink-0">
-            <button
-              onClick={playAssembleAnimation}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#122631] text-white shadow-soft font-mono font-bold text-xs hover:bg-[#266573] transition-all active:scale-95 cursor-pointer"
-              title="Replay Assemble Animation"
-            >
-              <RefreshCw className="w-3.5 h-3.5 text-[#6BB0BF]" />
-              <span>Replay Assembly</span>
-            </button>
-          </div>
+        {/* Section Header */}
+        <div className="space-y-3 max-w-2xl mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#122631] tracking-tight">
+            The DavaTrack Architecture
+          </h2>
+          <p className="text-sm sm:text-base text-[#4A6572] max-w-xl">
+            Interconnected operational pillars combining medical supply, pharmacy operations, custom software, and governance.
+          </p>
         </div>
 
         {/* ============================================================

@@ -105,7 +105,7 @@ function LoginContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[#EDF3F0] text-[#122631] pt-28 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden flex items-center justify-center">
+    <div className="min-h-screen bg-[#EDEDE5] text-[#122631] pt-28 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden flex items-center justify-center">
       {/* Background Ambient Reflections */}
       <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[850px] h-[400px] rounded-full bg-gradient-to-b from-[#6BB0BF]/15 via-[#266573]/8 to-transparent blur-[140px]" />
       <div className="pointer-events-none absolute bottom-0 right-10 w-96 h-96 rounded-full bg-[#CAD7D0]/35 blur-[130px]" />
@@ -257,7 +257,7 @@ function LoginContent() {
                   <button
                     type="button"
                     onClick={handleDemoFill}
-                    className="hidden sm:inline-flex items-center gap-1 text-[11px] font-bold text-[#266573] hover:text-[#122631] px-2.5 py-1 rounded-lg bg-[#EDF3F0] border border-[#CAD7D0] transition-colors"
+                    className="hidden sm:inline-flex items-center gap-1 text-[11px] font-bold text-[#266573] hover:text-[#122631] px-2.5 py-1 rounded-lg bg-[#EDEDE5] border border-[#CAD7D0] transition-colors"
                     title="Auto-fills sample credentials for testing"
                   >
                     <Zap className="w-3 h-3 text-[#266573]" />
@@ -266,7 +266,7 @@ function LoginContent() {
                 </div>
 
                 {/* 2-Role Segmented Selector (Retailer vs Agency ONLY) */}
-                <div className="grid grid-cols-2 gap-2 p-1.5 rounded-2xl bg-[#EDF3F0] border border-[#CAD7D0]">
+                <div className="grid grid-cols-2 gap-2 p-1.5 rounded-2xl bg-[#EDEDE5] border border-[#CAD7D0]">
                   <button
                     type="button"
                     onClick={() => handleRoleChange("retailer")}
@@ -299,7 +299,7 @@ function LoginContent() {
                   <div className="text-[11px] font-mono uppercase tracking-wider text-[#266573] font-bold">
                     Sign in with:
                   </div>
-                  <div className="inline-flex rounded-lg bg-[#EDF3F0] p-0.5 border border-[#CAD7D0] text-[11px]">
+                  <div className="inline-flex rounded-lg bg-[#EDEDE5] p-0.5 border border-[#CAD7D0] text-[11px]">
                     <button
                       type="button"
                       onClick={() => setAuthMethod("password")}
@@ -326,7 +326,7 @@ function LoginContent() {
                   SUCCESS STATE BANNER
                   ====================================================== */}
               {isSuccess ? (
-                <div className="p-6 rounded-2xl bg-[#EDF3F0] border border-[#266573]/30 text-center space-y-3 animate-in zoom-in-95 duration-200">
+                <div className="p-6 rounded-2xl bg-[#EDEDE5] border border-[#266573]/30 text-center space-y-3 animate-in zoom-in-95 duration-200">
                   <div className="w-12 h-12 rounded-full bg-[#266573] text-white flex items-center justify-center mx-auto shadow-md">
                     <CheckCircle2 className="w-6 h-6 text-[#6BB0BF]" />
                   </div>
@@ -382,7 +382,7 @@ function LoginContent() {
                             ? "e.g. 98765 11223"
                             : "e.g. AGY-DEL-9021 or 27AAAAA0000A1Z5"
                         }
-                        className="w-full bg-[#EDF3F0]/50 border border-[#CAD7D0] rounded-xl pl-10 pr-4 py-3 text-xs sm:text-sm text-[#122631] placeholder-[#122631]/40 focus:outline-none focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20 transition-all font-medium"
+                        className="w-full bg-[#EDEDE5]/50 border border-[#CAD7D0] rounded-xl pl-10 pr-4 py-3 text-xs sm:text-sm text-[#122631] placeholder-[#122631]/40 focus:outline-none focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20 transition-all font-medium"
                       />
                     </div>
                   </div>
@@ -410,7 +410,7 @@ function LoginContent() {
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}
                           placeholder="••••••••••••"
-                          className="w-full bg-[#EDF3F0]/50 border border-[#CAD7D0] rounded-xl pl-10 pr-10 py-3 text-xs sm:text-sm text-[#122631] placeholder-[#122631]/40 focus:outline-none focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20 transition-all font-medium"
+                          className="w-full bg-[#EDEDE5]/50 border border-[#CAD7D0] rounded-xl pl-10 pr-10 py-3 text-xs sm:text-sm text-[#122631] placeholder-[#122631]/40 focus:outline-none focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20 transition-all font-medium"
                         />
                         <button
                           type="button"
@@ -455,7 +455,7 @@ function LoginContent() {
                             onChange={(e) => setOtp(e.target.value)}
                             placeholder={otpSent ? "Enter 6-digit OTP" : "Click 'Send OTP' first"}
                             disabled={!otpSent}
-                            className="w-full bg-[#EDF3F0]/50 border border-[#CAD7D0] rounded-xl pl-10 pr-4 py-3 text-xs sm:text-sm text-[#122631] placeholder-[#122631]/40 focus:outline-none focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20 transition-all font-mono tracking-widest disabled:opacity-50"
+                            className="w-full bg-[#EDEDE5]/50 border border-[#CAD7D0] rounded-xl pl-10 pr-4 py-3 text-xs sm:text-sm text-[#122631] placeholder-[#122631]/40 focus:outline-none focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20 transition-all font-mono tracking-widest disabled:opacity-50"
                           />
                         </div>
 
@@ -551,7 +551,7 @@ function LoginContent() {
               </div>
               <button
                 onClick={() => setShowHelpModal(false)}
-                className="p-1 rounded-lg text-[#122631]/60 hover:text-[#122631] hover:bg-[#EDF3F0]"
+                className="p-1 rounded-lg text-[#122631]/60 hover:text-[#122631] hover:bg-[#EDEDE5]"
               >
                 ✕
               </button>
@@ -562,7 +562,7 @@ function LoginContent() {
                 To reset your <b>Drug License (DL) credentials</b>, <b>Agency Security PIN</b>, or update your registered OTP mobile number, please contact your assigned DavaTrack Operations Coordinator:
               </p>
 
-              <div className="p-3.5 rounded-2xl bg-[#EDF3F0] border border-[#CAD7D0] space-y-2">
+              <div className="p-3.5 rounded-2xl bg-[#EDEDE5] border border-[#CAD7D0] space-y-2">
                 <div className="flex items-center justify-between font-mono">
                   <span className="text-[#266573] font-bold">Email Support:</span>
                   <a href={`mailto:${SITE_CONFIG.contact.supportEmail}`} className="text-[#122631] font-bold hover:underline">
@@ -600,7 +600,7 @@ export default function LoginPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-[#EDF3F0] flex items-center justify-center">
+        <div className="min-h-screen bg-[#EDEDE5] flex items-center justify-center">
           <div className="w-8 h-8 border-3 border-[#266573] border-t-transparent rounded-full animate-spin" />
         </div>
       }

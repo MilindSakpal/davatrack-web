@@ -68,7 +68,7 @@ export default function SolutionDetailPage({ params }: PageProps) {
     .filter(Boolean);
 
   return (
-    <div className="min-h-screen bg-[#EDF3F0] text-[#122631] pt-28 pb-24 relative overflow-hidden">
+    <div className="min-h-screen bg-[#EDEDE5] text-[#122631] pt-28 pb-24 relative overflow-hidden">
       {/* Background ambient lighting */}
       <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-b from-[#6BB0BF]/15 via-[#266573]/5 to-transparent rounded-full blur-[150px]" />
       <div className="pointer-events-none absolute top-1/3 right-10 w-96 h-96 bg-[#CAD7D0]/30 rounded-full blur-[130px]" />
@@ -130,49 +130,42 @@ export default function SolutionDetailPage({ params }: PageProps) {
                   <span>Deploy This Capability</span>
                   <ArrowRight className="w-4 h-4 text-[#6BB0BF]" />
                 </Link>
-
-                <Link
-                  href="/solutions"
-                  className="px-6 py-3 rounded-full bg-white hover:bg-[#EDF3F0] text-[#122631] font-bold text-sm border border-[#CAD7D0] shadow-sm transition-all"
-                >
-                  View Solutions Matrix
-                </Link>
               </div>
             </div>
 
             {/* Right Card: Quick Spec Sheet */}
             <div className="lg:col-span-4">
-              <div className="bg-white rounded-3xl p-6 sm:p-7 border border-[#CAD7D0] shadow-[0_12px_40px_rgba(18,38,49,0.06)] space-y-6 relative overflow-hidden">
-                <div className="pointer-events-none absolute -right-10 -top-10 w-32 h-32 bg-[#6BB0BF]/10 rounded-full blur-2xl" />
+              <div className="bg-[#6EBCBF] rounded-3xl p-6 sm:p-7 border-2 border-white/60 shadow-[0_12px_40px_rgba(18,38,49,0.08)] space-y-6 relative overflow-hidden">
+                <div className="pointer-events-none absolute -right-10 -top-10 w-32 h-32 bg-white/30 rounded-full blur-2xl" />
 
-                <div className="flex items-center gap-3 pb-4 border-b border-[#CAD7D0]/60">
-                  <div className="w-12 h-12 rounded-2xl bg-[#122631] text-[#6BB0BF] flex items-center justify-center shadow-md border border-[#266573]/20">
+                <div className="flex items-center gap-3 pb-4 border-b border-white/60">
+                  <div className="w-12 h-12 rounded-2xl bg-[#122631] text-[#6EBCBF] flex items-center justify-center shadow-md border border-[#122631]/20">
                     <DynamicIcon name={solution.iconName} className="w-6 h-6" />
                   </div>
                   <div>
-                    <div className="text-[10px] font-mono uppercase tracking-wider text-[#266573] font-bold">
+                    <div className="text-[10px] font-mono uppercase tracking-wider text-[#122631] font-extrabold">
                       EXECUTION SPEC
                     </div>
-                    <div className="text-base font-extrabold text-[#122631]">
+                    <div className="text-base font-black text-[#122631]">
                       {solution.title}
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  <div className="text-xs font-mono uppercase tracking-wider text-[#266573] font-bold">
+                  <div className="text-xs font-mono uppercase tracking-wider text-[#122631] font-extrabold">
                     Guaranteed Operational Deliverables
                   </div>
                   {solution.keyOutcomes.slice(0, 4).map((outcome, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 text-xs text-[#122631]/80 font-medium">
+                    <div key={idx} className="flex items-start gap-2.5 text-xs text-[#122631] font-bold">
                       <CheckCircle2 className="w-4 h-4 text-[#266573] flex-shrink-0 mt-0.5" />
                       <span>{outcome}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-[#EDF3F0] border border-[#CAD7D0] text-xs text-[#122631]/70">
-                  <span className="font-bold text-[#122631]">Single-Point SLA:</span> Managed end-to-end under DavaTrack Digital LLP&apos;s integrated governance.
+                <div className="p-3.5 rounded-xl bg-white/80 border border-white/90 text-xs text-[#122631] font-medium shadow-xs">
+                  <span className="font-extrabold text-[#122631]">Single-Point SLA:</span> Managed end-to-end under DavaTrack Digital LLP&apos;s integrated governance.
                 </div>
               </div>
             </div>
@@ -203,7 +196,7 @@ export default function SolutionDetailPage({ params }: PageProps) {
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-[#122631] tracking-tight">
                     What We Deliver in {solution.title}
                   </h2>
-                  <p className="text-sm sm:text-base text-[#122631]/70">
+                  <p className="text-sm sm:text-base text-[#122631]/75 leading-relaxed">
                     Engage us for modular components or turnkey operational execution across these key areas:
                   </p>
                 </div>
@@ -212,17 +205,17 @@ export default function SolutionDetailPage({ params }: PageProps) {
                   {solution.weCanSupport.map((item, idx) => (
                     <div
                       key={idx}
-                      className="bg-white hover:bg-[#F9FBFA] rounded-2xl p-5 border border-[#CAD7D0] hover:border-[#266573]/40 shadow-[0_4px_16px_rgba(18,38,49,0.04)] transition-all duration-200 flex flex-col justify-between"
+                      className="bg-[#6EBCBF] rounded-2xl p-5 border-2 border-white/60 shadow-[0_4px_16px_rgba(18,38,49,0.05)] transition-all duration-200 flex flex-col justify-between"
                     >
                       <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-[#266573] mt-2 flex-shrink-0" />
-                        <p className="text-xs sm:text-sm text-[#122631] font-semibold leading-snug">
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#122631] mt-1.5 flex-shrink-0" />
+                        <p className="text-xs sm:text-sm text-[#122631] font-bold leading-snug">
                           {item}
                         </p>
                       </div>
-                      <div className="mt-4 pt-3 border-t border-[#CAD7D0]/60 flex items-center justify-between text-[10px] font-mono text-[#266573]/70">
-                        <span>STATUS</span>
-                        <span className="text-[#266573] font-bold">MANAGED</span>
+                      <div className="mt-4 pt-3 border-t border-white/50 flex items-center justify-between text-[10px] font-mono text-[#122631]">
+                        <span className="font-semibold">STATUS</span>
+                        <span className="bg-[#122631] text-white px-2 py-0.5 rounded-full font-extrabold">MANAGED</span>
                       </div>
                     </div>
                   ))}
@@ -240,7 +233,7 @@ export default function SolutionDetailPage({ params }: PageProps) {
                     <h2 className="text-2xl sm:text-3xl font-extrabold text-[#122631] tracking-tight">
                       How We Implement This Solution
                     </h2>
-                    <p className="text-sm sm:text-base text-[#122631]/70">
+                    <p className="text-sm sm:text-base text-[#122631]/75 leading-relaxed">
                       A structured, 5-phase delivery model ensuring seamless transition and zero operational downtime.
                     </p>
                   </div>
@@ -249,19 +242,25 @@ export default function SolutionDetailPage({ params }: PageProps) {
                     {solution.processSteps.map((step, idx) => (
                       <div
                         key={idx}
-                        className="bg-white rounded-2xl p-6 border border-[#CAD7D0] shadow-[0_4px_16px_rgba(18,38,49,0.04)] relative overflow-hidden"
+                        className="bg-[#6EBCBF] rounded-2xl p-6 border-2 border-white/60 shadow-[0_4px_16px_rgba(18,38,49,0.05)] relative overflow-hidden flex flex-col justify-between"
                       >
-                        <div className="font-mono text-2xl font-black text-[#266573]/30 mb-3">
-                          #{step.number}
+                        <div>
+                          <div className="font-mono text-2xl font-black text-[#122631]/40 mb-3">
+                            #{step.number}
+                          </div>
+                          <h3 className="text-base font-extrabold text-[#122631] mb-2 leading-snug">
+                            {step.title}
+                          </h3>
+                          {step.description && (
+                            <p className="text-xs text-[#122631]/85 font-medium leading-relaxed">
+                              {step.description}
+                            </p>
+                          )}
                         </div>
-                        <h3 className="text-base font-bold text-[#122631] mb-2 leading-snug">
-                          {step.title}
-                        </h3>
-                        {step.description && (
-                          <p className="text-xs text-[#122631]/70 leading-relaxed">
-                            {step.description}
-                          </p>
-                        )}
+                        <div className="mt-4 pt-3 border-t border-white/50 flex items-center justify-between text-[10px] font-mono text-[#122631]">
+                          <span className="font-bold">PHASE #{step.number}</span>
+                          <span className="bg-[#122631] text-white px-2 py-0.5 rounded-full font-extrabold">VERIFIED</span>
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -307,70 +306,68 @@ export default function SolutionDetailPage({ params }: PageProps) {
               {/* Glossy Homepage-Style Solution Cards with Small Details Right on This Page */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
                 {relatedSolutions.map((related, idx) => {
-                  const cardColor = ["#266573", "#122631", "#1E4A56", "#1A3644"][idx % 4];
-
                   return (
                     <div
                       key={idx}
-                      className="group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-[32px] border border-white/25 p-6 sm:p-7 shadow-[0_16px_40px_rgba(18,38,49,0.20)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(18,38,49,0.30)]"
+                      className="group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-[32px] border border-white/60 p-6 sm:p-7 shadow-[0_16px_40px_rgba(18,38,49,0.10)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(18,38,49,0.20)]"
                       style={{
                         background: `
                           linear-gradient(
                             145deg,
-                            rgba(255,255,255,0.22) 0%,
-                            rgba(255,255,255,0.05) 45%,
-                            rgba(0,0,0,0.25) 100%
+                            rgba(255,255,255,0.45) 0%,
+                            rgba(255,255,255,0.15) 45%,
+                            rgba(18,38,49,0.06) 100%
                           ),
-                          ${cardColor}
+                          #6EBCBF
                         `,
                       }}
                     >
                       {/* Glossy top-left specular reflection */}
-                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.24)_0%,transparent_60%)]" />
+                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.45)_0%,transparent_60%)]" />
 
                       {/* Deep subtle bottom shadow gradient */}
-                      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-black/[0.25] to-transparent" />
+                      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[35%] bg-gradient-to-t from-[#122631]/[0.08] to-transparent" />
 
                       {/* Diagonal shine sweep on hover */}
-                      <div className="pointer-events-none absolute -left-[100%] top-[-30%] h-[180%] w-[60%] rotate-[25deg] bg-gradient-to-r from-transparent via-white/[0.22] to-transparent transition-transform duration-1000 ease-out group-hover:translate-x-[350%]" />
+                      <div className="pointer-events-none absolute -left-[100%] top-[-30%] h-[180%] w-[60%] rotate-[25deg] bg-gradient-to-r from-transparent via-white/[0.35] to-transparent transition-transform duration-1000 ease-out group-hover:translate-x-[350%]" />
 
                       {/* Inner glass bezel ring */}
-                      <div className="pointer-events-none absolute inset-[1px] rounded-[31px] border border-white/20" />
+                      <div className="pointer-events-none absolute inset-[1px] rounded-[31px] border border-white/40" />
 
                       {/* Crisp top edge highlight line */}
-                      <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/40" />
+                      <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/70" />
 
                       {/* Card Content */}
-                      <div className="relative z-10 flex h-full flex-col justify-between space-y-5 text-white">
+                      <div className="relative z-10 flex h-full flex-col justify-between space-y-5 text-[#122631]">
                         {/* Top Header: Badge + Title + Icon */}
                         <div className="space-y-3.5">
                           <div className="flex items-center justify-between">
-                            <span className="text-xs font-mono font-bold uppercase tracking-[0.18em] text-[#CAD7D0] bg-white/[0.12] border border-[#CAD7D0]/30 px-3 py-1 rounded-full shadow-inner">
+                            <span className="text-xs font-mono font-bold uppercase tracking-[0.18em] text-white bg-[#122631] border border-[#122631]/20 px-3 py-1 rounded-full shadow-sm">
                               #{related.number || `0${idx + 1}`} • {related.categoryTitle || "CAPABILITY"}
                             </span>
-                            <div className="w-9 h-9 rounded-xl bg-white/[0.12] text-[#6BB0BF] flex items-center justify-center border border-white/20 shadow-inner">
+                            <div className="w-9 h-9 rounded-xl bg-white/80 text-[#122631] flex items-center justify-center border border-white/70 shadow-xs">
                               <DynamicIcon name={related.iconName} className="w-4 h-4" />
                             </div>
                           </div>
 
-                          <h3 className="font-display font-extrabold tracking-tight text-white text-xl sm:text-2xl leading-[1.2]">
+                          <h3 className="font-display font-extrabold tracking-tight text-[#122631] text-xl sm:text-2xl leading-[1.2]">
                             {related.title}
                           </h3>
 
-                          <p className="text-xs text-[#CAD7D0]/90 leading-relaxed">
+                          <p className="text-xs text-[#122631]/85 leading-relaxed font-medium">
                             {related.headline || related.shortDescription}
                           </p>
                         </div>
 
                         {/* Operational Scope & Capabilities (Small details on this page) */}
-                        <div className="pt-2 border-t border-white/15 space-y-2.5">
-                          <div className="text-[10px] font-mono uppercase tracking-wider text-[#6BB0BF] font-bold">
+                        <div className="pt-2 border-t border-[#122631]/15 space-y-2.5">
+                          <div className="text-[10px] font-mono uppercase tracking-wider text-[#266573] font-bold">
                             Operational Scope &amp; Deliverables:
                           </div>
                           <div className="space-y-2">
                             {related.weCanSupport.slice(0, 3).map((item, sIdx) => (
-                              <div key={sIdx} className="flex items-start gap-2 text-xs text-white/95 leading-snug">
-                                <CheckCircle2 className="w-3.5 h-3.5 text-[#6BB0BF] flex-shrink-0 mt-0.5" />
+                              <div key={sIdx} className="flex items-start gap-2 text-xs text-[#122631] leading-snug font-medium">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-[#266573] flex-shrink-0 mt-0.5" />
                                 <span>{item}</span>
                               </div>
                             ))}
@@ -378,14 +375,14 @@ export default function SolutionDetailPage({ params }: PageProps) {
                         </div>
 
                         {/* Key Measurable Outcomes Badges */}
-                        <div className="pt-2 border-t border-white/10 space-y-1.5">
+                        <div className="pt-2 border-t border-[#122631]/10 space-y-1.5">
                           {related.keyOutcomes.slice(0, 2).map((outcome, oIdx) => (
                             <div
                               key={oIdx}
-                              className="flex items-center gap-2 p-2.5 rounded-xl border border-white/18 bg-white/[0.10] text-xs font-semibold text-white shadow-xs backdrop-blur-md"
+                              className="flex items-center gap-2 p-2.5 rounded-xl border border-white/80 bg-white/80 text-xs font-bold text-[#122631] shadow-xs backdrop-blur-md"
                             >
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#6BB0BF] flex-shrink-0" />
-                              <span className="line-clamp-1 text-[11px] sm:text-xs text-[#CAD7D0]">{outcome}</span>
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#266573] flex-shrink-0" />
+                              <span className="line-clamp-1 text-[11px] sm:text-xs text-[#122631]">{outcome}</span>
                             </div>
                           ))}
                         </div>
@@ -410,7 +407,7 @@ export default function SolutionDetailPage({ params }: PageProps) {
               <div className="pt-2 flex flex-wrap justify-center gap-4">
                 <Link
                   href="/inquiry"
-                  className="px-8 py-3.5 rounded-full bg-white hover:bg-[#EDF3F0] text-[#122631] font-bold text-sm sm:text-base shadow-lg transition-all active:scale-95"
+                  className="px-8 py-3.5 rounded-full bg-white hover:bg-[#EDEDE5] text-[#122631] font-bold text-sm sm:text-base shadow-lg transition-all active:scale-95"
                 >
                   Discuss Your Requirement
                 </Link>

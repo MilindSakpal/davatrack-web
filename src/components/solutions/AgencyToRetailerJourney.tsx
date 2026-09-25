@@ -171,7 +171,7 @@ export function AgencyToRetailerJourney() {
     <section className="w-full py-4 sm:py-6">
       <div 
         ref={containerRef}
-        className="w-full bg-[#EDF3F0] rounded-[36px] sm:rounded-[48px] p-4 sm:p-8 lg:p-10 pb-6 sm:pb-8 border-2 border-[#CAD7D0] shadow-[0_20px_60px_rgba(18,38,49,0.06)] relative overflow-hidden text-[#122631]"
+        className="w-full bg-[#EDEDE5] rounded-[36px] sm:rounded-[48px] p-4 sm:p-8 lg:p-10 pb-6 sm:pb-8 border-2 border-[#CAD7D0] shadow-[0_20px_60px_rgba(18,38,49,0.06)] relative overflow-hidden text-[#122631]"
       >
         {/* Ambient atmospheric lighting in palette colors */}
         <div className="pointer-events-none absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#6BB0BF]/20 rounded-full blur-[150px]" />
@@ -459,56 +459,56 @@ export function AgencyToRetailerJourney() {
             {/* Card 1: Stage 01 Central Pharma Agency (Left Flank, Top) */}
             <div className="lg:col-span-5 max-w-lg mr-auto w-full -mt-2 sm:-mt-6 lg:-mt-8">
               <div
-                className="group relative flex flex-col justify-between overflow-hidden rounded-[32px] border border-white/20 p-6 sm:p-8 lg:p-9 shadow-[0_16px_40px_rgba(18,38,49,0.22)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(18,38,49,0.32)]"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-[32px] border border-white/60 p-6 sm:p-8 lg:p-9 shadow-[0_16px_40px_rgba(18,38,49,0.10)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(18,38,49,0.20)]"
                 style={{
                   background: `
                     linear-gradient(
                       145deg,
-                      rgba(255,255,255,0.22) 0%,
-                      rgba(255,255,255,0.05) 45%,
-                      rgba(0,0,0,0.25) 100%
+                      rgba(255,255,255,0.45) 0%,
+                      rgba(255,255,255,0.15) 45%,
+                      rgba(18,38,49,0.06) 100%
                     ),
-                    #266573
+                    #6EBCBF
                   `,
                 }}
               >
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.24)_0%,transparent_60%)]" />
-                <div className="pointer-events-none absolute inset-[1px] rounded-[31px] border border-white/20" />
-                <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/40" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.45)_0%,transparent_60%)]" />
+                <div className="pointer-events-none absolute inset-[1px] rounded-[31px] border border-white/40" />
+                <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/70" />
 
-                <div className="relative z-10 space-y-4 text-white">
+                <div className="relative z-10 space-y-4 text-[#122631]">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold uppercase tracking-[0.18em] text-[#CAD7D0] bg-white/[0.12] border border-[#CAD7D0]/30 px-3 py-1 rounded-full shadow-inner">
+                    <span className="text-xs font-mono font-bold uppercase tracking-[0.18em] text-white bg-[#122631] border border-[#122631]/20 px-3 py-1 rounded-full shadow-sm">
                       #01 • CENTRAL AGENCY
                     </span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#122631] tracking-tight leading-snug">
                     Direct Stocking &amp; Batch Verification
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#CAD7D0]/90 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#122631]/85 leading-relaxed font-medium">
                     Stock is batched directly from primary drug manufacturers into our temperature-controlled central C&amp;F agency warehouse. Each carton is scanned and sealed for direct courier dispatch.
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/18 bg-white/[0.10] hover:bg-white/[0.20] text-white transition-all backdrop-blur-md">
-                      <div className="w-8 h-8 rounded-lg bg-[#6BB0BF]/20 text-[#6BB0BF] flex items-center justify-center flex-shrink-0">
+                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/70 bg-white/80 hover:bg-white text-[#122631] transition-all backdrop-blur-md shadow-xs">
+                      <div className="w-8 h-8 rounded-lg bg-[#266573]/15 text-[#266573] flex items-center justify-center flex-shrink-0">
                         <QrCode className="w-4 h-4" />
                       </div>
                       <div>
                         <div className="text-xs font-bold leading-tight">CDSCO Barcode</div>
-                        <div className="text-[10px] text-[#CAD7D0]/80 font-mono">100% Genuine Track</div>
+                        <div className="text-[10px] text-[#122631]/70 font-mono">100% Genuine Track</div>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/18 bg-white/[0.10] hover:bg-white/[0.20] text-white transition-all backdrop-blur-md">
-                      <div className="w-8 h-8 rounded-lg bg-[#6BB0BF]/20 text-[#6BB0BF] flex items-center justify-center flex-shrink-0">
+                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/70 bg-white/80 hover:bg-white text-[#122631] transition-all backdrop-blur-md shadow-xs">
+                      <div className="w-8 h-8 rounded-lg bg-[#266573]/15 text-[#266573] flex items-center justify-center flex-shrink-0">
                         <ShieldCheck className="w-4 h-4" />
                       </div>
                       <div>
                         <div className="text-xs font-bold leading-tight">Tamper-Proof Seal</div>
-                        <div className="text-[10px] text-[#CAD7D0]/80 font-mono">Zero Diversion</div>
+                        <div className="text-[10px] text-[#122631]/70 font-mono">Zero Diversion</div>
                       </div>
                     </div>
                   </div>
@@ -522,56 +522,56 @@ export function AgencyToRetailerJourney() {
             {/* Card 2: Stage 02 Central Hub (Right Flank, moved slightly downside) */}
             <div className="lg:col-span-5 max-w-lg ml-auto w-full mt-8 sm:mt-16 lg:mt-24">
               <div
-                className="group relative flex flex-col justify-between overflow-hidden rounded-[32px] border border-white/20 p-6 sm:p-8 lg:p-9 shadow-[0_16px_40px_rgba(18,38,49,0.22)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(18,38,49,0.32)]"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-[32px] border border-white/60 p-6 sm:p-8 lg:p-9 shadow-[0_16px_40px_rgba(18,38,49,0.10)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(18,38,49,0.20)]"
                 style={{
                   background: `
                     linear-gradient(
                       145deg,
-                      rgba(255,255,255,0.22) 0%,
-                      rgba(255,255,255,0.05) 45%,
-                      rgba(0,0,0,0.25) 100%
+                      rgba(255,255,255,0.45) 0%,
+                      rgba(255,255,255,0.15) 45%,
+                      rgba(18,38,49,0.06) 100%
                     ),
-                    #122631
+                    #6EBCBF
                   `,
                 }}
               >
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.24)_0%,transparent_60%)]" />
-                <div className="pointer-events-none absolute inset-[1px] rounded-[31px] border border-white/20" />
-                <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/40" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.45)_0%,transparent_60%)]" />
+                <div className="pointer-events-none absolute inset-[1px] rounded-[31px] border border-white/40" />
+                <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/70" />
 
-                <div className="relative z-10 space-y-4 text-white">
+                <div className="relative z-10 space-y-4 text-[#122631]">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold uppercase tracking-[0.18em] text-[#CAD7D0] bg-white/[0.12] border border-[#CAD7D0]/30 px-3 py-1 rounded-full shadow-inner">
+                    <span className="text-xs font-mono font-bold uppercase tracking-[0.18em] text-white bg-[#122631] border border-[#122631]/20 px-3 py-1 rounded-full shadow-sm">
                       #02 • LOGISTICS DEPOT
                     </span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#122631] tracking-tight leading-snug">
                     DavaTrack Hub &amp; Express Courier Transit
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#CAD7D0]/90 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#122631]/85 leading-relaxed font-medium">
                     Automated packing manifest and instant rider assignment from the main depot. Stock is cross-checked and assigned to priority delivery corridors.
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/18 bg-white/[0.10] hover:bg-white/[0.20] text-white transition-all backdrop-blur-md">
-                      <div className="w-8 h-8 rounded-lg bg-[#6BB0BF]/20 text-[#6BB0BF] flex items-center justify-center flex-shrink-0">
+                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/70 bg-white/80 hover:bg-white text-[#122631] transition-all backdrop-blur-md shadow-xs">
+                      <div className="w-8 h-8 rounded-lg bg-[#266573]/15 text-[#266573] flex items-center justify-center flex-shrink-0">
                         <Package className="w-4 h-4" />
                       </div>
                       <div>
                         <div className="text-xs font-bold leading-tight">Manifest Verified</div>
-                        <div className="text-[10px] text-[#CAD7D0]/80 font-mono">100% Inspected</div>
+                        <div className="text-[10px] text-[#122631]/70 font-mono">100% Inspected</div>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/18 bg-white/[0.10] hover:bg-white/[0.20] text-white transition-all backdrop-blur-md">
-                      <div className="w-8 h-8 rounded-lg bg-[#6BB0BF]/20 text-[#6BB0BF] flex items-center justify-center flex-shrink-0">
+                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/70 bg-white/80 hover:bg-white text-[#122631] transition-all backdrop-blur-md shadow-xs">
+                      <div className="w-8 h-8 rounded-lg bg-[#266573]/15 text-[#266573] flex items-center justify-center flex-shrink-0">
                         <Clock className="w-4 h-4" />
                       </div>
                       <div>
                         <div className="text-xs font-bold leading-tight">SLA: &lt; 25 Mins</div>
-                        <div className="text-[10px] text-[#CAD7D0]/80 font-mono">Courier Assigned ✓</div>
+                        <div className="text-[10px] text-[#122631]/70 font-mono">Courier Assigned ✓</div>
                       </div>
                     </div>
                   </div>
@@ -590,56 +590,56 @@ export function AgencyToRetailerJourney() {
             {/* Card 3: Stage 03 Cold-Chain Guard (Left Flank Blank Space) */}
             <div className="w-full max-w-lg mr-auto lg:ml-0 lg:mr-auto">
               <div
-                className="group relative flex flex-col justify-between overflow-hidden rounded-[32px] border border-white/20 p-6 sm:p-8 lg:p-9 shadow-[0_16px_40px_rgba(18,38,49,0.22)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(18,38,49,0.32)]"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-[32px] border border-white/60 p-6 sm:p-8 lg:p-9 shadow-[0_16px_40px_rgba(18,38,49,0.10)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(18,38,49,0.20)]"
                 style={{
                   background: `
                     linear-gradient(
                       145deg,
-                      rgba(255,255,255,0.22) 0%,
-                      rgba(255,255,255,0.05) 45%,
-                      rgba(0,0,0,0.25) 100%
+                      rgba(255,255,255,0.45) 0%,
+                      rgba(255,255,255,0.15) 45%,
+                      rgba(18,38,49,0.06) 100%
                     ),
-                    #1E4A56
+                    #6EBCBF
                   `,
                 }}
               >
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.24)_0%,transparent_60%)]" />
-                <div className="pointer-events-none absolute inset-[1px] rounded-[31px] border border-white/20" />
-                <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/40" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.45)_0%,transparent_60%)]" />
+                <div className="pointer-events-none absolute inset-[1px] rounded-[31px] border border-white/40" />
+                <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/70" />
 
-                <div className="relative z-10 space-y-4 text-white">
+                <div className="relative z-10 space-y-4 text-[#122631]">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold uppercase tracking-[0.18em] text-[#CAD7D0] bg-white/[0.12] border border-[#CAD7D0]/30 px-3 py-1 rounded-full shadow-inner">
+                    <span className="text-xs font-mono font-bold uppercase tracking-[0.18em] text-white bg-[#122631] border border-[#122631]/20 px-3 py-1 rounded-full shadow-sm">
                       #03 • HIGHWAY TRANSIT
                     </span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#122631] tracking-tight leading-snug">
                     Cold-Chain Guard (2°C – 8°C) &amp; Priority Highway
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#CAD7D0]/90 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#122631]/85 leading-relaxed font-medium">
                     Insulated thermal crates with active IoT telemetry ensure zero spoilage of sensitive biologics, riding straight to the pharmacy without middleman delays.
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/18 bg-white/[0.10] hover:bg-white/[0.20] text-white transition-all backdrop-blur-md">
-                      <div className="w-8 h-8 rounded-lg bg-[#6BB0BF]/20 text-[#6BB0BF] flex items-center justify-center flex-shrink-0">
+                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/70 bg-white/80 hover:bg-white text-[#122631] transition-all backdrop-blur-md shadow-xs">
+                      <div className="w-8 h-8 rounded-lg bg-[#266573]/15 text-[#266573] flex items-center justify-center flex-shrink-0">
                         <ThermometerSnowflake className="w-4 h-4 animate-pulse" />
                       </div>
                       <div>
                         <div className="text-xs font-bold leading-tight">4.2°C Stable</div>
-                        <div className="text-[10px] text-[#CAD7D0]/80 font-mono">Live Sensor #TC-44</div>
+                        <div className="text-[10px] text-[#122631]/70 font-mono">Live Sensor #TC-44</div>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/18 bg-white/[0.10] hover:bg-white/[0.20] text-white transition-all backdrop-blur-md">
-                      <div className="w-8 h-8 rounded-lg bg-[#6BB0BF]/20 text-[#6BB0BF] flex items-center justify-center flex-shrink-0">
+                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/70 bg-white/80 hover:bg-white text-[#122631] transition-all backdrop-blur-md shadow-xs">
+                      <div className="w-8 h-8 rounded-lg bg-[#266573]/15 text-[#266573] flex items-center justify-center flex-shrink-0">
                         <Navigation className="w-4 h-4" />
                       </div>
                       <div>
                         <div className="text-xs font-bold leading-tight">Direct Route</div>
-                        <div className="text-[10px] text-[#CAD7D0]/80 font-mono">Zero Middleman</div>
+                        <div className="text-[10px] text-[#122631]/70 font-mono">Zero Middleman</div>
                       </div>
                     </div>
                   </div>
@@ -658,56 +658,56 @@ export function AgencyToRetailerJourney() {
             {/* Card 4: Stage 04 Retail Pharmacy Counter Handover (Right Flank) */}
             <div className="lg:col-span-5 max-w-lg ml-auto w-full lg:col-start-8">
               <div
-                className="group relative flex flex-col justify-between overflow-hidden rounded-[32px] border border-white/20 p-6 sm:p-8 lg:p-9 shadow-[0_16px_40px_rgba(18,38,49,0.22)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(18,38,49,0.32)]"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-[32px] border border-white/60 p-6 sm:p-8 lg:p-9 shadow-[0_16px_40px_rgba(18,38,49,0.10)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(18,38,49,0.20)]"
                 style={{
                   background: `
                     linear-gradient(
                       145deg,
-                      rgba(255,255,255,0.22) 0%,
-                      rgba(255,255,255,0.05) 45%,
-                      rgba(0,0,0,0.25) 100%
+                      rgba(255,255,255,0.45) 0%,
+                      rgba(255,255,255,0.15) 45%,
+                      rgba(18,38,49,0.06) 100%
                     ),
-                    #1A3644
+                    #6EBCBF
                   `,
                 }}
               >
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.24)_0%,transparent_60%)]" />
-                <div className="pointer-events-none absolute inset-[1px] rounded-[31px] border border-white/20" />
-                <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/40" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.45)_0%,transparent_60%)]" />
+                <div className="pointer-events-none absolute inset-[1px] rounded-[31px] border border-white/40" />
+                <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/70" />
 
-                <div className="relative z-10 space-y-4 text-white">
+                <div className="relative z-10 space-y-4 text-[#122631]">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold uppercase tracking-[0.18em] text-[#CAD7D0] bg-white/[0.12] border border-[#CAD7D0]/30 px-3 py-1 rounded-full shadow-inner">
+                    <span className="text-xs font-mono font-bold uppercase tracking-[0.18em] text-white bg-[#122631] border border-[#122631]/20 px-3 py-1 rounded-full shadow-sm">
                       #04 • PHARMACY COUNTER
                     </span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#122631] tracking-tight leading-snug">
                     Instant Handover &amp; Immediate Patient Care
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#CAD7D0]/90 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#122631]/85 leading-relaxed font-medium">
                     The courier arrives directly at the retailer dispensary desk. Invoices are digitally validated with one scan, stock is recorded in real time, and patients never experience a missing prescription.
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/18 bg-white/[0.10] hover:bg-white/[0.20] text-white transition-all backdrop-blur-md">
-                      <div className="w-8 h-8 rounded-lg bg-[#6BB0BF]/20 text-[#6BB0BF] flex items-center justify-center flex-shrink-0">
+                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/70 bg-white/80 hover:bg-white text-[#122631] transition-all backdrop-blur-md shadow-xs">
+                      <div className="w-8 h-8 rounded-lg bg-[#266573]/15 text-[#266573] flex items-center justify-center flex-shrink-0">
                         <CheckCircle2 className="w-4 h-4" />
                       </div>
                       <div>
                         <div className="text-xs font-bold leading-tight">Stock Restocked</div>
-                        <div className="text-[10px] text-[#CAD7D0]/80 font-mono">Zero Stockout Gap</div>
+                        <div className="text-[10px] text-[#122631]/70 font-mono">Zero Stockout Gap</div>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/18 bg-white/[0.10] hover:bg-white/[0.20] text-white transition-all backdrop-blur-md">
-                      <div className="w-8 h-8 rounded-lg bg-[#6BB0BF]/20 text-[#6BB0BF] flex items-center justify-center flex-shrink-0">
+                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/70 bg-white/80 hover:bg-white text-[#122631] transition-all backdrop-blur-md shadow-xs">
+                      <div className="w-8 h-8 rounded-lg bg-[#266573]/15 text-[#266573] flex items-center justify-center flex-shrink-0">
                         <Store className="w-4 h-4" />
                       </div>
                       <div>
                         <div className="text-xs font-bold leading-tight">Instant Digital Sync</div>
-                        <div className="text-[10px] text-[#CAD7D0]/80 font-mono">Invoice #INV-2026-901</div>
+                        <div className="text-[10px] text-[#122631]/70 font-mono">Invoice #INV-2026-901</div>
                       </div>
                     </div>
                   </div>

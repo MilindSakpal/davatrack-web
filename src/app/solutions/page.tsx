@@ -22,9 +22,9 @@ export const metadata: Metadata = {
 
 export default function SolutionsPage() {
   return (
-    <div className="pt-28 pb-24 bg-[#EDF3F0]">
+    <div className="pt-28 pb-24 bg-[#EDEDE5]">
       {/* Page Hero */}
-      <section className="py-16 lg:py-24 border-b border-[#CAD7D0] relative overflow-hidden bg-[#EDF3F0]">
+      <section className="py-16 lg:py-24 border-b border-[#CAD7D0] relative overflow-hidden bg-[#EDEDE5]">
         <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-b from-[#6BB0BF]/15 via-[#266573]/5 to-transparent rounded-full blur-[140px]" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -50,7 +50,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* Category Navigation Bar */}
-      <section className="sticky top-20 z-30 bg-[#EDF3F0]/95 backdrop-blur-md border-b border-[#CAD7D0] py-4">
+      <section className="sticky top-20 z-30 bg-[#EDEDE5]/95 backdrop-blur-md border-b border-[#CAD7D0] py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between overflow-x-auto gap-4 scrollbar-none">
           <span className="text-xs font-extrabold uppercase tracking-wider text-[#266573] flex-shrink-0">
             Quick Jump:
@@ -115,34 +115,48 @@ export default function SolutionsPage() {
               {category.solutions.map((item) => (
                 <div
                   key={item.slug}
-                  className="bg-white rounded-3xl p-7 border border-[#CAD7D0] shadow-[0_4px_20px_rgba(18,38,49,0.04)] hover:shadow-[0_12px_30px_rgba(18,38,49,0.08)] transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group"
+                  className="rounded-3xl p-7 border border-white/60 shadow-[0_16px_40px_rgba(18,38,49,0.10)] hover:shadow-[0_26px_56px_rgba(18,38,49,0.20)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group relative overflow-hidden text-[#122631]"
+                  style={{
+                    background: `
+                      linear-gradient(
+                        145deg,
+                        rgba(255,255,255,0.45) 0%,
+                        rgba(255,255,255,0.15) 45%,
+                        rgba(18,38,49,0.06) 100%
+                      ),
+                      #6EBCBF
+                    `,
+                  }}
                 >
-                  <div>
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.45)_0%,transparent_60%)]" />
+                  <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/70" />
+
+                  <div className="relative z-10">
                     <div className="flex items-center justify-between mb-5">
-                      <div className="p-3 rounded-2xl bg-[#EDF3F0] text-[#266573] group-hover:bg-[#122631] group-hover:text-[#6BB0BF] transition-colors">
+                      <div className="p-3 rounded-2xl bg-white/80 text-[#122631] group-hover:bg-[#122631] group-hover:text-[#6BB0BF] transition-colors shadow-xs">
                         <DynamicIcon name={item.iconName} className="w-5 h-5" />
                       </div>
-                      <span className="text-xs font-bold text-[#266573]/70 uppercase">
+                      <span className="text-[11px] font-mono font-bold text-white bg-[#122631] px-2.5 py-1 rounded-full uppercase">
                         {category.title}
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-extrabold text-[#122631] mb-3 group-hover:text-[#266573] transition-colors">
+                    <h3 className="text-xl font-extrabold text-[#122631] mb-3 leading-snug">
                       {item.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-[#122631]/70 leading-relaxed mb-6">
+                    <p className="text-xs sm:text-sm text-[#122631]/85 leading-relaxed mb-6 font-medium">
                       {item.description}
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-[#CAD7D0]/60 flex items-center justify-between">
-                    <span className="text-[11px] font-semibold text-[#266573]/70">
+                  <div className="pt-4 border-t border-[#122631]/15 flex items-center justify-between relative z-10">
+                    <span className="text-[11px] font-semibold text-[#122631]/70">
                       Full Workflow Ready
                     </span>
                     <Link
                       href={`/solutions/${item.slug}`}
-                      className="inline-flex items-center gap-1.5 text-xs font-extrabold text-[#122631] group-hover:text-[#266573] transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs font-extrabold text-[#122631] hover:text-[#266573] transition-colors py-1.5 px-3 rounded-full bg-white/80 hover:bg-white shadow-xs"
                     >
                       <span>Explore Solution</span>
                       <ArrowRight className="w-3.5 h-3.5 text-[#266573]" />
@@ -175,7 +189,7 @@ export default function SolutionsPage() {
               <div className="lg:col-span-4 flex justify-start lg:justify-end">
                 <Link
                   href="/solutions/custom-healthcare-solutions"
-                  className="px-8 py-3.5 rounded-full bg-white hover:bg-[#EDF3F0] text-[#122631] font-bold text-sm shadow-lg transition-all active:scale-95 flex items-center gap-2"
+                  className="px-8 py-3.5 rounded-full bg-white hover:bg-[#EDEDE5] text-[#122631] font-bold text-sm shadow-lg transition-all active:scale-95 flex items-center gap-2"
                 >
                   <span>Explore Custom Solutions</span>
                   <ArrowRight className="w-4 h-4 text-[#266573]" />

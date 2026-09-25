@@ -156,7 +156,7 @@ export function InquiryForm() {
   if (isSubmitted) {
     return (
       <div className="bg-white rounded-3xl p-8 sm:p-12 border border-[#CAD7D0] shadow-[0_4px_20px_rgba(18,38,49,0.04)] text-center space-y-6 max-w-2xl mx-auto">
-        <div className="w-16 h-16 rounded-full bg-[#EDF3F0] text-[#266573] flex items-center justify-center mx-auto ring-8 ring-[#CAD7D0]/30">
+        <div className="w-16 h-16 rounded-full bg-[#EDEDE5] text-[#266573] flex items-center justify-center mx-auto ring-8 ring-[#CAD7D0]/30">
           <CheckCircle2 className="w-8 h-8" />
         </div>
 
@@ -172,7 +172,7 @@ export function InquiryForm() {
           </p>
         </div>
 
-        <div className="bg-[#EDF3F0] p-5 rounded-2xl border border-[#CAD7D0] text-left space-y-3 text-xs text-[#122631]/80">
+        <div className="bg-[#EDEDE5] p-5 rounded-2xl border border-[#CAD7D0] text-left space-y-3 text-xs text-[#122631]/80">
           <div className="flex justify-between border-b border-[#CAD7D0]/60 pb-2">
             <span className="font-semibold text-[#122631]">Organization:</span>
             <span className="font-bold text-[#122631]">{formData.organization}</span>
@@ -196,7 +196,7 @@ export function InquiryForm() {
         <div className="pt-2 flex flex-wrap justify-center gap-4">
           <button
             onClick={handleReset}
-            className="px-6 py-2.5 rounded-xl border border-[#CAD7D0] bg-white text-[#122631] font-semibold text-xs hover:bg-[#EDF3F0] transition-colors"
+            className="px-6 py-2.5 rounded-xl border border-[#CAD7D0] bg-white text-[#122631] font-semibold text-xs hover:bg-[#EDEDE5] transition-colors"
           >
             Submit Another Requirement
           </button>
@@ -243,7 +243,7 @@ export function InquiryForm() {
                   "px-3.5 py-2 rounded-xl text-xs font-semibold transition-all duration-150 border text-left",
                   isSelected
                     ? "bg-[#122631] text-white border-[#122631] shadow-xs"
-                    : "bg-[#EDF3F0] text-[#122631] hover:bg-[#CAD7D0]/50 border-[#CAD7D0]"
+                    : "bg-[#EDEDE5] text-[#122631] hover:bg-[#CAD7D0]/50 border-[#CAD7D0]"
                 )}
               >
                 {isSelected ? "✓ " : "+ "}
@@ -275,7 +275,7 @@ export function InquiryForm() {
                 "w-full px-4 py-3 rounded-xl border text-sm text-[#122631] outline-none transition-all placeholder:text-[#122631]/40",
                 errors.name
                   ? "border-rose-400 bg-rose-50/30 focus:ring-2 focus:ring-rose-300"
-                  : "border-[#CAD7D0] bg-[#EDF3F0]/30 focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20"
+                  : "border-[#CAD7D0] bg-[#EDEDE5]/30 focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20"
               )}
             />
           </div>
@@ -296,7 +296,7 @@ export function InquiryForm() {
             value={formData.designation}
             onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
             placeholder="e.g. Medical Director / Operations Head"
-            className="w-full px-4 py-3 rounded-xl border border-[#CAD7D0] bg-[#EDF3F0]/30 text-sm text-[#122631] outline-none focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20 transition-all placeholder:text-[#122631]/40"
+            className="w-full px-4 py-3 rounded-xl border border-[#CAD7D0] bg-[#EDEDE5]/30 text-sm text-[#122631] outline-none focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20 transition-all placeholder:text-[#122631]/40"
           />
         </div>
 
@@ -317,7 +317,7 @@ export function InquiryForm() {
               "w-full px-4 py-3 rounded-xl border text-sm text-[#122631] outline-none transition-all placeholder:text-[#122631]/40",
               errors.organization
                 ? "border-rose-400 bg-rose-50/30 focus:ring-2 focus:ring-rose-300"
-                : "border-[#CAD7D0] bg-[#EDF3F0]/30 focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20"
+                : "border-[#CAD7D0] bg-[#EDEDE5]/30 focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20"
             )}
           />
           {errors.organization && (
@@ -344,7 +344,7 @@ export function InquiryForm() {
               "w-full px-4 py-3 rounded-xl border text-sm text-[#122631] outline-none transition-all placeholder:text-[#122631]/40",
               errors.phone
                 ? "border-rose-400 bg-rose-50/30 focus:ring-2 focus:ring-rose-300"
-                : "border-[#CAD7D0] bg-[#EDF3F0]/30 focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20"
+                : "border-[#CAD7D0] bg-[#EDEDE5]/30 focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20"
             )}
           />
           {errors.phone && (
@@ -371,7 +371,7 @@ export function InquiryForm() {
               "w-full px-4 py-3 rounded-xl border text-sm text-[#122631] outline-none transition-all placeholder:text-[#122631]/40",
               errors.email
                 ? "border-rose-400 bg-rose-50/30 focus:ring-2 focus:ring-rose-300"
-                : "border-[#CAD7D0] bg-[#EDF3F0]/30 focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20"
+                : "border-[#CAD7D0] bg-[#EDEDE5]/30 focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20"
             )}
           />
           {errors.email && (
@@ -389,7 +389,7 @@ export function InquiryForm() {
           <select
             value={formData.segment}
             onChange={(e) => setFormData({ ...formData, segment: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border border-[#CAD7D0] bg-[#EDF3F0]/30 text-sm text-[#122631] outline-none focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20 transition-all cursor-pointer"
+            className="w-full px-4 py-3 rounded-xl border border-[#CAD7D0] bg-[#EDEDE5]/30 text-sm text-[#122631] outline-none focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20 transition-all cursor-pointer"
           >
             <option value="">Select healthcare segment...</option>
             {HEALTHCARE_SEGMENTS.map((seg) => (
@@ -417,7 +417,7 @@ export function InquiryForm() {
               "w-full px-4 py-3 rounded-xl border text-sm text-[#122631] outline-none transition-all placeholder:text-[#122631]/40 resize-y min-h-[120px]",
               errors.requirement
                 ? "border-rose-400 bg-rose-50/30 focus:ring-2 focus:ring-rose-300"
-                : "border-[#CAD7D0] bg-[#EDF3F0]/30 focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20"
+                : "border-[#CAD7D0] bg-[#EDEDE5]/30 focus:border-[#266573] focus:ring-2 focus:ring-[#266573]/20"
             )}
           ></textarea>
           {errors.requirement && (

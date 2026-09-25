@@ -16,7 +16,7 @@ export default function TestimonialsPage() {
     : TESTIMONIALS_DATA.filter((t) => t.segment === activeSegment);
 
   return (
-    <div className="min-h-screen bg-[#EDF3F0] text-[#122631] pt-28 pb-24 relative overflow-hidden">
+    <div className="min-h-screen bg-[#EDEDE5] text-[#122631] pt-28 pb-24 relative overflow-hidden">
       {/* Background ambient lighting */}
       <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-b from-[#6BB0BF]/15 via-[#266573]/5 to-transparent rounded-full blur-[150px]" />
       <div className="pointer-events-none absolute top-1/3 right-10 w-96 h-96 bg-[#CAD7D0]/30 rounded-full blur-[130px]" />
@@ -63,7 +63,7 @@ export default function TestimonialsPage() {
                   "px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 flex-shrink-0 font-mono",
                   activeSegment === seg
                     ? "bg-[#122631] text-white shadow-md"
-                    : "bg-white text-[#122631] hover:bg-[#EDF3F0] border border-[#CAD7D0] shadow-sm"
+                    : "bg-white text-[#122631] hover:bg-[#EDEDE5] border border-[#CAD7D0] shadow-sm"
                 )}
               >
                 {seg === "All" ? "All Healthcare Sectors" : seg}
@@ -76,16 +76,28 @@ export default function TestimonialsPage() {
             {filtered.map((item) => (
               <div
                 key={item.id}
-                className="bg-white hover:bg-[#F9FBFA] rounded-3xl p-8 sm:p-10 border border-[#CAD7D0] hover:border-[#266573]/40 transition-all duration-300 flex flex-col justify-between relative group shadow-[0_4px_20px_rgba(18,38,49,0.04)] hover:shadow-[0_12px_30px_rgba(18,38,49,0.08)]"
+                className="rounded-3xl p-8 sm:p-10 border border-white/60 shadow-[0_16px_40px_rgba(18,38,49,0.10)] hover:shadow-[0_26px_56px_rgba(18,38,49,0.20)] transition-all duration-300 flex flex-col justify-between relative group overflow-hidden"
+                style={{
+                  background: `
+                    linear-gradient(
+                      145deg,
+                      rgba(255,255,255,0.45) 0%,
+                      rgba(255,255,255,0.15) 45%,
+                      rgba(18,38,49,0.06) 100%
+                    ),
+                    #6EBCBF
+                  `,
+                }}
               >
-                <Quote className="absolute top-6 right-8 w-16 h-16 text-[#CAD7D0]/30 pointer-events-none" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.45)_0%,transparent_60%)]" />
+                <Quote className="absolute top-6 right-8 w-16 h-16 text-white/30 pointer-events-none" />
 
                 <div className="relative z-10 space-y-5">
                   <div className="flex items-center justify-between">
-                    <span className="px-3 py-1 rounded-full bg-[#266573]/10 border border-[#266573]/20 text-[#266573] text-xs font-mono uppercase tracking-wider font-bold">
+                    <span className="px-3 py-1 rounded-full bg-[#122631] text-white text-xs font-mono uppercase tracking-wider font-bold shadow-xs">
                       {item.segment}
                     </span>
-                    <span className="text-[11px] font-mono font-semibold text-[#266573] bg-[#EDF3F0] px-2.5 py-1 rounded-full border border-[#CAD7D0]">
+                    <span className="text-[11px] font-mono font-bold text-[#122631] bg-white/80 px-2.5 py-1 rounded-full border border-white/70 shadow-xs">
                       Case Highlight
                     </span>
                   </div>
@@ -97,11 +109,11 @@ export default function TestimonialsPage() {
                   {item.metrics && (
                     <div className="grid grid-cols-2 gap-3 pt-3">
                       {item.metrics.map((m, idx) => (
-                        <div key={idx} className="bg-[#EDF3F0] p-3 rounded-xl border border-[#CAD7D0]">
+                        <div key={idx} className="bg-white/80 p-3 rounded-xl border border-white/80 shadow-xs backdrop-blur-sm">
                           <div className="text-xl font-black font-mono text-[#122631]">
                             {m.value}
                           </div>
-                          <div className="text-[11px] text-[#266573] font-medium">
+                          <div className="text-[11px] text-[#266573] font-bold mt-0.5">
                             {m.label}
                           </div>
                         </div>
@@ -110,17 +122,17 @@ export default function TestimonialsPage() {
                   )}
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-[#CAD7D0]/60 flex items-center justify-between">
+                <div className="pt-6 mt-6 border-t border-[#122631]/15 flex items-center justify-between relative z-10">
                   <div>
                     <div className="text-sm font-bold text-[#122631]">
                       {item.role}
                     </div>
-                    <div className="text-xs text-[#122631]/60">
+                    <div className="text-xs text-[#122631]/80 font-medium">
                       {item.organizationType}
                     </div>
                   </div>
 
-                  <div className="text-xs font-mono text-[#266573] font-bold uppercase tracking-wider">
+                  <div className="text-xs font-mono text-[#122631] font-bold uppercase tracking-wider">
                     VERIFIED PARTNER
                   </div>
                 </div>
@@ -141,7 +153,7 @@ export default function TestimonialsPage() {
               <div className="pt-2 flex flex-wrap justify-center gap-4">
                 <Link
                   href="/inquiry"
-                  className="px-8 py-3.5 rounded-full bg-white hover:bg-[#EDF3F0] text-[#122631] font-bold text-sm sm:text-base shadow-lg transition-all active:scale-95"
+                  className="px-8 py-3.5 rounded-full bg-white hover:bg-[#EDEDE5] text-[#122631] font-bold text-sm sm:text-base shadow-lg transition-all active:scale-95"
                 >
                   Discuss Your Requirement
                 </Link>

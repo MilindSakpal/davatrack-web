@@ -23,7 +23,7 @@ export function TestimonialsPreview() {
   const formatNumber = (num: number) => num.toString().padStart(2, "0");
 
   return (
-    <section className="py-20 lg:py-28 bg-[#EDF3F0] text-[#122631] relative overflow-hidden">
+    <section className="py-20 lg:py-28 bg-[#EDEDE5] text-[#122631] relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Row */}
@@ -60,15 +60,28 @@ export function TestimonialsPreview() {
         </div>
 
         {/* Main Testimonial Card */}
-        <div className="bg-white rounded-[28px] p-6 sm:p-10 lg:p-12 shadow-[0_12px_36px_rgba(18,38,49,0.08)] border border-[#CBD9D2]/70 transition-all duration-300">
+        <div 
+          className="rounded-[28px] p-6 sm:p-10 lg:p-12 shadow-[0_16px_40px_rgba(18,38,49,0.10)] border border-white/60 transition-all duration-300 relative overflow-hidden"
+          style={{
+            background: `
+              linear-gradient(
+                145deg,
+                rgba(255,255,255,0.45) 0%,
+                rgba(255,255,255,0.15) 45%,
+                rgba(18,38,49,0.06) 100%
+              ),
+              #6EBCBF
+            `,
+          }}
+        >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
             
             {/* Left Column: Quote & Author (7 cols) */}
             <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
               <div>
                 {/* Hospital / Org Badge */}
-                <div className="inline-flex items-center gap-2 bg-[#266573]/10 text-[#266573] border border-[#266573]/20 text-xs font-semibold px-3.5 py-1.5 rounded-full mb-6">
-                  <Building2 className="w-3.5 h-3.5 text-[#266573]" />
+                <div className="inline-flex items-center gap-2 bg-[#122631] text-white text-xs font-semibold px-3.5 py-1.5 rounded-full mb-6 shadow-xs">
+                  <Building2 className="w-3.5 h-3.5 text-[#6BB0BF]" />
                   <span>{current.organizationType}</span>
                 </div>
 
@@ -79,25 +92,25 @@ export function TestimonialsPreview() {
               </div>
 
               {/* Author & Organization Details */}
-              <div className="pt-4 border-t border-slate-100">
+              <div className="pt-4 border-t border-[#122631]/15">
                 <div className="text-sm sm:text-base font-bold text-[#122631]">
                   {current.role}
                 </div>
-                <div className="text-xs sm:text-sm text-[#4A6572] font-medium mt-0.5">
+                <div className="text-xs sm:text-sm text-[#122631]/80 font-medium mt-0.5">
                   {current.organizationType} • {current.segment}
                 </div>
               </div>
             </div>
 
             {/* Right Column: Verified Outcome & Metrics Card (5 cols) */}
-            <div className="lg:col-span-5 bg-[#E8EFEA] rounded-2xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden border border-[#CBD9D2]/50">
+            <div className="lg:col-span-5 bg-white/85 backdrop-blur-md rounded-2xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden border border-white/80 shadow-sm">
               
               {/* Subtle Decorative Background Quote Icon */}
-              <Quote className="absolute top-3 right-4 w-20 h-20 text-[#CBD9D2] select-none pointer-events-none -scale-x-100 opacity-60" />
+              <Quote className="absolute top-3 right-4 w-20 h-20 text-[#6EBCBF]/30 select-none pointer-events-none -scale-x-100" />
 
               <div className="relative z-10">
                 {/* Header Label */}
-                <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#4A6572]">
+                <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#266573]">
                   VERIFIED OUTCOME
                 </div>
 
@@ -112,7 +125,7 @@ export function TestimonialsPreview() {
                     {current.metrics.map((metric, idx) => (
                       <div
                         key={idx}
-                        className="bg-white rounded-xl p-4 shadow-sm border border-[#CBD9D2]/60 flex flex-col justify-center min-h-[90px]"
+                        className="bg-white rounded-xl p-4 shadow-xs border border-[#CAD7D0]/60 flex flex-col justify-center min-h-[90px]"
                       >
                         <div className="text-2xl sm:text-[26px] font-extrabold text-[#266573] tracking-tight leading-none">
                           {metric.value}
@@ -127,7 +140,7 @@ export function TestimonialsPreview() {
               </div>
 
               {/* Navigation & Counter Footer */}
-              <div className="flex items-center justify-between pt-6 mt-6 border-t border-[#CBD9D2]/60 relative z-10">
+              <div className="flex items-center justify-between pt-6 mt-6 border-t border-[#CAD7D0]/60 relative z-10">
                 <div className="text-xs sm:text-sm font-semibold text-[#4A6572] tracking-wider font-mono">
                   {formatNumber(currentIndex + 1)} / {formatNumber(total)}
                 </div>

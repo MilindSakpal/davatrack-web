@@ -97,36 +97,48 @@ export function SupplyChainDeliverables() {
           return (
             <div
               key={idx}
-              className="bg-white hover:bg-[#F9FBFA] rounded-3xl p-7 border border-[#CAD7D0] hover:border-[#266573]/40 shadow-[0_4px_20px_rgba(18,38,49,0.04)] hover:shadow-[0_16px_35px_rgba(18,38,49,0.09)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative overflow-hidden"
+              className="rounded-3xl p-7 border border-white/60 shadow-[0_16px_40px_rgba(18,38,49,0.10)] hover:shadow-[0_26px_56px_rgba(18,38,49,0.20)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative overflow-hidden text-[#122631]"
+              style={{
+                background: `
+                  linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.45) 0%,
+                    rgba(255,255,255,0.15) 45%,
+                    rgba(18,38,49,0.06) 100%
+                  ),
+                  #6EBCBF
+                `,
+              }}
             >
               {/* Top ambient highlight */}
-              <div className="pointer-events-none absolute -top-12 -right-12 w-32 h-32 bg-[#6BB0BF]/10 rounded-full blur-2xl group-hover:bg-[#266573]/15 transition-all" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.45)_0%,transparent_60%)]" />
+              <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/70" />
 
-              <div>
+              <div className="relative z-10">
                 {/* Header: Icon + Tag */}
                 <div className="flex items-center justify-between gap-2 mb-5">
-                  <div className="w-12 h-12 rounded-2xl bg-[#122631] text-[#6BB0BF] flex items-center justify-center shadow-md border border-[#266573]/30 group-hover:bg-[#266573] group-hover:text-white transition-colors">
+                  <div className="w-12 h-12 rounded-2xl bg-white/80 text-[#122631] flex items-center justify-center shadow-xs border border-white/70 group-hover:bg-[#122631] group-hover:text-[#6BB0BF] transition-colors">
                     <IconComp className="w-6 h-6" />
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-[#266573] bg-[#EDF3F0] px-2.5 py-1 rounded-full border border-[#CAD7D0]">
+                  <span className="text-[10px] font-mono font-bold text-white bg-[#122631] px-2.5 py-1 rounded-full shadow-xs">
                     {item.tag}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg sm:text-xl font-extrabold text-[#122631] mb-2 group-hover:text-[#266573] transition-colors">
+                <h3 className="text-lg sm:text-xl font-extrabold text-[#122631] mb-2 leading-snug">
                   {item.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-xs sm:text-sm text-[#122631]/70 leading-relaxed mb-5">
+                <p className="text-xs sm:text-sm text-[#122631]/85 leading-relaxed mb-5 font-medium">
                   {item.description}
                 </p>
 
                 {/* Bullet Points */}
                 <div className="space-y-2 mb-5">
                   {item.features.map((feat, fIdx) => (
-                    <div key={fIdx} className="flex items-center gap-2 text-xs text-[#122631]/80 font-medium">
+                    <div key={fIdx} className="flex items-center gap-2 text-xs text-[#122631] font-medium">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#266573] flex-shrink-0" />
                       <span>{feat}</span>
                     </div>
@@ -135,18 +147,18 @@ export function SupplyChainDeliverables() {
               </div>
 
               {/* Bottom Metric Bar */}
-              <div className="pt-4 border-t border-[#CAD7D0]/60 flex items-center justify-between bg-[#EDF3F0]/60 -mx-7 -mb-7 px-7 py-3.5 rounded-b-3xl">
+              <div className="pt-4 border-t border-[#122631]/15 flex items-center justify-between bg-white/60 -mx-7 -mb-7 px-7 py-3.5 rounded-b-3xl relative z-10 backdrop-blur-sm">
                 <div>
-                  <span className="text-[10px] font-mono text-[#266573]/70 uppercase block">
+                  <span className="text-[10px] font-mono text-[#266573] uppercase font-bold block">
                     {item.metricLabel}
                   </span>
                   <span className="text-sm font-black font-mono text-[#122631]">
                     {item.metric}
                   </span>
                 </div>
-                <div className="text-[11px] font-mono text-[#266573] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                <div className="text-[11px] font-mono text-[#122631] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                   <span>DEPLOYED</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#266573]" />
                 </div>
               </div>
 

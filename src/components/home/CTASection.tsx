@@ -6,9 +6,9 @@ import { ArrowRight } from "lucide-react";
 
 export function CTASection() {
   return (
-    <section className="py-14 sm:py-16 lg:py-20 bg-[#EDF3F0] text-[#122631] relative overflow-hidden flex items-center justify-center border-t border-[#CBD9D2]/70">
+    <section className="py-14 sm:py-16 lg:py-20 bg-[#EDEDE5] text-[#122631] relative overflow-hidden flex items-center justify-center border-t border-[#CBD9D2]/70">
       {/* Soft Nordic Mist / Sage Center Circle (Slightly Bigger) */}
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] sm:w-[560px] lg:w-[660px] aspect-square rounded-full bg-gradient-to-tr from-[#6BB0BF]/25 via-[#CAD7D0]/40 to-[#EDF3F0] border border-[#6BB0BF]/20 shadow-[0_0_80px_rgba(107,176,191,0.20)]" />
+      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] sm:w-[560px] lg:w-[660px] aspect-square rounded-full bg-gradient-to-tr from-[#6BB0BF]/25 via-[#CAD7D0]/40 to-[#EDEDE5] border border-[#6BB0BF]/20 shadow-[0_0_80px_rgba(107,176,191,0.20)]" />
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4 sm:space-y-5">
         

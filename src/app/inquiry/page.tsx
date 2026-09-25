@@ -22,9 +22,9 @@ export const metadata: Metadata = {
 
 export default function InquiryPage() {
   return (
-    <div className="pt-28 pb-24 bg-[#EDF3F0]">
+    <div className="pt-28 pb-24 bg-[#EDEDE5]">
       {/* Page Hero */}
-      <section className="py-16 lg:py-24 border-b border-[#CAD7D0] relative overflow-hidden bg-[#EDF3F0]">
+      <section className="py-16 lg:py-24 border-b border-[#CAD7D0] relative overflow-hidden bg-[#EDEDE5]">
         <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-b from-[#6BB0BF]/15 via-[#266573]/5 to-transparent rounded-full blur-[140px]" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -57,7 +57,7 @@ export default function InquiryPage() {
       </section>
 
       {/* Main Intake Section: 2 Columns */}
-      <section className="py-16 lg:py-24 bg-[#EDF3F0]">
+      <section className="py-16 lg:py-24 bg-[#EDEDE5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
@@ -65,50 +65,50 @@ export default function InquiryPage() {
             <div className="lg:col-span-5 space-y-8">
               
               {/* Pillar Badges Card */}
-              <div className="bg-[#122631] rounded-3xl p-8 text-white shadow-xl space-y-6 border border-[#266573]/30 relative overflow-hidden">
-                <div className="pointer-events-none absolute -top-16 -right-16 w-48 h-48 bg-[#266573]/30 rounded-full blur-2xl" />
+              <div className="bg-[#6EBCBF] rounded-3xl p-8 text-[#122631] shadow-xl space-y-6 border-2 border-white/60 relative overflow-hidden">
+                <div className="pointer-events-none absolute -top-16 -right-16 w-48 h-48 bg-white/30 rounded-full blur-2xl" />
                 
                 <div className="space-y-2 relative z-10">
-                  <div className="text-xs font-extrabold uppercase tracking-widest text-[#6BB0BF]">
+                  <div className="text-xs font-mono font-extrabold uppercase tracking-widest text-[#122631]">
                     Multi-Disciplinary Execution
                   </div>
-                  <h2 className="text-2xl font-extrabold text-white">
+                  <h2 className="text-2xl font-black text-[#122631]">
                     One Partner. Total Accountability.
                   </h2>
-                  <p className="text-xs sm:text-sm text-[#CAD7D0]/80 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#122631]/85 font-medium leading-relaxed">
                     We combine all five core operational layers into an executable roadmap for your facility:
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 gap-2.5 text-xs font-bold relative z-10">
-                  <div className="p-3 rounded-xl bg-[#266573]/20 border border-[#6BB0BF]/20 flex items-center justify-between">
+                  <div className="p-3 rounded-xl bg-white/80 border border-white/90 flex items-center justify-between text-[#122631] shadow-xs">
                     <span>01 • Physical Supply & Logistics</span>
-                    <span className="text-[#6BB0BF] font-normal">Sourcing & Delivery</span>
+                    <span className="bg-[#122631] text-white px-2 py-0.5 rounded-full text-[10px] font-extrabold">Sourcing & Delivery</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-[#266573]/20 border border-[#6BB0BF]/20 flex items-center justify-between">
+                  <div className="p-3 rounded-xl bg-white/80 border border-white/90 flex items-center justify-between text-[#122631] shadow-xs">
                     <span>02 • Technology & Portals</span>
-                    <span className="text-[#6BB0BF] font-normal">Bespoke Software</span>
+                    <span className="bg-[#122631] text-white px-2 py-0.5 rounded-full text-[10px] font-extrabold">Bespoke Software</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-[#266573]/20 border border-[#6BB0BF]/20 flex items-center justify-between">
+                  <div className="p-3 rounded-xl bg-white/80 border border-white/90 flex items-center justify-between text-[#122631] shadow-xs">
                     <span>03 • Healthcare Staffing</span>
-                    <span className="text-[#6BB0BF] font-normal">Verified Manpower</span>
+                    <span className="bg-[#122631] text-white px-2 py-0.5 rounded-full text-[10px] font-extrabold">Verified Manpower</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-[#266573]/20 border border-[#6BB0BF]/20 flex items-center justify-between">
+                  <div className="p-3 rounded-xl bg-white/80 border border-white/90 flex items-center justify-between text-[#122631] shadow-xs">
                     <span>04 • Process & SOPs</span>
-                    <span className="text-[#6BB0BF] font-normal">Standardization</span>
+                    <span className="bg-[#122631] text-white px-2 py-0.5 rounded-full text-[10px] font-extrabold">Standardization</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-[#266573]/20 border border-[#6BB0BF]/20 flex items-center justify-between">
+                  <div className="p-3 rounded-xl bg-white/80 border border-white/90 flex items-center justify-between text-[#122631] shadow-xs">
                     <span>05 • Management & Reporting</span>
-                    <span className="text-[#6BB0BF] font-normal">MIS & Dashboards</span>
+                    <span className="bg-[#122631] text-white px-2 py-0.5 rounded-full text-[10px] font-extrabold">MIS & Dashboards</span>
                   </div>
                 </div>
 
-                <div className="pt-2 flex flex-wrap gap-2 text-[11px] font-bold text-[#6BB0BF] relative z-10">
-                  <span className="px-2.5 py-1 rounded-md bg-[#266573]/30 border border-[#6BB0BF]/20">Supply</span>
-                  <span className="px-2.5 py-1 rounded-md bg-[#266573]/30 border border-[#6BB0BF]/20">Technology</span>
-                  <span className="px-2.5 py-1 rounded-md bg-[#266573]/30 border border-[#6BB0BF]/20">People</span>
-                  <span className="px-2.5 py-1 rounded-md bg-[#266573]/30 border border-[#6BB0BF]/20">Process</span>
-                  <span className="px-2.5 py-1 rounded-md bg-[#266573]/30 border border-[#6BB0BF]/20">Execution</span>
+                <div className="pt-2 flex flex-wrap gap-2 text-[11px] font-bold relative z-10">
+                  <span className="px-2.5 py-1 rounded-md bg-[#122631] text-white">Supply</span>
+                  <span className="px-2.5 py-1 rounded-md bg-[#122631] text-white">Technology</span>
+                  <span className="px-2.5 py-1 rounded-md bg-[#122631] text-white">People</span>
+                  <span className="px-2.5 py-1 rounded-md bg-[#122631] text-white">Process</span>
+                  <span className="px-2.5 py-1 rounded-md bg-[#122631] text-white">Execution</span>
                 </div>
               </div>
 

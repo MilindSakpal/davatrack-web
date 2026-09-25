@@ -11,14 +11,14 @@
     --ink: #122631;
     --muted: #4A6572;
     --line: #CBD9D2;
-    --soft: #EDF3F0;
+    --soft: #EDEDE5;
     --white: #FFFFFF;
   }
 
   html {
     scroll-behavior: smooth;
     color: var(--ink);
-    background-color: #EDF3F0;
+    background-color: #EDEDE5;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     overflow-x: clip;
   }
@@ -26,7 +26,7 @@
   body {
     overflow-x: clip;
     min-height: 100vh;
-    background-color: #EDF3F0;
+    background-color: #EDEDE5;
     font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
