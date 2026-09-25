@@ -28,7 +28,7 @@ export const SITE_CONFIG = {
   },
   meta: {
     themeColor: "#122631",
-    backgroundColor: "#EDEDE5",
+    backgroundColor: "#EEF4F3",
   },
 } as const;
 
@@ -47,8 +47,8 @@ export const BRAND_COLORS = {
   accent: "#6BB0BF",
   /** Brand Mint Cyan - Primary cards surface */
   card: "#6EBCBF",
-  /** Warm Light Canvas - Global page background */
-  bg: "#EDEDE5",
+  /** Soft Fresh Canvas - Global page background */
+  bg: "#EEF4F3",
   /** Muted Sage Border - Card borders, subtle dividers, structural lines */
   border: "#CAD7D0",
 } as const;

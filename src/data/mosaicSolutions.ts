@@ -41,7 +41,7 @@ export const FOUR_CORE_SOLUTIONS: CoreSolutionDomain[] = [
     categoryLabel: "MEDICAL SUPPLY CHAIN & SOURCING",
     title: "Supply Chain",
     description: "Build a dependable medicine and healthcare-product supply system — from discovery and procurement to delivery management and real-time tracking.",
-    color: "#6EBCBF", // Brand Mint Cyan Card
+    color: "#173246", // Deep Navy Teal
     tag: "SUPPLY CHAIN",
     slug: "medical-supply-delivery",
     subSolutions: [
@@ -56,7 +56,7 @@ export const FOUR_CORE_SOLUTIONS: CoreSolutionDomain[] = [
     categoryLabel: "PHARMACY OPERATIONS & PATIENT LIFECYCLE",
     title: "Pharmacy & Care",
     description: "End-to-end pharmacy management, continuous post-service patient engagement, and specialized insurance claims workflows.",
-    color: "#6EBCBF", // Brand Mint Cyan Card
+    color: "#266573", // Deep Teal Slate
     tag: "PHARMACY & CARE",
     slug: "pharmacy-management",
     subSolutions: [
@@ -71,7 +71,7 @@ export const FOUR_CORE_SOLUTIONS: CoreSolutionDomain[] = [
     categoryLabel: "TECHNOLOGY & SOFTWARE TRANSFORMATION",
     title: "Digital Health",
     description: "Tailored applications, healthcare portals, workflow automation, and custom digital systems built strictly around your actual clinical and administrative operations.",
-    color: "#6EBCBF", // Brand Mint Cyan Card
+    color: "#6EBCBF", // Mint Cyan
     tag: "DIGITAL HEALTH",
     slug: "apps-and-software",
     subSolutions: [
@@ -85,7 +85,7 @@ export const FOUR_CORE_SOLUTIONS: CoreSolutionDomain[] = [
     categoryLabel: "STAFFING, MIS & OPERATIONAL GOVERNANCE",
     title: "Healthcare Administration",
     description: "Structured accounting, real-time MIS analytics, executive dashboards, and specialized healthcare staffing to keep operations compliant and running smoothly.",
-    color: "#6EBCBF", // Brand Mint Cyan Card
+    color: "#6BB0BF", // Sky Mint / Aqua Cyan
     tag: "ADMINISTRATION",
     slug: "accounting-mis",
     subSolutions: [

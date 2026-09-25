@@ -13,6 +13,7 @@ import {
 import { Button } from "@/components/ui/Button";
 import { DynamicIcon } from "@/components/ui/Icons";
 import { SOLUTION_CATEGORIES, ALL_SOLUTIONS_LIST } from "@/data/solutions";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Healthcare Solutions | Comprehensive Supply, Tech & Management Ecosystem",
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
 
 export default function SolutionsPage() {
   return (
-    <div className="pt-28 pb-24 bg-[#EDEDE5]">
+    <div className="pt-28 pb-24 bg-[#EEF4F3]">
       {/* Page Hero */}
-      <section className="py-16 lg:py-24 border-b border-[#CAD7D0] relative overflow-hidden bg-[#EDEDE5]">
+      <section className="py-16 lg:py-24 border-b border-[#CAD7D0] relative overflow-hidden bg-[#EEF4F3]">
         <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-b from-[#6BB0BF]/15 via-[#266573]/5 to-transparent rounded-full blur-[140px]" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -50,7 +51,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* Category Navigation Bar */}
-      <section className="sticky top-20 z-30 bg-[#EDEDE5]/95 backdrop-blur-md border-b border-[#CAD7D0] py-4">
+      <section className="sticky top-20 z-30 bg-[#EEF4F3]/95 backdrop-blur-md border-b border-[#CAD7D0] py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between overflow-x-auto gap-4 scrollbar-none">
           <span className="text-xs font-extrabold uppercase tracking-wider text-[#266573] flex-shrink-0">
             Quick Jump:
@@ -112,58 +113,130 @@ export default function SolutionsPage() {
 
             {/* Individual Solutions Grid for this category */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {category.solutions.map((item) => (
-                <div
-                  key={item.slug}
-                  className="rounded-3xl p-7 border border-white/60 shadow-[0_16px_40px_rgba(18,38,49,0.10)] hover:shadow-[0_26px_56px_rgba(18,38,49,0.20)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group relative overflow-hidden text-[#122631]"
-                  style={{
-                    background: `
-                      linear-gradient(
-                        145deg,
-                        rgba(255,255,255,0.45) 0%,
-                        rgba(255,255,255,0.15) 45%,
-                        rgba(18,38,49,0.06) 100%
-                      ),
-                      #6EBCBF
-                    `,
-                  }}
-                >
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.45)_0%,transparent_60%)]" />
-                  <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/70" />
+              {category.solutions.map((item, idx) => {
+                const CARD_PALETTE = ["#266573", "#6EBCBF", "#6BB0BF"] as const;
+                const cardColor = CARD_PALETTE[idx % CARD_PALETTE.length];
+                const isDark = cardColor === "#266573";
 
-                  <div className="relative z-10">
-                    <div className="flex items-center justify-between mb-5">
-                      <div className="p-3 rounded-2xl bg-white/80 text-[#122631] group-hover:bg-[#122631] group-hover:text-[#6BB0BF] transition-colors shadow-xs">
-                        <DynamicIcon name={item.iconName} className="w-5 h-5" />
+                return (
+                  <div
+                    key={item.slug}
+                    className={cn(
+                      "rounded-3xl p-7 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group relative overflow-hidden",
+                      isDark 
+                        ? "border border-white/20 hover:border-white/40 shadow-[0_20px_50px_rgba(18,38,49,0.25)] hover:shadow-[0_28px_65px_rgba(18,38,49,0.35)] text-white" 
+                        : "border border-white/60 hover:border-white shadow-[0_16px_40px_rgba(18,38,49,0.10)] hover:shadow-[0_26px_56px_rgba(18,38,49,0.20)] text-[#122631]"
+                    )}
+                    style={{
+                      background: isDark
+                        ? `
+                          linear-gradient(
+                            145deg,
+                            rgba(255,255,255,0.16) 0%,
+                            rgba(255,255,255,0.04) 40%,
+                            rgba(0,0,0,0.28) 100%
+                          ),
+                          ${cardColor}
+                        `
+                        : `
+                          linear-gradient(
+                            145deg,
+                            rgba(255,255,255,0.45) 0%,
+                            rgba(255,255,255,0.15) 45%,
+                            rgba(18,38,49,0.06) 100%
+                          ),
+                          ${cardColor}
+                        `,
+                    }}
+                  >
+                    <div 
+                      className={cn(
+                        "pointer-events-none absolute inset-0",
+                        isDark 
+                          ? "bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.22)_0%,transparent_60%)]" 
+                          : "bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.45)_0%,transparent_60%)]"
+                      )} 
+                    />
+                    <div 
+                      className={cn(
+                        "pointer-events-none absolute left-[8%] right-[8%] top-0 h-px",
+                        isDark ? "bg-white/30" : "bg-white/70"
+                      )} 
+                    />
+
+                    <div className="relative z-10">
+                      <div className="flex items-center justify-between mb-5">
+                        <div 
+                          className={cn(
+                            "p-3 rounded-2xl transition-colors shadow-xs",
+                            isDark 
+                              ? "bg-white/15 text-[#6BB0BF] group-hover:bg-white group-hover:text-[#122631]" 
+                              : "bg-white/80 text-[#122631] group-hover:bg-[#122631] group-hover:text-[#6BB0BF]"
+                          )}
+                        >
+                          <DynamicIcon name={item.iconName} className="w-5 h-5" />
+                        </div>
+                        <span 
+                          className={cn(
+                            "text-[11px] font-mono font-bold px-2.5 py-1 rounded-full uppercase",
+                            isDark 
+                              ? "text-white bg-white/15 border border-white/25" 
+                              : "text-white bg-[#122631]"
+                          )}
+                        >
+                          {category.title}
+                        </span>
                       </div>
-                      <span className="text-[11px] font-mono font-bold text-white bg-[#122631] px-2.5 py-1 rounded-full uppercase">
-                        {category.title}
-                      </span>
+
+                      <h3 
+                        className={cn(
+                          "text-xl font-extrabold mb-3 leading-snug",
+                          isDark ? "text-white" : "text-[#122631]"
+                        )}
+                      >
+                        {item.title}
+                      </h3>
+
+                      <p 
+                        className={cn(
+                          "text-xs sm:text-sm leading-relaxed mb-6",
+                          isDark ? "text-[#CAD7D0]/90 font-normal" : "text-[#122631]/85 font-medium"
+                        )}
+                      >
+                        {item.description}
+                      </p>
                     </div>
 
-                    <h3 className="text-xl font-extrabold text-[#122631] mb-3 leading-snug">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-xs sm:text-sm text-[#122631]/85 leading-relaxed mb-6 font-medium">
-                      {item.description}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-[#122631]/15 flex items-center justify-between relative z-10">
-                    <span className="text-[11px] font-semibold text-[#122631]/70">
-                      Full Workflow Ready
-                    </span>
-                    <Link
-                      href={`/solutions/${item.slug}`}
-                      className="inline-flex items-center gap-1.5 text-xs font-extrabold text-[#122631] hover:text-[#266573] transition-colors py-1.5 px-3 rounded-full bg-white/80 hover:bg-white shadow-xs"
+                    <div 
+                      className={cn(
+                        "pt-4 border-t flex items-center justify-between relative z-10",
+                        isDark ? "border-white/15" : "border-[#122631]/15"
+                      )}
                     >
-                      <span>Explore Solution</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#266573]" />
-                    </Link>
+                      <span 
+                        className={cn(
+                          "text-[11px] font-semibold",
+                          isDark ? "text-white/75" : "text-[#122631]/70"
+                        )}
+                      >
+                        Full Workflow Ready
+                      </span>
+                      <Link
+                        href={`/solutions/${item.slug}`}
+                        className={cn(
+                          "inline-flex items-center gap-1.5 text-xs font-extrabold transition-all py-1.5 px-3 rounded-full shadow-xs active:scale-95",
+                          isDark 
+                            ? "bg-white text-[#122631] hover:bg-[#6BB0BF] hover:text-[#122631]" 
+                            : "bg-white/80 hover:bg-white text-[#122631] hover:text-[#266573]"
+                        )}
+                      >
+                        <span>Explore Solution</span>
+                        <ArrowRight className="w-3.5 h-3.5 text-[#266573]" />
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </section>
         ))}
@@ -189,7 +262,7 @@ export default function SolutionsPage() {
               <div className="lg:col-span-4 flex justify-start lg:justify-end">
                 <Link
                   href="/solutions/custom-healthcare-solutions"
-                  className="px-8 py-3.5 rounded-full bg-white hover:bg-[#EDEDE5] text-[#122631] font-bold text-sm shadow-lg transition-all active:scale-95 flex items-center gap-2"
+                  className="px-8 py-3.5 rounded-full bg-white hover:bg-[#EEF4F3] text-[#122631] font-bold text-sm shadow-lg transition-all active:scale-95 flex items-center gap-2"
                 >
                   <span>Explore Custom Solutions</span>
                   <ArrowRight className="w-4 h-4 text-[#266573]" />

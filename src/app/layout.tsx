@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { PageLoader } from "@/components/ui/PageLoader";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#06366F",
+  themeColor: "#266573",
   width: "device-width",
   initialScale: 1,
 };
@@ -66,7 +67,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="min-h-screen flex flex-col bg-white text-ink antialiased selection:bg-blue-accent/20 selection:text-navy selection:text-navy-900">
+      <body className="min-h-screen flex flex-col bg-[#EEF4F3] text-ink antialiased selection:bg-[#6BB0BF]/30 selection:text-[#122631]">
+        <PageLoader />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

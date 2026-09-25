@@ -171,7 +171,7 @@ export function AgencyToRetailerJourney() {
     <section className="w-full py-4 sm:py-6">
       <div 
         ref={containerRef}
-        className="w-full bg-[#EDEDE5] rounded-[36px] sm:rounded-[48px] p-4 sm:p-8 lg:p-10 pb-6 sm:pb-8 border-2 border-[#CAD7D0] shadow-[0_20px_60px_rgba(18,38,49,0.06)] relative overflow-hidden text-[#122631]"
+        className="w-full bg-[#EEF4F3] rounded-[36px] sm:rounded-[48px] p-4 sm:p-8 lg:p-10 pb-6 sm:pb-8 border-2 border-[#CAD7D0] shadow-[0_20px_60px_rgba(18,38,49,0.06)] relative overflow-hidden text-[#122631]"
       >
         {/* Ambient atmospheric lighting in palette colors */}
         <div className="pointer-events-none absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#6BB0BF]/20 rounded-full blur-[150px]" />
@@ -456,59 +456,60 @@ export function AgencyToRetailerJourney() {
               ============================================================ */}
           <div className="relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-2 pl-14 sm:pl-20 lg:pl-0">
             
-            {/* Card 1: Stage 01 Central Pharma Agency (Left Flank, Top) */}
+            {/* Card 1: Stage 01 Central Pharma Agency (Left Flank, Top) - #266573 */}
             <div className="lg:col-span-5 max-w-lg mr-auto w-full -mt-2 sm:-mt-6 lg:-mt-8">
               <div
-                className="group relative flex flex-col justify-between overflow-hidden rounded-[32px] border border-white/60 p-6 sm:p-8 lg:p-9 shadow-[0_16px_40px_rgba(18,38,49,0.10)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(18,38,49,0.20)]"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-[32px] border border-white/20 p-6 sm:p-8 lg:p-9 shadow-[0_20px_50px_rgba(18,38,49,0.25)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(18,38,49,0.35)]"
                 style={{
                   background: `
                     linear-gradient(
                       145deg,
-                      rgba(255,255,255,0.45) 0%,
-                      rgba(255,255,255,0.15) 45%,
-                      rgba(18,38,49,0.06) 100%
+                      rgba(255,255,255,0.18) 0%,
+                      rgba(255,255,255,0.05) 45%,
+                      rgba(0,0,0,0.25) 100%
                     ),
-                    #6EBCBF
+                    #266573
                   `,
                 }}
               >
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.45)_0%,transparent_60%)]" />
-                <div className="pointer-events-none absolute inset-[1px] rounded-[31px] border border-white/40" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.35)_0%,transparent_60%)]" />
+                <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[35%] bg-gradient-to-t from-black/25 to-transparent" />
+                <div className="pointer-events-none absolute inset-[1px] rounded-[31px] border border-white/15" />
                 <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/70" />
 
-                <div className="relative z-10 space-y-4 text-[#122631]">
+                <div className="relative z-10 space-y-4 text-white">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold uppercase tracking-[0.18em] text-white bg-[#122631] border border-[#122631]/20 px-3 py-1 rounded-full shadow-sm">
+                    <span className="text-xs font-mono font-bold uppercase tracking-[0.18em] text-white bg-white/15 border border-white/25 backdrop-blur-md px-3 py-1 rounded-full shadow-sm">
                       #01 • CENTRAL AGENCY
                     </span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#122631] tracking-tight leading-snug">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
                     Direct Stocking &amp; Batch Verification
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#122631]/85 leading-relaxed font-medium">
+                  <p className="text-xs sm:text-sm text-white/85 leading-relaxed font-medium">
                     Stock is batched directly from primary drug manufacturers into our temperature-controlled central C&amp;F agency warehouse. Each carton is scanned and sealed for direct courier dispatch.
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/70 bg-white/80 hover:bg-white text-[#122631] transition-all backdrop-blur-md shadow-xs">
-                      <div className="w-8 h-8 rounded-lg bg-[#266573]/15 text-[#266573] flex items-center justify-center flex-shrink-0">
+                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/15 bg-white/10 hover:bg-white/15 text-white transition-all backdrop-blur-md shadow-xs">
+                      <div className="w-8 h-8 rounded-lg bg-[#6EBCBF]/20 text-[#6EBCBF] flex items-center justify-center flex-shrink-0">
                         <QrCode className="w-4 h-4" />
                       </div>
                       <div>
                         <div className="text-xs font-bold leading-tight">CDSCO Barcode</div>
-                        <div className="text-[10px] text-[#122631]/70 font-mono">100% Genuine Track</div>
+                        <div className="text-[10px] text-white/70 font-mono">100% Genuine Track</div>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/70 bg-white/80 hover:bg-white text-[#122631] transition-all backdrop-blur-md shadow-xs">
-                      <div className="w-8 h-8 rounded-lg bg-[#266573]/15 text-[#266573] flex items-center justify-center flex-shrink-0">
+                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/15 bg-white/10 hover:bg-white/15 text-white transition-all backdrop-blur-md shadow-xs">
+                      <div className="w-8 h-8 rounded-lg bg-[#6EBCBF]/20 text-[#6EBCBF] flex items-center justify-center flex-shrink-0">
                         <ShieldCheck className="w-4 h-4" />
                       </div>
                       <div>
                         <div className="text-xs font-bold leading-tight">Tamper-Proof Seal</div>
-                        <div className="text-[10px] text-[#122631]/70 font-mono">Zero Diversion</div>
+                        <div className="text-[10px] text-white/70 font-mono">Zero Diversion</div>
                       </div>
                     </div>
                   </div>
@@ -519,7 +520,7 @@ export function AgencyToRetailerJourney() {
             {/* Middle Highway Corridor (2 cols) */}
             <div className="hidden lg:block lg:col-span-2" />
 
-            {/* Card 2: Stage 02 Central Hub (Right Flank, moved slightly downside) */}
+            {/* Card 2: Stage 02 Central Hub (Right Flank) - #6EBCBF */}
             <div className="lg:col-span-5 max-w-lg ml-auto w-full mt-8 sm:mt-16 lg:mt-24">
               <div
                 className="group relative flex flex-col justify-between overflow-hidden rounded-[32px] border border-white/60 p-6 sm:p-8 lg:p-9 shadow-[0_16px_40px_rgba(18,38,49,0.10)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(18,38,49,0.20)]"
@@ -583,11 +584,11 @@ export function AgencyToRetailerJourney() {
 
           {/* ============================================================
               STAGE 3: HIGHWAY TRANSIT CHECKPOINT (MIDDLE ROW - ON LEFT BLANK SPACE)
-              - Positioned comfortably in the mid-left open corridor (y~880)
+              - Positioned comfortably in the mid-left open corridor (y~880) - #6BB0BF
               ============================================================ */}
           <div className="relative z-20 pt-16 sm:pt-24 lg:pt-28 pb-8 pl-14 sm:pl-20 lg:pl-0">
             
-            {/* Card 3: Stage 03 Cold-Chain Guard (Left Flank Blank Space) */}
+            {/* Card 3: Stage 03 Cold-Chain Guard (Left Flank) - #6BB0BF */}
             <div className="w-full max-w-lg mr-auto lg:ml-0 lg:mr-auto">
               <div
                 className="group relative flex flex-col justify-between overflow-hidden rounded-[32px] border border-white/60 p-6 sm:p-8 lg:p-9 shadow-[0_16px_40px_rgba(18,38,49,0.10)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(18,38,49,0.20)]"
@@ -599,7 +600,7 @@ export function AgencyToRetailerJourney() {
                       rgba(255,255,255,0.15) 45%,
                       rgba(18,38,49,0.06) 100%
                     ),
-                    #6EBCBF
+                    #6BB0BF
                   `,
                 }}
               >
@@ -650,64 +651,65 @@ export function AgencyToRetailerJourney() {
           </div>
 
           {/* ============================================================
-              STAGE 4: RETAIL PHARMACY COUNTER HANDOVER (BOTTOM ROW - DELIVERED AT ROAD TERMINUS)
-              - Road terminates seamlessly connected into the left side of Card 4 (y~1300)
+              STAGE 4: RETAIL PHARMACY COUNTER HANDOVER (BOTTOM ROW)
+              - Road terminates seamlessly connected into Card 4 - #266573
               ============================================================ */}
           <div className="relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-16 sm:pt-24 lg:pt-28 pb-2 sm:pb-4 pl-14 sm:pl-20 lg:pl-0">
             
-            {/* Card 4: Stage 04 Retail Pharmacy Counter Handover (Right Flank) */}
+            {/* Card 4: Stage 04 Retail Pharmacy Counter Handover (Right Flank) - #266573 */}
             <div className="lg:col-span-5 max-w-lg ml-auto w-full lg:col-start-8">
               <div
-                className="group relative flex flex-col justify-between overflow-hidden rounded-[32px] border border-white/60 p-6 sm:p-8 lg:p-9 shadow-[0_16px_40px_rgba(18,38,49,0.10)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(18,38,49,0.20)]"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-[32px] border border-white/20 p-6 sm:p-8 lg:p-9 shadow-[0_20px_50px_rgba(18,38,49,0.25)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(18,38,49,0.35)]"
                 style={{
                   background: `
                     linear-gradient(
                       145deg,
-                      rgba(255,255,255,0.45) 0%,
-                      rgba(255,255,255,0.15) 45%,
-                      rgba(18,38,49,0.06) 100%
+                      rgba(255,255,255,0.18) 0%,
+                      rgba(255,255,255,0.05) 45%,
+                      rgba(0,0,0,0.25) 100%
                     ),
-                    #6EBCBF
+                    #266573
                   `,
                 }}
               >
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.45)_0%,transparent_60%)]" />
-                <div className="pointer-events-none absolute inset-[1px] rounded-[31px] border border-white/40" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.35)_0%,transparent_60%)]" />
+                <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[35%] bg-gradient-to-t from-black/25 to-transparent" />
+                <div className="pointer-events-none absolute inset-[1px] rounded-[31px] border border-white/15" />
                 <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/70" />
 
-                <div className="relative z-10 space-y-4 text-[#122631]">
+                <div className="relative z-10 space-y-4 text-white">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold uppercase tracking-[0.18em] text-white bg-[#122631] border border-[#122631]/20 px-3 py-1 rounded-full shadow-sm">
+                    <span className="text-xs font-mono font-bold uppercase tracking-[0.18em] text-white bg-white/15 border border-white/25 backdrop-blur-md px-3 py-1 rounded-full shadow-sm">
                       #04 • PHARMACY COUNTER
                     </span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#122631] tracking-tight leading-snug">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
                     Instant Handover &amp; Immediate Patient Care
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#122631]/85 leading-relaxed font-medium">
+                  <p className="text-xs sm:text-sm text-white/85 leading-relaxed font-medium">
                     The courier arrives directly at the retailer dispensary desk. Invoices are digitally validated with one scan, stock is recorded in real time, and patients never experience a missing prescription.
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/70 bg-white/80 hover:bg-white text-[#122631] transition-all backdrop-blur-md shadow-xs">
-                      <div className="w-8 h-8 rounded-lg bg-[#266573]/15 text-[#266573] flex items-center justify-center flex-shrink-0">
+                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/15 bg-white/10 hover:bg-white/15 text-white transition-all backdrop-blur-md shadow-xs">
+                      <div className="w-8 h-8 rounded-lg bg-[#6EBCBF]/20 text-[#6EBCBF] flex items-center justify-center flex-shrink-0">
                         <CheckCircle2 className="w-4 h-4" />
                       </div>
                       <div>
                         <div className="text-xs font-bold leading-tight">Stock Restocked</div>
-                        <div className="text-[10px] text-[#122631]/70 font-mono">Zero Stockout Gap</div>
+                        <div className="text-[10px] text-white/70 font-mono">Zero Stockout Gap</div>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/70 bg-white/80 hover:bg-white text-[#122631] transition-all backdrop-blur-md shadow-xs">
-                      <div className="w-8 h-8 rounded-lg bg-[#266573]/15 text-[#266573] flex items-center justify-center flex-shrink-0">
+                    <div className="flex items-center gap-2.5 p-3 rounded-xl border border-white/15 bg-white/10 hover:bg-white/15 text-white transition-all backdrop-blur-md shadow-xs">
+                      <div className="w-8 h-8 rounded-lg bg-[#6EBCBF]/20 text-[#6EBCBF] flex items-center justify-center flex-shrink-0">
                         <Store className="w-4 h-4" />
                       </div>
                       <div>
                         <div className="text-xs font-bold leading-tight">Instant Digital Sync</div>
-                        <div className="text-[10px] text-[#122631]/70 font-mono">Invoice #INV-2026-901</div>
+                        <div className="text-[10px] text-white/70 font-mono">Invoice #INV-2026-901</div>
                       </div>
                     </div>
                   </div>

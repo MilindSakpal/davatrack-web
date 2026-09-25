@@ -28,8 +28,8 @@ const STATS_ITEMS: StatItem[] = [
     suffix: "%",
     progressPercent: 45,
     gradient: {
-      start: "#035748",
-      end: "#58EDA2",
+      start: "#266573",
+      end: "#6EBCBF",
     },
     headline: "Up to",
     boldPhrase: "45% lower procurement lead time",
@@ -42,8 +42,8 @@ const STATS_ITEMS: StatItem[] = [
     suffix: "%",
     progressPercent: 82,
     gradient: {
-      start: "#0D50B8",
-      end: "#61A0FF",
+      start: "#173246",
+      end: "#6BB0BF",
     },
     headline: "Achieve up to",
     boldPhrase: "82% reduction in pharmacy expiry",
@@ -55,8 +55,8 @@ const STATS_ITEMS: StatItem[] = [
     suffix: "%",
     progressPercent: 97,
     gradient: {
-      start: "#035748",
-      end: "#26C9DF",
+      start: "#266573",
+      end: "#6BB0BF",
     },
     headline: "Eliminate up to",
     boldPhrase: "97% of billing & procurement leakage",
@@ -68,8 +68,8 @@ const STATS_ITEMS: StatItem[] = [
     suffix: "%",
     progressPercent: 100,
     gradient: {
-      start: "#06366F",
-      end: "#1EA7FF",
+      start: "#173246",
+      end: "#6EBCBF",
     },
     headline: "Guarantee",
     boldPhrase: "100% batch-traceable audit compliance",
@@ -127,7 +127,7 @@ function StatCardItem({
 
   return (
     <div
-      className="group flex flex-col items-center text-center p-6 sm:p-7 rounded-3xl bg-white border border-white/80 shadow-[0_16px_36px_rgba(0,0,0,0.18)] hover:-translate-y-1.5 hover:shadow-[0_24px_48px_rgba(0,0,0,0.28)] transition-all duration-300 text-[#0B1E3B] transform-gpu will-change-transform"
+      className="group flex flex-col items-center text-center p-6 sm:p-7 rounded-3xl bg-white border border-white/90 shadow-[0_16px_36px_rgba(18,38,49,0.14)] hover:-translate-y-1.5 hover:shadow-[0_24px_48px_rgba(18,38,49,0.22)] transition-all duration-300 text-[#122631] transform-gpu will-change-transform"
     >
       {/* Radial Progress SVG Container */}
       <div className="relative w-36 h-36 mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 transform-gpu">
@@ -149,7 +149,7 @@ function StatCardItem({
             cy="70"
             r={radius}
             fill="transparent"
-            stroke="#EAEFF5"
+            stroke="#EEF4F3"
             strokeWidth="8"
           />
 
@@ -177,7 +177,7 @@ function StatCardItem({
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <span
             ref={numberRef}
-            className="text-2xl sm:text-3xl font-black text-[#0B1E3B] tracking-tight font-mono"
+            className="text-2xl sm:text-3xl font-black text-[#122631] tracking-tight font-mono"
           >
             {stat.prefix || ""}0{stat.suffix}
           </span>
@@ -185,10 +185,10 @@ function StatCardItem({
       </div>
 
       {/* Description Headline & Content */}
-      <div className="text-sm text-slate-600 leading-snug space-y-1">
+      <div className="text-sm text-[#122631]/75 leading-snug space-y-1">
         <p>
           {stat.headline}{" "}
-          <strong className="font-bold text-[#0B1E3B]">
+          <strong className="font-bold text-[#122631]">
             {stat.boldPhrase}
           </strong>{" "}
           {stat.afterPhrase}
@@ -239,24 +239,28 @@ export function AboutSection() {
     <section
       ref={sectionRef}
       id="about-davatrack"
-      className="py-24 lg:py-32 text-white relative z-20 overflow-hidden rounded-t-[36px] sm:rounded-t-[48px] shadow-[0_-30px_60px_-15px_rgba(0,0,0,0.50),0_-10px_20px_-8px_rgba(0,0,0,0.30)] border-t border-white/20"
+      className="py-24 lg:py-32 text-white relative z-20 overflow-hidden rounded-t-[36px] sm:rounded-t-[48px] shadow-[0_-30px_60px_-15px_rgba(18,38,49,0.25),0_-10px_20px_-8px_rgba(18,38,49,0.15)] border-t border-white/20"
       style={{
         background: `
           linear-gradient(
             145deg,
-            rgba(255,255,255,0.28) 0%,
+            rgba(255,255,255,0.22) 0%,
             rgba(255,255,255,0.06) 45%,
-            rgba(0,0,0,0.22) 100%
+            rgba(0,0,0,0.15) 100%
           ),
-          #5B434C
+          #266573
         `,
       }}
     >
       {/* Hardware-accelerated glossy top-left specular reflection */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.28)_0%,transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.30)_0%,transparent_60%)]" />
+
+      {/* Ambient soft glow highlights in cyan/mint */}
+      <div className="pointer-events-none absolute -top-24 right-1/4 w-[500px] h-[500px] bg-[#6EBCBF]/15 rounded-full blur-[140px]" />
+      <div className="pointer-events-none absolute -bottom-24 left-1/4 w-[500px] h-[500px] bg-[#6BB0BF]/15 rounded-full blur-[140px]" />
 
       {/* Crisp top edge highlight line */}
-      <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/50" />
+      <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/60" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
         
@@ -264,21 +268,21 @@ export function AboutSection() {
         <div className="text-center space-y-4 max-w-3xl mx-auto">
           {/* Pill Badge */}
           <div className="inline-block">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-white/90 bg-white/[0.14] border border-white/25 px-3.5 py-1 rounded-full backdrop-blur-sm shadow-inner">
+            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-white bg-white/15 border border-white/25 px-3.5 py-1 rounded-full backdrop-blur-md shadow-xs">
               OPERATIONAL IMPACT &amp; SAVINGS
             </span>
           </div>
 
-          {/* Headline matching Maven Clinic style */}
+          {/* Headline matching brand colors */}
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.18]">
             Lowering costs by{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F7C6D9] via-[#E2B2C8] to-white">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6EBCBF] via-[#6BB0BF] to-white">
               improving execution
             </span>
           </h2>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto font-normal leading-relaxed">
+          <p className="text-base sm:text-lg text-white/85 max-w-2xl mx-auto font-normal leading-relaxed">
             By guiding healthcare providers through unified supply chains, managed pharmacy SOPs, and clinical workflows, we eliminate operational leakage and accelerate results.
           </p>
         </div>
@@ -301,10 +305,10 @@ export function AboutSection() {
         <div className="text-center pt-4">
           <Link
             href="/about"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-white/90 hover:text-white transition-colors group"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-white hover:text-[#6EBCBF] transition-colors group"
           >
             <span>Read more about our operational model</span>
-            <ArrowRight className="w-4 h-4 text-[#F7C6D9] transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="w-4 h-4 text-[#6EBCBF] transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
 

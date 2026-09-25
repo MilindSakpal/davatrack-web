@@ -22,9 +22,9 @@ export const metadata: Metadata = {
 
 export default function InquiryPage() {
   return (
-    <div className="pt-28 pb-24 bg-[#EDEDE5]">
+    <div className="pt-28 pb-24 bg-[#EEF4F3]">
       {/* Page Hero */}
-      <section className="py-16 lg:py-24 border-b border-[#CAD7D0] relative overflow-hidden bg-[#EDEDE5]">
+      <section className="py-16 lg:py-24 border-b border-[#CAD7D0] relative overflow-hidden bg-[#EEF4F3]">
         <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-b from-[#6BB0BF]/15 via-[#266573]/5 to-transparent rounded-full blur-[140px]" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -57,7 +57,7 @@ export default function InquiryPage() {
       </section>
 
       {/* Main Intake Section: 2 Columns */}
-      <section className="py-16 lg:py-24 bg-[#EDEDE5]">
+      <section className="py-16 lg:py-24 bg-[#EEF4F3]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             

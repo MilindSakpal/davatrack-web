@@ -11,14 +11,14 @@
     --ink: #122631;
     --muted: #4A6572;
     --line: #CBD9D2;
-    --soft: #EDEDE5;
+    --soft: #EEF4F3;
     --white: #FFFFFF;
   }
 
   html {
     scroll-behavior: smooth;
     color: var(--ink);
-    background-color: #EDEDE5;
+    background-color: #EEF4F3;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     overflow-x: clip;
   }
@@ -26,7 +26,7 @@
   body {
     overflow-x: clip;
     min-height: 100vh;
-    background-color: #EDEDE5;
+    background-color: #EEF4F3;
     font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -103,6 +103,15 @@
   }
   50% {
     transform: translateY(-8px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }
 

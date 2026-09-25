@@ -126,7 +126,7 @@ export function Hero() {
   return (
     <section
       ref={heroRef}
-      className="pt-28 sm:pt-32 pb-8 sm:pb-12 bg-[#EDEDE5] relative overflow-hidden"
+      className="pt-28 sm:pt-32 pb-8 sm:pb-12 bg-[#EEF4F3] relative overflow-hidden"
     >
       {/* Geometric Grid Pattern with smooth bottom fade mask */}
       <div className="hero-grid-bg pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(38,101,115,0.13)_1.5px,transparent_1.5px),linear-gradient(to_bottom,rgba(38,101,115,0.13)_1.5px,transparent_1.5px)] bg-[size:3.5rem_3.5rem] [mask-image:linear-gradient(to_bottom,black_50%,transparent_98%)]" />
@@ -135,7 +135,7 @@ export function Hero() {
       <div className="hero-ambient-glow pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#6BB0BF]/[0.16] rounded-full blur-[140px]" />
 
       {/* Soft feather gradient & subtle shadow blend at bottom to transition seamlessly into Architecture */}
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-44 bg-gradient-to-t from-[#EDEDE5] via-[#EDEDE5]/80 to-transparent z-0" />
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-44 bg-gradient-to-t from-[#EEF4F3] via-[#EEF4F3]/80 to-transparent z-0" />
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-[#122631]/[0.03] z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

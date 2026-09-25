@@ -94,20 +94,38 @@ export function SupplyChainDeliverables() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {SUPPLY_DELIVERABLES.map((item, idx) => {
           const IconComp = item.icon;
+          const palette = ["#266573", "#6EBCBF", "#6BB0BF"];
+          const cardColor = palette[idx % palette.length];
+          const isDark = cardColor === "#266573";
+
           return (
             <div
               key={idx}
-              className="rounded-3xl p-7 border border-white/60 shadow-[0_16px_40px_rgba(18,38,49,0.10)] hover:shadow-[0_26px_56px_rgba(18,38,49,0.20)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative overflow-hidden text-[#122631]"
+              className={`rounded-3xl p-7 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative overflow-hidden ${
+                isDark
+                  ? "border border-white/20 shadow-[0_20px_50px_rgba(18,38,49,0.25)] hover:shadow-[0_28px_60px_rgba(18,38,49,0.35)] text-white"
+                  : "border border-white/60 shadow-[0_16px_40px_rgba(18,38,49,0.10)] hover:shadow-[0_26px_56px_rgba(18,38,49,0.20)] text-[#122631]"
+              }`}
               style={{
-                background: `
-                  linear-gradient(
-                    145deg,
-                    rgba(255,255,255,0.45) 0%,
-                    rgba(255,255,255,0.15) 45%,
-                    rgba(18,38,49,0.06) 100%
-                  ),
-                  #6EBCBF
-                `,
+                background: isDark
+                  ? `
+                    linear-gradient(
+                      145deg,
+                      rgba(255,255,255,0.18) 0%,
+                      rgba(255,255,255,0.05) 45%,
+                      rgba(0,0,0,0.25) 100%
+                    ),
+                    ${cardColor}
+                  `
+                  : `
+                    linear-gradient(
+                      145deg,
+                      rgba(255,255,255,0.45) 0%,
+                      rgba(255,255,255,0.15) 45%,
+                      rgba(18,38,49,0.06) 100%
+                    ),
+                    ${cardColor}
+                  `,
               }}
             >
               {/* Top ambient highlight */}
@@ -117,29 +135,45 @@ export function SupplyChainDeliverables() {
               <div className="relative z-10">
                 {/* Header: Icon + Tag */}
                 <div className="flex items-center justify-between gap-2 mb-5">
-                  <div className="w-12 h-12 rounded-2xl bg-white/80 text-[#122631] flex items-center justify-center shadow-xs border border-white/70 group-hover:bg-[#122631] group-hover:text-[#6BB0BF] transition-colors">
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-xs transition-colors ${
+                    isDark
+                      ? "bg-white/15 text-white border border-white/20 group-hover:bg-white group-hover:text-[#266573]"
+                      : "bg-white/80 text-[#122631] border border-white/70 group-hover:bg-[#122631] group-hover:text-[#6BB0BF]"
+                  }`}>
                     <IconComp className="w-6 h-6" />
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-white bg-[#122631] px-2.5 py-1 rounded-full shadow-xs">
+                  <span className={`text-[10px] font-mono font-bold px-2.5 py-1 rounded-full shadow-xs ${
+                    isDark
+                      ? "text-white bg-white/15 border border-white/25 backdrop-blur-md"
+                      : "text-white bg-[#122631]"
+                  }`}>
                     {item.tag}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg sm:text-xl font-extrabold text-[#122631] mb-2 leading-snug">
+                <h3 className={`text-lg sm:text-xl font-extrabold mb-2 leading-snug ${
+                  isDark ? "text-white" : "text-[#122631]"
+                }`}>
                   {item.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-xs sm:text-sm text-[#122631]/85 leading-relaxed mb-5 font-medium">
+                <p className={`text-xs sm:text-sm leading-relaxed mb-5 font-medium ${
+                  isDark ? "text-white/85" : "text-[#122631]/85"
+                }`}>
                   {item.description}
                 </p>
 
                 {/* Bullet Points */}
                 <div className="space-y-2 mb-5">
                   {item.features.map((feat, fIdx) => (
-                    <div key={fIdx} className="flex items-center gap-2 text-xs text-[#122631] font-medium">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#266573] flex-shrink-0" />
+                    <div key={fIdx} className={`flex items-center gap-2 text-xs font-medium ${
+                      isDark ? "text-white/95" : "text-[#122631]"
+                    }`}>
+                      <CheckCircle2 className={`w-3.5 h-3.5 flex-shrink-0 ${
+                        isDark ? "text-[#6EBCBF]" : "text-[#266573]"
+                      }`} />
                       <span>{feat}</span>
                     </div>
                   ))}
@@ -147,18 +181,30 @@ export function SupplyChainDeliverables() {
               </div>
 
               {/* Bottom Metric Bar */}
-              <div className="pt-4 border-t border-[#122631]/15 flex items-center justify-between bg-white/60 -mx-7 -mb-7 px-7 py-3.5 rounded-b-3xl relative z-10 backdrop-blur-sm">
+              <div className={`pt-4 flex items-center justify-between -mx-7 -mb-7 px-7 py-3.5 rounded-b-3xl relative z-10 backdrop-blur-sm ${
+                isDark
+                  ? "bg-black/20 border-t border-white/15"
+                  : "bg-white/60 border-t border-[#122631]/15"
+              }`}>
                 <div>
-                  <span className="text-[10px] font-mono text-[#266573] uppercase font-bold block">
+                  <span className={`text-[10px] font-mono uppercase font-bold block ${
+                    isDark ? "text-[#6BB0BF]" : "text-[#266573]"
+                  }`}>
                     {item.metricLabel}
                   </span>
-                  <span className="text-sm font-black font-mono text-[#122631]">
+                  <span className={`text-sm font-black font-mono ${
+                    isDark ? "text-white" : "text-[#122631]"
+                  }`}>
                     {item.metric}
                   </span>
                 </div>
-                <div className="text-[11px] font-mono text-[#122631] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                <div className={`text-[11px] font-mono font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform ${
+                  isDark ? "text-white" : "text-[#122631]"
+                }`}>
                   <span>DEPLOYED</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#266573]" />
+                  <ArrowRight className={`w-3.5 h-3.5 ${
+                    isDark ? "text-[#6EBCBF]" : "text-[#266573]"
+                  }`} />
                 </div>
               </div>
 

@@ -27,7 +27,7 @@ export function Badge({
     cyan: "bg-[#6BB0BF]/20 text-[#122631] border border-[#6BB0BF]/40",
     blue: "bg-[#266573]/10 text-[#266573] border border-[#266573]/20",
     navy: "bg-[#122631] text-white border border-[#266573]/40",
-    soft: "bg-[#EDEDE5] text-[#266573] border border-[#CAD7D0]",
+    soft: "bg-[#EEF4F3] text-[#266573] border border-[#CAD7D0]",
     outline: "bg-transparent text-[#122631] border border-[#CAD7D0]",
     radar: "bg-white/80 backdrop-blur-md text-[#122631] border border-[#6BB0BF]/40 shadow-sm",
   };

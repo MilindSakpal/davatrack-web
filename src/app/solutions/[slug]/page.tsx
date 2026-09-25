@@ -68,7 +68,7 @@ export default function SolutionDetailPage({ params }: PageProps) {
     .filter(Boolean);
 
   return (
-    <div className="min-h-screen bg-[#EDEDE5] text-[#122631] pt-28 pb-24 relative overflow-hidden">
+    <div className="min-h-screen bg-[#EEF4F3] text-[#122631] pt-28 pb-24 relative overflow-hidden">
       {/* Background ambient lighting */}
       <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-b from-[#6BB0BF]/15 via-[#266573]/5 to-transparent rounded-full blur-[150px]" />
       <div className="pointer-events-none absolute top-1/3 right-10 w-96 h-96 bg-[#CAD7D0]/30 rounded-full blur-[130px]" />
@@ -135,37 +135,37 @@ export default function SolutionDetailPage({ params }: PageProps) {
 
             {/* Right Card: Quick Spec Sheet */}
             <div className="lg:col-span-4">
-              <div className="bg-[#6EBCBF] rounded-3xl p-6 sm:p-7 border-2 border-white/60 shadow-[0_12px_40px_rgba(18,38,49,0.08)] space-y-6 relative overflow-hidden">
-                <div className="pointer-events-none absolute -right-10 -top-10 w-32 h-32 bg-white/30 rounded-full blur-2xl" />
+              <div className="bg-[#266573] rounded-3xl p-6 sm:p-7 border-2 border-white/30 shadow-[0_20px_50px_rgba(18,38,49,0.25)] space-y-6 relative overflow-hidden text-white">
+                <div className="pointer-events-none absolute -right-10 -top-10 w-32 h-32 bg-white/20 rounded-full blur-2xl" />
 
-                <div className="flex items-center gap-3 pb-4 border-b border-white/60">
-                  <div className="w-12 h-12 rounded-2xl bg-[#122631] text-[#6EBCBF] flex items-center justify-center shadow-md border border-[#122631]/20">
+                <div className="flex items-center gap-3 pb-4 border-b border-white/20">
+                  <div className="w-12 h-12 rounded-2xl bg-white/15 text-[#6BB0BF] flex items-center justify-center shadow-md border border-white/20 backdrop-blur-md">
                     <DynamicIcon name={solution.iconName} className="w-6 h-6" />
                   </div>
                   <div>
-                    <div className="text-[10px] font-mono uppercase tracking-wider text-[#122631] font-extrabold">
+                    <div className="text-[10px] font-mono uppercase tracking-wider text-[#6BB0BF] font-extrabold">
                       EXECUTION SPEC
                     </div>
-                    <div className="text-base font-black text-[#122631]">
+                    <div className="text-base font-black text-white">
                       {solution.title}
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  <div className="text-xs font-mono uppercase tracking-wider text-[#122631] font-extrabold">
+                  <div className="text-xs font-mono uppercase tracking-wider text-[#6BB0BF] font-extrabold">
                     Guaranteed Operational Deliverables
                   </div>
                   {solution.keyOutcomes.slice(0, 4).map((outcome, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 text-xs text-[#122631] font-bold">
-                      <CheckCircle2 className="w-4 h-4 text-[#266573] flex-shrink-0 mt-0.5" />
+                    <div key={idx} className="flex items-start gap-2.5 text-xs text-white/90 font-medium">
+                      <CheckCircle2 className="w-4 h-4 text-[#6BB0BF] flex-shrink-0 mt-0.5" />
                       <span>{outcome}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-white/80 border border-white/90 text-xs text-[#122631] font-medium shadow-xs">
-                  <span className="font-extrabold text-[#122631]">Single-Point SLA:</span> Managed end-to-end under DavaTrack Digital LLP&apos;s integrated governance.
+                <div className="p-3.5 rounded-xl bg-white/12 border border-white/20 text-xs text-[#CAD7D0] font-medium shadow-xs backdrop-blur-md">
+                  <span className="font-extrabold text-white">Single-Point SLA:</span> Managed end-to-end under DavaTrack Digital LLP&apos;s integrated governance.
                 </div>
               </div>
             </div>
@@ -202,23 +202,34 @@ export default function SolutionDetailPage({ params }: PageProps) {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {solution.weCanSupport.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="bg-[#6EBCBF] rounded-2xl p-5 border-2 border-white/60 shadow-[0_4px_16px_rgba(18,38,49,0.05)] transition-all duration-200 flex flex-col justify-between"
-                    >
-                      <div className="flex items-start gap-3">
-                        <div className="w-2.5 h-2.5 rounded-full bg-[#122631] mt-1.5 flex-shrink-0" />
-                        <p className="text-xs sm:text-sm text-[#122631] font-bold leading-snug">
-                          {item}
-                        </p>
+                  {solution.weCanSupport.map((item, idx) => {
+                    const SCOPE_COLORS = ["#266573", "#6EBCBF", "#6BB0BF", "#266573"] as const;
+                    const c = SCOPE_COLORS[idx % SCOPE_COLORS.length];
+                    const isDark = c === "#266573";
+
+                    return (
+                      <div
+                        key={idx}
+                        className={cn(
+                          "rounded-2xl p-5 transition-all duration-200 flex flex-col justify-between",
+                          isDark
+                            ? "bg-[#266573] text-white border-2 border-white/20 shadow-[0_12px_30px_rgba(18,38,49,0.20)]"
+                            : "bg-[#6EBCBF] text-[#122631] border-2 border-white/60 shadow-[0_4px_16px_rgba(18,38,49,0.05)]"
+                        )}
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className={cn("w-2.5 h-2.5 rounded-full mt-1.5 flex-shrink-0", isDark ? "bg-[#6BB0BF]" : "bg-[#122631]")} />
+                          <p className={cn("text-xs sm:text-sm leading-snug", isDark ? "text-white font-bold" : "text-[#122631] font-bold")}>
+                            {item}
+                          </p>
+                        </div>
+                        <div className={cn("mt-4 pt-3 border-t flex items-center justify-between text-[10px] font-mono", isDark ? "border-white/20 text-[#CAD7D0]" : "border-white/50 text-[#122631]")}>
+                          <span className="font-semibold">STATUS</span>
+                          <span className={cn("px-2 py-0.5 rounded-full font-extrabold", isDark ? "bg-white text-[#122631]" : "bg-[#122631] text-white")}>MANAGED</span>
+                        </div>
                       </div>
-                      <div className="mt-4 pt-3 border-t border-white/50 flex items-center justify-between text-[10px] font-mono text-[#122631]">
-                        <span className="font-semibold">STATUS</span>
-                        <span className="bg-[#122631] text-white px-2 py-0.5 rounded-full font-extrabold">MANAGED</span>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
 
@@ -239,30 +250,41 @@ export default function SolutionDetailPage({ params }: PageProps) {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-                    {solution.processSteps.map((step, idx) => (
-                      <div
-                        key={idx}
-                        className="bg-[#6EBCBF] rounded-2xl p-6 border-2 border-white/60 shadow-[0_4px_16px_rgba(18,38,49,0.05)] relative overflow-hidden flex flex-col justify-between"
-                      >
-                        <div>
-                          <div className="font-mono text-2xl font-black text-[#122631]/40 mb-3">
-                            #{step.number}
-                          </div>
-                          <h3 className="text-base font-extrabold text-[#122631] mb-2 leading-snug">
-                            {step.title}
-                          </h3>
-                          {step.description && (
-                            <p className="text-xs text-[#122631]/85 font-medium leading-relaxed">
-                              {step.description}
-                            </p>
+                    {solution.processSteps.map((step, idx) => {
+                      const STEP_COLORS = ["#6EBCBF", "#266573", "#6BB0BF", "#6EBCBF"] as const;
+                      const c = STEP_COLORS[idx % STEP_COLORS.length];
+                      const isDark = c === "#266573";
+
+                      return (
+                        <div
+                          key={idx}
+                          className={cn(
+                            "rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between",
+                            isDark
+                              ? "bg-[#266573] text-white border-2 border-white/20 shadow-[0_12px_30px_rgba(18,38,49,0.20)]"
+                              : "bg-[#6EBCBF] text-[#122631] border-2 border-white/60 shadow-[0_4px_16px_rgba(18,38,49,0.05)]"
                           )}
+                        >
+                          <div>
+                            <div className={cn("font-mono text-2xl font-black mb-3", isDark ? "text-white/40" : "text-[#122631]/40")}>
+                              #{step.number}
+                            </div>
+                            <h3 className={cn("text-base font-extrabold mb-2 leading-snug", isDark ? "text-white" : "text-[#122631]")}>
+                              {step.title}
+                            </h3>
+                            {step.description && (
+                              <p className={cn("text-xs leading-relaxed", isDark ? "text-[#CAD7D0]/90 font-normal" : "text-[#122631]/85 font-medium")}>
+                                {step.description}
+                              </p>
+                            )}
+                          </div>
+                          <div className={cn("mt-4 pt-3 border-t flex items-center justify-between text-[10px] font-mono", isDark ? "border-white/20 text-[#CAD7D0]" : "border-white/50 text-[#122631]")}>
+                            <span className="font-bold">PHASE #{step.number}</span>
+                            <span className={cn("px-2 py-0.5 rounded-full font-extrabold", isDark ? "bg-white text-[#122631]" : "bg-[#122631] text-white")}>VERIFIED</span>
+                          </div>
                         </div>
-                        <div className="mt-4 pt-3 border-t border-white/50 flex items-center justify-between text-[10px] font-mono text-[#122631]">
-                          <span className="font-bold">PHASE #{step.number}</span>
-                          <span className="bg-[#122631] text-white px-2 py-0.5 rounded-full font-extrabold">VERIFIED</span>
-                        </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               )}
@@ -306,68 +328,112 @@ export default function SolutionDetailPage({ params }: PageProps) {
               {/* Glossy Homepage-Style Solution Cards with Small Details Right on This Page */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
                 {relatedSolutions.map((related, idx) => {
+                  const palette = ["#266573", "#6EBCBF", "#6BB0BF"];
+                  const cardColor = palette[idx % palette.length];
+                  const isDark = cardColor === "#266573";
+
                   return (
                     <div
                       key={idx}
-                      className="group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-[32px] border border-white/60 p-6 sm:p-7 shadow-[0_16px_40px_rgba(18,38,49,0.10)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_26px_56px_rgba(18,38,49,0.20)]"
+                      className={`group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-[32px] p-6 sm:p-7 transition-all duration-300 ease-out hover:-translate-y-1 ${
+                        isDark
+                          ? "border border-white/20 shadow-[0_20px_50px_rgba(18,38,49,0.25)] hover:shadow-[0_28px_60px_rgba(18,38,49,0.35)]"
+                          : "border border-white/60 shadow-[0_16px_40px_rgba(18,38,49,0.10)] hover:shadow-[0_26px_56px_rgba(18,38,49,0.20)]"
+                      }`}
                       style={{
-                        background: `
-                          linear-gradient(
-                            145deg,
-                            rgba(255,255,255,0.45) 0%,
-                            rgba(255,255,255,0.15) 45%,
-                            rgba(18,38,49,0.06) 100%
-                          ),
-                          #6EBCBF
-                        `,
+                        background: isDark
+                          ? `
+                            linear-gradient(
+                              145deg,
+                              rgba(255,255,255,0.18) 0%,
+                              rgba(255,255,255,0.05) 45%,
+                              rgba(0,0,0,0.25) 100%
+                            ),
+                            ${cardColor}
+                          `
+                          : `
+                            linear-gradient(
+                              145deg,
+                              rgba(255,255,255,0.45) 0%,
+                              rgba(255,255,255,0.15) 45%,
+                              rgba(18,38,49,0.06) 100%
+                            ),
+                            ${cardColor}
+                          `,
                       }}
                     >
                       {/* Glossy top-left specular reflection */}
                       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.45)_0%,transparent_60%)]" />
 
                       {/* Deep subtle bottom shadow gradient */}
-                      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[35%] bg-gradient-to-t from-[#122631]/[0.08] to-transparent" />
+                      <div className={`pointer-events-none absolute bottom-0 left-0 right-0 h-[35%] ${
+                        isDark ? "bg-gradient-to-t from-black/25 to-transparent" : "bg-gradient-to-t from-[#122631]/[0.08] to-transparent"
+                      }`} />
 
                       {/* Diagonal shine sweep on hover */}
                       <div className="pointer-events-none absolute -left-[100%] top-[-30%] h-[180%] w-[60%] rotate-[25deg] bg-gradient-to-r from-transparent via-white/[0.35] to-transparent transition-transform duration-1000 ease-out group-hover:translate-x-[350%]" />
 
                       {/* Inner glass bezel ring */}
-                      <div className="pointer-events-none absolute inset-[1px] rounded-[31px] border border-white/40" />
+                      <div className={`pointer-events-none absolute inset-[1px] rounded-[31px] border ${
+                        isDark ? "border-white/15" : "border-white/40"
+                      }`} />
 
                       {/* Crisp top edge highlight line */}
                       <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/70" />
 
                       {/* Card Content */}
-                      <div className="relative z-10 flex h-full flex-col justify-between space-y-5 text-[#122631]">
+                      <div className={`relative z-10 flex h-full flex-col justify-between space-y-5 ${
+                        isDark ? "text-white" : "text-[#122631]"
+                      }`}>
                         {/* Top Header: Badge + Title + Icon */}
                         <div className="space-y-3.5">
                           <div className="flex items-center justify-between">
-                            <span className="text-xs font-mono font-bold uppercase tracking-[0.18em] text-white bg-[#122631] border border-[#122631]/20 px-3 py-1 rounded-full shadow-sm">
+                            <span className={`text-xs font-mono font-bold uppercase tracking-[0.18em] px-3 py-1 rounded-full shadow-sm ${
+                              isDark
+                                ? "bg-white/15 text-white border border-white/25 backdrop-blur-md"
+                                : "text-white bg-[#122631] border border-[#122631]/20"
+                            }`}>
                               #{related.number || `0${idx + 1}`} • {related.categoryTitle || "CAPABILITY"}
                             </span>
-                            <div className="w-9 h-9 rounded-xl bg-white/80 text-[#122631] flex items-center justify-center border border-white/70 shadow-xs">
+                            <div className={`w-9 h-9 rounded-xl flex items-center justify-center shadow-xs ${
+                              isDark
+                                ? "bg-white/15 text-white border border-white/20 backdrop-blur-md"
+                                : "bg-white/80 text-[#122631] border border-white/70"
+                            }`}>
                               <DynamicIcon name={related.iconName} className="w-4 h-4" />
                             </div>
                           </div>
 
-                          <h3 className="font-display font-extrabold tracking-tight text-[#122631] text-xl sm:text-2xl leading-[1.2]">
+                          <h3 className={`font-display font-extrabold tracking-tight text-xl sm:text-2xl leading-[1.2] ${
+                            isDark ? "text-white" : "text-[#122631]"
+                          }`}>
                             {related.title}
                           </h3>
 
-                          <p className="text-xs text-[#122631]/85 leading-relaxed font-medium">
+                          <p className={`text-xs leading-relaxed font-medium ${
+                            isDark ? "text-white/85" : "text-[#122631]/85"
+                          }`}>
                             {related.headline || related.shortDescription}
                           </p>
                         </div>
 
                         {/* Operational Scope & Capabilities (Small details on this page) */}
-                        <div className="pt-2 border-t border-[#122631]/15 space-y-2.5">
-                          <div className="text-[10px] font-mono uppercase tracking-wider text-[#266573] font-bold">
+                        <div className={`pt-2 border-t space-y-2.5 ${
+                          isDark ? "border-white/15" : "border-[#122631]/15"
+                        }`}>
+                          <div className={`text-[10px] font-mono uppercase tracking-wider font-bold ${
+                            isDark ? "text-[#6BB0BF]" : "text-[#266573]"
+                          }`}>
                             Operational Scope &amp; Deliverables:
                           </div>
                           <div className="space-y-2">
                             {related.weCanSupport.slice(0, 3).map((item, sIdx) => (
-                              <div key={sIdx} className="flex items-start gap-2 text-xs text-[#122631] leading-snug font-medium">
-                                <CheckCircle2 className="w-3.5 h-3.5 text-[#266573] flex-shrink-0 mt-0.5" />
+                              <div key={sIdx} className={`flex items-start gap-2 text-xs leading-snug font-medium ${
+                                isDark ? "text-white/95" : "text-[#122631]"
+                              }`}>
+                                <CheckCircle2 className={`w-3.5 h-3.5 flex-shrink-0 mt-0.5 ${
+                                  isDark ? "text-[#6EBCBF]" : "text-[#266573]"
+                                }`} />
                                 <span>{item}</span>
                               </div>
                             ))}
@@ -375,14 +441,24 @@ export default function SolutionDetailPage({ params }: PageProps) {
                         </div>
 
                         {/* Key Measurable Outcomes Badges */}
-                        <div className="pt-2 border-t border-[#122631]/10 space-y-1.5">
+                        <div className={`pt-2 border-t space-y-1.5 ${
+                          isDark ? "border-white/10" : "border-[#122631]/10"
+                        }`}>
                           {related.keyOutcomes.slice(0, 2).map((outcome, oIdx) => (
                             <div
                               key={oIdx}
-                              className="flex items-center gap-2 p-2.5 rounded-xl border border-white/80 bg-white/80 text-xs font-bold text-[#122631] shadow-xs backdrop-blur-md"
+                              className={`flex items-center gap-2 p-2.5 rounded-xl border text-xs font-bold shadow-xs backdrop-blur-md ${
+                                isDark
+                                  ? "border-white/15 bg-white/10 text-white"
+                                  : "border-white/80 bg-white/80 text-[#122631]"
+                              }`}
                             >
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#266573] flex-shrink-0" />
-                              <span className="line-clamp-1 text-[11px] sm:text-xs text-[#122631]">{outcome}</span>
+                              <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
+                                isDark ? "bg-[#6EBCBF]" : "bg-[#266573]"
+                              }`} />
+                              <span className={`line-clamp-1 text-[11px] sm:text-xs ${
+                                isDark ? "text-white" : "text-[#122631]"
+                              }`}>{outcome}</span>
                             </div>
                           ))}
                         </div>
@@ -407,7 +483,7 @@ export default function SolutionDetailPage({ params }: PageProps) {
               <div className="pt-2 flex flex-wrap justify-center gap-4">
                 <Link
                   href="/inquiry"
-                  className="px-8 py-3.5 rounded-full bg-white hover:bg-[#EDEDE5] text-[#122631] font-bold text-sm sm:text-base shadow-lg transition-all active:scale-95"
+                  className="px-8 py-3.5 rounded-full bg-white hover:bg-[#EEF4F3] text-[#122631] font-bold text-sm sm:text-base shadow-lg transition-all active:scale-95"
                 >
                   Discuss Your Requirement
                 </Link>

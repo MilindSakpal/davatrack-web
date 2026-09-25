@@ -23,7 +23,7 @@ export function TestimonialsPreview() {
   const formatNumber = (num: number) => num.toString().padStart(2, "0");
 
   return (
-    <section className="py-20 lg:py-28 bg-[#CAD7D0] text-[#122631] relative overflow-hidden">
+    <section className="py-20 lg:py-28 bg-[#EEF4F3] text-[#122631] relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Row */}

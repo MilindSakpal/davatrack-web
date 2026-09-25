@@ -48,11 +48,11 @@ export function Button({
     brand:
       "bg-[#266573] text-white hover:bg-[#122631] shadow-md hover:shadow-lg shadow-[#266573]/20 hover:shadow-[#266573]/30 border border-[#266573]/30",
     brandOutline:
-      "bg-white text-[#122631] border border-[#CAD7D0] hover:border-[#266573] hover:bg-[#EDEDE5] shadow-sm",
+      "bg-white text-[#122631] border border-[#CAD7D0] hover:border-[#266573] hover:bg-[#EEF4F3] shadow-sm",
     outline:
-      "bg-white/90 text-[#122631] border border-[#CAD7D0] hover:border-[#266573] hover:bg-[#EDEDE5] shadow-sm",
+      "bg-white/90 text-[#122631] border border-[#CAD7D0] hover:border-[#266573] hover:bg-[#EEF4F3] shadow-sm",
     ghost:
-      "bg-transparent text-[#122631] hover:bg-[#EDEDE5] hover:text-[#266573]",
+      "bg-transparent text-[#122631] hover:bg-[#EEF4F3] hover:text-[#266573]",
     cyan:
       "bg-[#6BB0BF] text-[#122631] font-bold hover:bg-[#85C4D1] shadow-md",
   };

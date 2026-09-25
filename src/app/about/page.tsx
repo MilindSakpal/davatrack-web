@@ -120,7 +120,7 @@ const VALUES = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#EDEDE5] text-[#122631] pt-28 pb-24 relative overflow-hidden">
+    <div className="min-h-screen bg-[#EEF4F3] text-[#122631] pt-28 pb-24 relative overflow-hidden">
       {/* Background ambient lighting */}
       <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-b from-[#6BB0BF]/15 via-[#266573]/5 to-transparent rounded-full blur-[150px]" />
       <div className="pointer-events-none absolute top-1/3 right-10 w-96 h-96 bg-[#CAD7D0]/30 rounded-full blur-[130px]" />
@@ -159,7 +159,7 @@ export default function AboutPage() {
               </Link>
               <Link
                 href="/solutions"
-                className="px-7 py-3.5 rounded-full bg-white hover:bg-[#EDEDE5] text-[#122631] font-bold text-sm border border-[#266573]/20 shadow-sm transition-all"
+                className="px-7 py-3.5 rounded-full bg-white hover:bg-[#EEF4F3] text-[#122631] font-bold text-sm border border-[#266573]/20 shadow-sm transition-all"
               >
                 Explore Solutions
               </Link>
@@ -198,19 +198,19 @@ export default function AboutPage() {
                   5 Core Strategic Anchors:
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs font-bold text-[#122631]">
-                  <div className="bg-[#EDEDE5] p-2.5 rounded-xl border border-[#CAD7D0] flex items-center gap-2">
+                  <div className="bg-[#EEF4F3] p-2.5 rounded-xl border border-[#CAD7D0] flex items-center gap-2">
                     <span className="text-[#266573] font-mono">01</span> Supply
                   </div>
-                  <div className="bg-[#EDEDE5] p-2.5 rounded-xl border border-[#CAD7D0] flex items-center gap-2">
+                  <div className="bg-[#EEF4F3] p-2.5 rounded-xl border border-[#CAD7D0] flex items-center gap-2">
                     <span className="text-[#266573] font-mono">02</span> Tech
                   </div>
-                  <div className="bg-[#EDEDE5] p-2.5 rounded-xl border border-[#CAD7D0] flex items-center gap-2">
+                  <div className="bg-[#EEF4F3] p-2.5 rounded-xl border border-[#CAD7D0] flex items-center gap-2">
                     <span className="text-[#266573] font-mono">03</span> People
                   </div>
-                  <div className="bg-[#EDEDE5] p-2.5 rounded-xl border border-[#CAD7D0] flex items-center gap-2">
+                  <div className="bg-[#EEF4F3] p-2.5 rounded-xl border border-[#CAD7D0] flex items-center gap-2">
                     <span className="text-[#266573] font-mono">04</span> Process
                   </div>
-                  <div className="bg-[#EDEDE5] p-2.5 rounded-xl border border-[#CAD7D0] flex items-center gap-2 col-span-2 sm:col-span-2">
+                  <div className="bg-[#EEF4F3] p-2.5 rounded-xl border border-[#CAD7D0] flex items-center gap-2 col-span-2 sm:col-span-2">
                     <span className="text-[#266573] font-mono">05</span> Execution Management
                   </div>
                 </div>
@@ -239,11 +239,11 @@ export default function AboutPage() {
 
               <div className="mt-8 pt-6 border-t border-[#CAD7D0]/60">
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="p-3 rounded-xl bg-[#EDEDE5] border border-[#CAD7D0]">
+                  <div className="p-3 rounded-xl bg-[#EEF4F3] border border-[#CAD7D0]">
                     <div className="text-lg font-mono font-bold text-[#122631]">100%</div>
                     <div className="text-[11px] text-[#266573] font-medium">Batch Traceability</div>
                   </div>
-                  <div className="p-3 rounded-xl bg-[#EDEDE5] border border-[#CAD7D0]">
+                  <div className="p-3 rounded-xl bg-[#EEF4F3] border border-[#CAD7D0]">
                     <div className="text-lg font-mono font-bold text-[#266573]">Zero</div>
                     <div className="text-[11px] text-[#266573] font-medium">Stockout Guarantee</div>
                   </div>
@@ -407,7 +407,7 @@ export default function AboutPage() {
               <div className="pt-2 flex flex-wrap justify-center gap-4">
                 <Link
                   href="/inquiry"
-                  className="px-8 py-3.5 rounded-full bg-white hover:bg-[#EDEDE5] text-[#122631] font-bold text-sm sm:text-base shadow-lg transition-all active:scale-95"
+                  className="px-8 py-3.5 rounded-full bg-white hover:bg-[#EEF4F3] text-[#122631] font-bold text-sm sm:text-base shadow-lg transition-all active:scale-95"
                 >
                   Book a Consultation
                 </Link>

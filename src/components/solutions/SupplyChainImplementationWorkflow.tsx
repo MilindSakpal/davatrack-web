@@ -89,29 +89,29 @@ export function SupplyChainImplementationWorkflow() {
         {/* Step 01 & Step 02 Row */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative">
           
-          {/* Card 01 (Top Left) */}
-          <div className="lg:col-span-5 bg-[#6EBCBF] rounded-3xl p-7 border-2 border-white/60 shadow-[0_8px_30px_rgba(18,38,49,0.06)] hover:shadow-[0_16px_40px_rgba(18,38,49,0.12)] transition-all relative overflow-hidden group">
+          {/* Card 01 (Top Left) - #266573 */}
+          <div className="lg:col-span-5 bg-[#266573] text-white rounded-3xl p-7 border border-white/20 shadow-[0_20px_50px_rgba(18,38,49,0.25)] hover:shadow-[0_28px_60px_rgba(18,38,49,0.35)] transition-all relative overflow-hidden group">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-[#122631] text-[#6EBCBF] flex items-center justify-center shadow-md border border-[#122631]/20">
+              <div className="w-12 h-12 rounded-2xl bg-white/15 text-white flex items-center justify-center shadow-md border border-white/20 backdrop-blur-md">
                 <Search className="w-6 h-6" />
               </div>
-              <span className="font-mono text-3xl font-black text-[#122631]/30 group-hover:text-[#122631] transition-colors">
+              <span className="font-mono text-3xl font-black text-white/30 group-hover:text-white/80 transition-colors">
                 #01
               </span>
             </div>
 
-            <span className="text-[10px] font-mono text-[#122631] font-extrabold uppercase tracking-wider block mb-1">
+            <span className="text-[10px] font-mono text-[#6BB0BF] font-extrabold uppercase tracking-wider block mb-1">
               PHASE 01 • INTAKE
             </span>
-            <h3 className="text-lg font-extrabold text-[#122631] mb-2 leading-snug">
+            <h3 className="text-lg font-extrabold text-white mb-2 leading-snug">
               Demand Assessment & Consumption Diagnostic
             </h3>
-            <p className="text-xs text-[#122631]/85 font-medium leading-relaxed mb-4">
+            <p className="text-xs text-white/85 font-medium leading-relaxed mb-4">
               We audit your hospital/pharmacy&apos;s historical consumption velocity, stockout frequency, and identify high-leakage categories.
             </p>
 
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 text-[11px] font-mono font-bold text-[#122631] border border-white/90 shadow-xs">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#266573]" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-[11px] font-mono font-bold text-white border border-white/20 shadow-xs backdrop-blur-md">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#6EBCBF]" />
               <span>Comprehensive Inventory Audit</span>
             </div>
           </div>
@@ -127,7 +127,7 @@ export function SupplyChainImplementationWorkflow() {
             </div>
           </div>
 
-          {/* Card 02 (Top Right) */}
+          {/* Card 02 (Top Right) - #6EBCBF */}
           <div className="lg:col-span-5 bg-[#6EBCBF] rounded-3xl p-7 border-2 border-white/60 shadow-[0_8px_30px_rgba(18,38,49,0.06)] hover:shadow-[0_16px_40px_rgba(18,38,49,0.12)] transition-all relative overflow-hidden group">
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 rounded-2xl bg-[#122631] text-[#6EBCBF] flex items-center justify-center shadow-md border border-[#122631]/20">
@@ -159,7 +159,7 @@ export function SupplyChainImplementationWorkflow() {
         {/* Diagonal / Serpentine Transition from Step 02 -> Step 03 */}
         <div className="hidden lg:flex justify-end pr-28 py-4">
           <div className="flex items-center gap-2 text-[11px] font-mono text-[#266573] font-bold">
-            <span className="bg-[#EDEDE5] px-3 py-1 rounded-full border border-[#CAD7D0]">
+            <span className="bg-[#EEF4F3] px-3 py-1 rounded-full border border-[#CAD7D0]">
               Stage Transition 02 ➔ 03
             </span>
             <div className="w-8 h-8 rounded-full bg-[#122631] text-white flex items-center justify-center">
@@ -171,10 +171,10 @@ export function SupplyChainImplementationWorkflow() {
         {/* Step 03 & Step 04 Row */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative mt-4">
           
-          {/* Card 03 (Middle Left) */}
-          <div className="lg:col-span-5 bg-[#6EBCBF] rounded-3xl p-7 border-2 border-white/60 shadow-[0_8px_30px_rgba(18,38,49,0.06)] hover:shadow-[0_16px_40px_rgba(18,38,49,0.12)] transition-all relative overflow-hidden group">
+          {/* Card 03 (Middle Left) - #6BB0BF */}
+          <div className="lg:col-span-5 bg-[#6BB0BF] rounded-3xl p-7 border-2 border-white/60 shadow-[0_8px_30px_rgba(18,38,49,0.06)] hover:shadow-[0_16px_40px_rgba(18,38,49,0.12)] transition-all relative overflow-hidden group">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-[#122631] text-[#6EBCBF] flex items-center justify-center shadow-md border border-[#122631]/20">
+              <div className="w-12 h-12 rounded-2xl bg-[#122631] text-[#6BB0BF] flex items-center justify-center shadow-md border border-[#122631]/20">
                 <Truck className="w-6 h-6" />
               </div>
               <span className="font-mono text-3xl font-black text-[#122631]/30 group-hover:text-[#122631] transition-colors">
@@ -209,29 +209,29 @@ export function SupplyChainImplementationWorkflow() {
             </div>
           </div>
 
-          {/* Card 04 (Middle Right) */}
-          <div className="lg:col-span-5 bg-[#6EBCBF] rounded-3xl p-7 border-2 border-white/60 shadow-[0_8px_30px_rgba(18,38,49,0.06)] hover:shadow-[0_16px_40px_rgba(18,38,49,0.12)] transition-all relative overflow-hidden group">
+          {/* Card 04 (Middle Right) - #266573 */}
+          <div className="lg:col-span-5 bg-[#266573] text-white rounded-3xl p-7 border border-white/20 shadow-[0_20px_50px_rgba(18,38,49,0.25)] hover:shadow-[0_28px_60px_rgba(18,38,49,0.35)] transition-all relative overflow-hidden group">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-[#122631] text-[#6EBCBF] flex items-center justify-center shadow-md border border-[#122631]/20">
+              <div className="w-12 h-12 rounded-2xl bg-white/15 text-white flex items-center justify-center shadow-md border border-white/20 backdrop-blur-md">
                 <Navigation className="w-6 h-6" />
               </div>
-              <span className="font-mono text-3xl font-black text-[#122631]/30 group-hover:text-[#122631] transition-colors">
+              <span className="font-mono text-3xl font-black text-white/30 group-hover:text-white/80 transition-colors">
                 #04
               </span>
             </div>
 
-            <span className="text-[10px] font-mono text-[#122631] font-extrabold uppercase tracking-wider block mb-1">
+            <span className="text-[10px] font-mono text-[#6BB0BF] font-extrabold uppercase tracking-wider block mb-1">
               PHASE 04 • TELEMETRY
             </span>
-            <h3 className="text-lg font-extrabold text-[#122631] mb-2 leading-snug">
+            <h3 className="text-lg font-extrabold text-white mb-2 leading-snug">
               Live GPS & Cold-Chain Telemetry Integration
             </h3>
-            <p className="text-xs text-[#122631]/85 font-medium leading-relaxed mb-4">
+            <p className="text-xs text-white/85 font-medium leading-relaxed mb-4">
               Deploying temperature-validated refrigerated transit with live tracking dashboards accessible to your procurement desk.
             </p>
 
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 text-[11px] font-mono font-bold text-[#122631] border border-white/90 shadow-xs">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#266573]" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-[11px] font-mono font-bold text-white border border-white/20 shadow-xs backdrop-blur-md">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#6EBCBF]" />
               <span>2°C - 8°C Digital Logging</span>
             </div>
           </div>
@@ -250,7 +250,7 @@ export function SupplyChainImplementationWorkflow() {
           </div>
         </div>
 
-        {/* Step 05 Showcase Card (Bottom Center) */}
+        {/* Step 05 Showcase Card (Bottom Center) - #6EBCBF */}
         <div className="mt-4 max-w-3xl mx-auto">
           <div className="bg-[#6EBCBF] rounded-3xl p-8 text-[#122631] shadow-[0_20px_50px_rgba(18,38,49,0.12)] border-2 border-white/70 relative overflow-hidden text-center space-y-4">
             <div className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-white/30 rounded-full blur-[80px]" />
