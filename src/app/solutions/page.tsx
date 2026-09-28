@@ -114,7 +114,7 @@ export default function SolutionsPage() {
             {/* Individual Solutions Grid for this category */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {category.solutions.map((item, idx) => {
-                const CARD_PALETTE = ["#266573", "#6EBCBF", "#6BB0BF"] as const;
+                const CARD_PALETTE = ["#266573", "#6EBCBF", "#266573"] as const;
                 const cardColor = CARD_PALETTE[idx % CARD_PALETTE.length];
                 const isDark = cardColor === "#266573";
 

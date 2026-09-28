@@ -41,7 +41,7 @@ export const FOUR_CORE_SOLUTIONS: CoreSolutionDomain[] = [
     categoryLabel: "MEDICAL SUPPLY CHAIN & SOURCING",
     title: "Supply Chain",
     description: "Build a dependable medicine and healthcare-product supply system — from discovery and procurement to delivery management and real-time tracking.",
-    color: "#173246", // Deep Navy Teal
+    color: "#6EBCBF", // Mint Cyan
     tag: "SUPPLY CHAIN",
     slug: "medical-supply-delivery",
     subSolutions: [
@@ -56,7 +56,7 @@ export const FOUR_CORE_SOLUTIONS: CoreSolutionDomain[] = [
     categoryLabel: "PHARMACY OPERATIONS & PATIENT LIFECYCLE",
     title: "Pharmacy & Care",
     description: "End-to-end pharmacy management, continuous post-service patient engagement, and specialized insurance claims workflows.",
-    color: "#266573", // Deep Teal Slate
+    color: "#266573", // Deep Teal
     tag: "PHARMACY & CARE",
     slug: "pharmacy-management",
     subSolutions: [
@@ -85,7 +85,7 @@ export const FOUR_CORE_SOLUTIONS: CoreSolutionDomain[] = [
     categoryLabel: "STAFFING, MIS & OPERATIONAL GOVERNANCE",
     title: "Healthcare Administration",
     description: "Structured accounting, real-time MIS analytics, executive dashboards, and specialized healthcare staffing to keep operations compliant and running smoothly.",
-    color: "#6BB0BF", // Sky Mint / Aqua Cyan
+    color: "#266573", // Deep Teal
     tag: "ADMINISTRATION",
     slug: "accounting-mis",
     subSolutions: [

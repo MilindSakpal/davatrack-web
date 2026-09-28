@@ -140,9 +140,9 @@ export function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Main Hero Card colored in matching Architecture Card palette (#234E48 Forest Teal) with rich drop shadow */}
+        {/* Main Hero Card colored in #266573 (Deep Ocean Teal) with rich drop shadow */}
         <div 
-          className="hero-main-card rounded-[32px] sm:rounded-[40px] border border-white/20 shadow-[0_24px_70px_rgba(35,78,72,0.26),0_10px_30px_rgba(11,30,59,0.10)] relative overflow-hidden py-16 sm:py-24 lg:py-28 px-6 sm:px-12 lg:px-16 text-center text-white will-change-transform"
+          className="hero-main-card rounded-[32px] sm:rounded-[40px] border border-white/20 shadow-[0_24px_70px_rgba(38,101,115,0.30),0_10px_30px_rgba(18,38,49,0.12)] relative overflow-hidden py-16 sm:py-24 lg:py-28 px-6 sm:px-12 lg:px-16 text-center text-white will-change-transform"
           style={{
             background: `
               linear-gradient(
@@ -151,7 +151,7 @@ export function Hero() {
                 rgba(255,255,255,0.04) 45%,
                 rgba(0,0,0,0.20) 100%
               ),
-              ${"#234E48"}
+              #266573
             `,
           }}
         >
@@ -193,7 +193,7 @@ export function Hero() {
               <div className="hero-btn-primary">
                 <Link
                   href="/inquiry"
-                  className="px-8 py-3.5 rounded-full bg-white hover:bg-white/90 text-[#234E48] font-bold text-sm sm:text-base shadow-lg transition-all active:scale-95 flex items-center gap-2 group cursor-pointer"
+                  className="px-8 py-3.5 rounded-full bg-white hover:bg-white/90 text-[#266573] font-bold text-sm sm:text-base shadow-lg transition-all active:scale-95 flex items-center gap-2 group cursor-pointer"
                 >
                   <span>Book a demo</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />

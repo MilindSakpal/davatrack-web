@@ -239,50 +239,50 @@ export function AboutSection() {
     <section
       ref={sectionRef}
       id="about-davatrack"
-      className="py-24 lg:py-32 text-white relative z-20 overflow-hidden rounded-t-[36px] sm:rounded-t-[48px] shadow-[0_-30px_60px_-15px_rgba(18,38,49,0.25),0_-10px_20px_-8px_rgba(18,38,49,0.15)] border-t border-white/20"
+      className="py-12 sm:py-16 text-[#122631] relative z-20 overflow-hidden rounded-t-[36px] sm:rounded-t-[48px] shadow-[0_-30px_60px_-15px_rgba(18,38,49,0.12),0_-10px_20px_-8px_rgba(18,38,49,0.08)] border-t border-white/60"
       style={{
         background: `
           linear-gradient(
             145deg,
-            rgba(255,255,255,0.22) 0%,
-            rgba(255,255,255,0.06) 45%,
-            rgba(0,0,0,0.15) 100%
+            rgba(255,255,255,0.40) 0%,
+            rgba(255,255,255,0.15) 45%,
+            rgba(18,38,49,0.06) 100%
           ),
-          #266573
+          #6EBCBF
         `,
       }}
     >
       {/* Hardware-accelerated glossy top-left specular reflection */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.30)_0%,transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.45)_0%,transparent_60%)]" />
 
-      {/* Ambient soft glow highlights in cyan/mint */}
-      <div className="pointer-events-none absolute -top-24 right-1/4 w-[500px] h-[500px] bg-[#6EBCBF]/15 rounded-full blur-[140px]" />
-      <div className="pointer-events-none absolute -bottom-24 left-1/4 w-[500px] h-[500px] bg-[#6BB0BF]/15 rounded-full blur-[140px]" />
+      {/* Ambient soft glow highlights */}
+      <div className="pointer-events-none absolute -top-24 right-1/4 w-[500px] h-[500px] bg-white/20 rounded-full blur-[140px]" />
+      <div className="pointer-events-none absolute -bottom-24 left-1/4 w-[500px] h-[500px] bg-[#266573]/10 rounded-full blur-[140px]" />
 
       {/* Crisp top edge highlight line */}
-      <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/60" />
+      <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/80" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10 sm:space-y-12">
         
         {/* Header Section */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
           {/* Pill Badge */}
           <div className="inline-block">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-white bg-white/15 border border-white/25 px-3.5 py-1 rounded-full backdrop-blur-md shadow-xs">
+            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-white bg-[#122631] border border-[#122631]/20 px-3.5 py-1 rounded-full shadow-xs">
               OPERATIONAL IMPACT &amp; SAVINGS
             </span>
           </div>
 
-          {/* Headline matching brand colors */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.18]">
+          {/* Headline with 'improving execution' in full black */}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#122631] tracking-tight leading-[1.18]">
             Lowering costs by{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6EBCBF] via-[#6BB0BF] to-white">
+            <span className="text-black font-black">
               improving execution
             </span>
           </h2>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg text-white/85 max-w-2xl mx-auto font-normal leading-relaxed">
+          <p className="text-base sm:text-lg text-[#122631]/85 max-w-2xl mx-auto font-medium leading-relaxed">
             By guiding healthcare providers through unified supply chains, managed pharmacy SOPs, and clinical workflows, we eliminate operational leakage and accelerate results.
           </p>
         </div>
@@ -301,14 +301,14 @@ export function AboutSection() {
           ))}
         </div>
 
-        {/* Minimal Action Link */}
+        {/* Action Link */}
         <div className="text-center pt-4">
           <Link
             href="/about"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-white hover:text-[#6EBCBF] transition-colors group"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#122631] hover:text-[#266573] transition-colors group bg-white/80 hover:bg-white px-5 py-2.5 rounded-full border border-white/90 shadow-xs"
           >
             <span>Read more about our operational model</span>
-            <ArrowRight className="w-4 h-4 text-[#6EBCBF] transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="w-4 h-4 text-[#122631] transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
 

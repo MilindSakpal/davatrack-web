@@ -17,7 +17,8 @@ import {
   Activity,
   FileCheck,
   ChevronRight,
-  Zap
+  Zap,
+  ArrowDown
 } from "lucide-react";
 import { DynamicIcon } from "@/components/ui/Icons";
 import { SOLUTIONS_DATA, ALL_SOLUTIONS_LIST } from "@/data/solutions";
@@ -75,101 +76,135 @@ export default function SolutionDetailPage({ params }: PageProps) {
       <div className="pointer-events-none absolute bottom-1/4 left-10 w-96 h-96 bg-[#6BB0BF]/10 rounded-full blur-[130px]" />
       
       {/* ============================================================
-          HERO SECTION
+          HERO BANNER SECTION
           ============================================================ */}
-      <section className="relative z-10 pt-8 pb-16 lg:pb-24 border-b border-[#CAD7D0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      <section className="relative z-10 pt-4 sm:pt-6 pb-6 sm:pb-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Main Hero Banner Container */}
+          <div
+            className="relative rounded-[28px] sm:rounded-[40px] border border-white/25 shadow-[0_24px_70px_rgba(38,101,115,0.28),0_10px_30px_rgba(18,38,49,0.12)] overflow-hidden p-6 sm:p-10 lg:p-12 text-white"
+            style={{
+              background: `
+                linear-gradient(
+                  145deg,
+                  rgba(255,255,255,0.18) 0%,
+                  rgba(255,255,255,0.05) 45%,
+                  rgba(0,0,0,0.22) 100%
+                ),
+                #266573
+              `,
+            }}
+          >
+            {/* Top Specular Glare & Ambient Glows */}
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.25)_0%,transparent_60%)]" />
+            <div className="pointer-events-none absolute -right-20 -bottom-20 w-80 h-80 bg-[#6EBCBF]/20 rounded-full blur-3xl" />
+            <div className="pointer-events-none absolute top-0 right-1/4 w-72 h-72 bg-white/10 rounded-full blur-2xl" />
             
-            {/* Left Hero Details */}
-            <div className="lg:col-span-8 space-y-6">
-              {/* <div className="flex flex-wrap items-center gap-3">
-                <span className="px-3.5 py-1 rounded-full bg-[#266573]/10 border border-[#266573]/20 text-[#266573] text-xs font-mono uppercase tracking-wider font-bold">
-                  {solution.categoryTitle}
-                </span>
-                <span className="px-3 py-1 rounded-full bg-white border border-[#CAD7D0] text-[#266573] text-xs font-mono font-bold shadow-sm">
-                  CAPABILITY #{solution.number}
-                </span>
-              </div> */}
+            {/* Subtle Decorative Background Route Dot Mesh */}
+            <div 
+              className="pointer-events-none absolute inset-0 opacity-[0.06]"
+              style={{
+                backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+                backgroundSize: "28px 28px",
+              }}
+            />
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#122631] leading-[1.14]">
-                {solution.title}
-              </h1>
+            {/* Inner Border Bezel */}
+            <div className="pointer-events-none absolute inset-[1px] rounded-[27px] sm:rounded-[39px] border border-white/15" />
+            <div className="pointer-events-none absolute left-[8%] right-[8%] top-0 h-px bg-white/70" />
 
-              <p className="text-base sm:text-lg lg:text-xl text-[#266573] font-semibold leading-snug">
-                {solution.headline}
-              </p>
+            {/* Banner Grid Content */}
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              
+              {/* Left Details */}
+              <div className="lg:col-span-8 space-y-6">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.14]">
+                  {solution.title}
+                </h1>
 
-              <p className="text-sm sm:text-base text-[#122631]/75 leading-relaxed max-w-3xl">
-                {solution.fullDescription}
-              </p>
+                <p className="text-base sm:text-lg lg:text-xl text-[#6EBCBF] font-semibold leading-snug">
+                  {solution.headline}
+                </p>
 
-              {/* Objective Banner */}
-              {solution.objective && (
-                <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#CAD7D0] shadow-sm flex items-center gap-4 max-w-2xl">
-                  <div className="w-10 h-10 rounded-xl bg-[#122631] text-[#6BB0BF] flex items-center justify-center flex-shrink-0 shadow-sm border border-[#266573]/20">
-                    <Sparkles className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#266573]">
-                      Core Operational Mandate
+                <p className="text-sm sm:text-base text-white/85 leading-relaxed max-w-3xl font-medium">
+                  {solution.fullDescription}
+                </p>
+
+                {/* Objective Banner */}
+                {solution.objective && (
+                  <div className="p-4 sm:p-5 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md shadow-sm flex items-center gap-4 max-w-2xl">
+                    <div className="w-10 h-10 rounded-xl bg-white text-[#266573] flex items-center justify-center flex-shrink-0 shadow-sm">
+                      <Sparkles className="w-5 h-5" />
                     </div>
-                    <div className="text-sm font-bold text-[#122631] mt-0.5">
-                      “{solution.objective}”
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Action Buttons */}
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link
-                  href="/inquiry"
-                  className="px-7 py-3 rounded-full bg-[#122631] hover:bg-[#266573] text-white font-bold text-sm shadow-[0_10px_25px_rgba(18,38,49,0.25)] transition-all active:scale-95 flex items-center gap-2"
-                >
-                  <span>Deploy This Capability</span>
-                  <ArrowRight className="w-4 h-4 text-[#6BB0BF]" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Card: Quick Spec Sheet */}
-            <div className="lg:col-span-4">
-              <div className="bg-[#266573] rounded-3xl p-6 sm:p-7 border-2 border-white/30 shadow-[0_20px_50px_rgba(18,38,49,0.25)] space-y-6 relative overflow-hidden text-white">
-                <div className="pointer-events-none absolute -right-10 -top-10 w-32 h-32 bg-white/20 rounded-full blur-2xl" />
-
-                <div className="flex items-center gap-3 pb-4 border-b border-white/20">
-                  <div className="w-12 h-12 rounded-2xl bg-white/15 text-[#6BB0BF] flex items-center justify-center shadow-md border border-white/20 backdrop-blur-md">
-                    <DynamicIcon name={solution.iconName} className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <div className="text-[10px] font-mono uppercase tracking-wider text-[#6BB0BF] font-extrabold">
-                      EXECUTION SPEC
-                    </div>
-                    <div className="text-base font-black text-white">
-                      {solution.title}
+                    <div>
+                      <div className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#6EBCBF]">
+                        Core Operational Mandate
+                      </div>
+                      <div className="text-sm font-bold text-white mt-0.5">
+                        “{solution.objective}”
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
 
-                <div className="space-y-3">
-                  <div className="text-xs font-mono uppercase tracking-wider text-[#6BB0BF] font-extrabold">
-                    Guaranteed Operational Deliverables
-                  </div>
-                  {solution.keyOutcomes.slice(0, 4).map((outcome, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 text-xs text-white/90 font-medium">
-                      <CheckCircle2 className="w-4 h-4 text-[#6BB0BF] flex-shrink-0 mt-0.5" />
-                      <span>{outcome}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="p-3.5 rounded-xl bg-white/12 border border-white/20 text-xs text-[#CAD7D0] font-medium shadow-xs backdrop-blur-md">
-                  <span className="font-extrabold text-white">Single-Point SLA:</span> Managed end-to-end under DavaTrack Digital LLP&apos;s integrated governance.
+                {/* Action Buttons */}
+                <div className="pt-2 flex flex-wrap items-center gap-3.5">
+                  <Link
+                    href="/inquiry"
+                    className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white hover:bg-white/90 text-[#266573] font-bold text-sm shadow-[0_10px_25px_rgba(18,38,49,0.25)] transition-all active:scale-95 flex items-center justify-center gap-2"
+                  >
+                    <span>Deploy This Capability</span>
+                    <ArrowRight className="w-4 h-4 text-[#266573]" />
+                  </Link>
+                  <a
+                    href="#agency-journey"
+                    className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-white font-bold text-sm border border-white/20 backdrop-blur-md transition-all active:scale-95 flex items-center justify-center gap-2"
+                  >
+                    <span>View Supply Journey</span>
+                    <ArrowDown className="w-4 h-4 text-[#6EBCBF]" />
+                  </a>
                 </div>
               </div>
-            </div>
 
+              {/* Right Card: Quick Spec Sheet */}
+              <div className="lg:col-span-4">
+                <div className="bg-[#122631]/60 rounded-3xl p-6 sm:p-7 border border-white/25 shadow-[0_16px_40px_rgba(18,38,49,0.30)] space-y-6 relative overflow-hidden backdrop-blur-md">
+                  <div className="pointer-events-none absolute -right-10 -top-10 w-32 h-32 bg-white/15 rounded-full blur-2xl" />
+
+                  <div className="flex items-center gap-3 pb-4 border-b border-white/20">
+                    <div className="w-12 h-12 rounded-2xl bg-white/15 text-[#6EBCBF] flex items-center justify-center shadow-md border border-white/20 backdrop-blur-md">
+                      <DynamicIcon name={solution.iconName} className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-mono uppercase tracking-wider text-[#6EBCBF] font-extrabold">
+                        EXECUTION SPEC
+                      </div>
+                      <div className="text-base font-black text-white">
+                        {solution.title}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <div className="text-xs font-mono uppercase tracking-wider text-[#6EBCBF] font-extrabold">
+                      Guaranteed Operational Deliverables
+                    </div>
+                    {solution.keyOutcomes.slice(0, 4).map((outcome, idx) => (
+                      <div key={idx} className="flex items-start gap-2.5 text-xs text-white/90 font-medium">
+                        <CheckCircle2 className="w-4 h-4 text-[#6EBCBF] flex-shrink-0 mt-0.5" />
+                        <span>{outcome}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-white/10 border border-white/20 text-xs text-[#CAD7D0] font-medium shadow-xs backdrop-blur-md">
+                    <span className="font-extrabold text-white">Single-Point SLA:</span> Managed end-to-end under DavaTrack Digital LLP&apos;s integrated governance.
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
 
         </div>
@@ -178,8 +213,8 @@ export default function SolutionDetailPage({ params }: PageProps) {
       {/* ============================================================
           MAIN BODY: GRAPHIC SUPPLY JOURNEY (or SCOPE & BLUEPRINT FOR OTHERS)
           ============================================================ */}
-      <section className="py-8 sm:py-14 relative z-10">
-        <div className={cn("mx-auto px-4 sm:px-6 lg:px-8 space-y-16", isMedicalSupply ? "max-w-[1440px]" : "max-w-7xl")}>
+      <section className="py-6 sm:py-10 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
           
           {/* If Medical Supply Delivery: Render the Long Graphical Visual Pipeline */}
           {isMedicalSupply ? (
@@ -203,7 +238,7 @@ export default function SolutionDetailPage({ params }: PageProps) {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {solution.weCanSupport.map((item, idx) => {
-                    const SCOPE_COLORS = ["#266573", "#6EBCBF", "#6BB0BF", "#266573"] as const;
+                    const SCOPE_COLORS = ["#266573", "#6EBCBF", "#266573", "#6EBCBF"] as const;
                     const c = SCOPE_COLORS[idx % SCOPE_COLORS.length];
                     const isDark = c === "#266573";
 
@@ -251,7 +286,7 @@ export default function SolutionDetailPage({ params }: PageProps) {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {solution.processSteps.map((step, idx) => {
-                      const STEP_COLORS = ["#6EBCBF", "#266573", "#6BB0BF", "#6EBCBF"] as const;
+                      const STEP_COLORS = ["#6EBCBF", "#266573", "#6EBCBF", "#266573"] as const;
                       const c = STEP_COLORS[idx % STEP_COLORS.length];
                       const isDark = c === "#266573";
 
@@ -310,7 +345,7 @@ export default function SolutionDetailPage({ params }: PageProps) {
 
           {/* Related Interconnected Capabilities (Centered Heading, Big Graphics, Minimal Punchy Copy) */}
           {relatedSolutions.length > 0 && (
-            <div className="space-y-10 pt-14 border-t-2 border-[#CAD7D0]">
+            <div className="space-y-8 pt-8 sm:pt-10 border-t-2 border-[#CAD7D0]">
               {/* Centered Section Header */}
               <div className="max-w-3xl mx-auto text-center space-y-3">
                 {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#CAD7D0] text-[#266573] text-xs font-mono font-bold shadow-xs mx-auto">
@@ -328,7 +363,7 @@ export default function SolutionDetailPage({ params }: PageProps) {
               {/* Glossy Homepage-Style Solution Cards with Small Details Right on This Page */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
                 {relatedSolutions.map((related, idx) => {
-                  const palette = ["#266573", "#6EBCBF", "#6BB0BF"];
+                  const palette = ["#266573", "#6EBCBF", "#266573"];
                   const cardColor = palette[idx % palette.length];
                   const isDark = cardColor === "#266573";
 
@@ -385,32 +420,15 @@ export default function SolutionDetailPage({ params }: PageProps) {
                       <div className={`relative z-10 flex h-full flex-col justify-between space-y-5 ${
                         isDark ? "text-white" : "text-[#122631]"
                       }`}>
-                        {/* Top Header: Badge + Title + Icon */}
-                        <div className="space-y-3.5">
-                          <div className="flex items-center justify-between">
-                            <span className={`text-xs font-mono font-bold uppercase tracking-[0.18em] px-3 py-1 rounded-full shadow-sm ${
-                              isDark
-                                ? "bg-white/15 text-white border border-white/25 backdrop-blur-md"
-                                : "text-white bg-[#122631] border border-[#122631]/20"
-                            }`}>
-                              #{related.number || `0${idx + 1}`} • {related.categoryTitle || "CAPABILITY"}
-                            </span>
-                            <div className={`w-9 h-9 rounded-xl flex items-center justify-center shadow-xs ${
-                              isDark
-                                ? "bg-white/15 text-white border border-white/20 backdrop-blur-md"
-                                : "bg-white/80 text-[#122631] border border-white/70"
-                            }`}>
-                              <DynamicIcon name={related.iconName} className="w-4 h-4" />
-                            </div>
-                          </div>
-
+                        {/* Top Header: Title and Headline */}
+                        <div className="space-y-3">
                           <h3 className={`font-display font-extrabold tracking-tight text-xl sm:text-2xl leading-[1.2] ${
                             isDark ? "text-white" : "text-[#122631]"
                           }`}>
                             {related.title}
                           </h3>
 
-                          <p className={`text-xs leading-relaxed font-medium ${
+                          <p className={`text-xs sm:text-sm leading-relaxed font-medium ${
                             isDark ? "text-white/85" : "text-[#122631]/85"
                           }`}>
                             {related.headline || related.shortDescription}

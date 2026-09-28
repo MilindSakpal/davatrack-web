@@ -266,14 +266,14 @@ export function DavaTrackExperience() {
     <section
       ref={sectionRef}
       id="glossy-architecture"
-      className="py-20 lg:py-28 bg-[#EEF4F3] text-[#122631] border-b border-[#CBD9D2]/70 relative overflow-hidden"
+      className="py-10 sm:py-14 bg-[#EEF4F3] text-[#122631] border-b border-[#CBD9D2]/70 relative overflow-hidden"
     >
       {/* Soft top gradient blend from Hero section */}
       <div className="pointer-events-none absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#122631]/[0.025] to-transparent z-0" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="space-y-3 max-w-2xl mb-12 lg:mb-16">
+        <div className="space-y-3 max-w-2xl mb-8 sm:mb-10">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#122631] tracking-tight">
             The DavaTrack Architecture
           </h2>

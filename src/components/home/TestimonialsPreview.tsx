@@ -23,11 +23,11 @@ export function TestimonialsPreview() {
   const formatNumber = (num: number) => num.toString().padStart(2, "0");
 
   return (
-    <section className="py-20 lg:py-28 bg-[#EEF4F3] text-[#122631] relative overflow-hidden">
+    <section className="py-10 sm:py-14 bg-[#EEF4F3] text-[#122631] relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Row */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10">
           <div>
             {/* Pill Badge */}
             <div className="inline-block">
