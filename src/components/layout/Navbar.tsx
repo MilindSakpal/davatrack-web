@@ -50,12 +50,14 @@ const SOLUTIONS_DROPDOWN = [
 ];
 
 /**
- * Main Global Floating Capsule Navbar.
+ * Main Global Floating Capsule Navbar with Pure Glass Morphism.
  * Features:
- * - Responsive scroll detection.
+ * - Pure crystal translucent glass body with high backdrop blur.
+ * - Dynamic scroll adaptation with specular light reflection.
+ * - High-contrast text, logo, and active pill states.
  * - Solutions dropdown (with Supply Chain active and others disabled).
  * - Direct 'About Us' and 'Contact Us' navigation.
- * - Mobile navigation drawer.
+ * - Mobile navigation pure glass drawer.
  */
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -105,15 +107,20 @@ export function Navbar() {
       <div
         className={cn(
           "max-w-7xl mx-auto rounded-full transition-all duration-300 ease-out flex items-center justify-between gap-4 px-5 sm:px-6 py-2.5 relative z-50",
-          "bg-[#6EBCBF] border border-white/60 shadow-[0_12px_36px_rgba(18,38,49,0.12)]"
+          isScrolled
+            ? "bg-white/35 backdrop-blur-2xl border border-white/60 shadow-[0_12px_36px_rgba(18,38,49,0.08),inset_0_1px_1px_rgba(255,255,255,0.8)]"
+            : "bg-white/25 backdrop-blur-xl border border-white/50 shadow-[0_8px_24px_rgba(18,38,49,0.04),inset_0_1px_1px_rgba(255,255,255,0.9)]"
         )}
       >
+        {/* Specular glass top edge reflection */}
+        <div className="pointer-events-none absolute left-[6%] right-[6%] top-0 h-[1px] bg-gradient-to-r from-transparent via-white/80 to-transparent" />
+
         {/* ============================================================
-            LEFT: BRAND LOGO
+            LEFT: BRAND LOGO (HIGH CONTRAST ON PURE GLASS)
             ============================================================ */}
         <Link
           href="/"
-          className="flex items-center group focus-visible:outline-none rounded-full py-1 px-1.5 flex-shrink-0"
+          className="flex items-center group focus-visible:outline-none rounded-full py-1 px-1.5 flex-shrink-0 relative z-10"
         >
           <Image
             src="/logo.png"
@@ -126,16 +133,16 @@ export function Navbar() {
         </Link>
 
         {/* ============================================================
-            CENTER: FLOATING PILL CAPSULE NAVIGATION
+            CENTER: FLOATING PILL CAPSULE NAVIGATION (FROSTED GLASS)
             ============================================================ */}
-        <nav className="hidden lg:flex items-center gap-1 bg-white/80 border border-white/90 shadow-xs rounded-full px-4 py-1.5 relative">
+        <nav className="hidden lg:flex items-center gap-1 bg-white/40 backdrop-blur-md border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.7)] rounded-full px-3 py-1 relative z-10">
           
           {/* 1. Home Link */}
           <Link
             href="/"
             className={cn(
-              "px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors",
-              pathname === "/" ? "text-white bg-[#122631]" : "text-[#122631]/80 hover:text-[#122631] hover:bg-white"
+              "px-3.5 py-1.5 rounded-full text-xs font-bold transition-all",
+              pathname === "/" ? "text-white bg-[#122631] shadow-xs" : "text-[#122631] hover:text-[#122631] hover:bg-white/60"
             )}
           >
             Home
@@ -150,15 +157,15 @@ export function Navbar() {
             <Link
               href="/solutions"
               className={cn(
-                "inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors",
-                pathname.startsWith("/solutions") ? "text-white bg-[#122631]" : "text-[#122631]/80 hover:text-[#122631] hover:bg-white"
+                "inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all",
+                pathname.startsWith("/solutions") ? "text-white bg-[#122631] shadow-xs" : "text-[#122631] hover:text-[#122631] hover:bg-white/60"
               )}
             >
               <span>Solutions</span>
-              <ChevronDown className={cn("w-3.5 h-3.5 text-[#122631]/70 transition-transform duration-200", solutionsOpen && "rotate-180 text-[#266573]")} />
+              <ChevronDown className={cn("w-3.5 h-3.5 text-[#122631]/80 transition-transform duration-200", solutionsOpen && "rotate-180 text-[#266573]")} />
             </Link>
 
-            {/* Simple Solutions Dropdown */}
+            {/* Solutions Dropdown Menu */}
             <div
               className={cn(
                 "absolute top-full left-1/2 -translate-x-1/2 pt-4 w-64 transition-all duration-200 origin-top z-50",
@@ -170,7 +177,7 @@ export function Navbar() {
               {/* Invisible Hover Bridge */}
               <div className="absolute top-0 left-0 right-0 h-4 bg-transparent" />
 
-              <div className="bg-white rounded-2xl p-2 shadow-[0_20px_50px_rgba(18,38,49,0.18)] border border-white/80 space-y-1">
+              <div className="bg-white/90 backdrop-blur-2xl rounded-2xl p-2 shadow-[0_20px_50px_rgba(18,38,49,0.16)] border border-white/80 space-y-1">
                 {SOLUTIONS_DROPDOWN.map((item) => {
                   const IconComp = item.icon;
                   if (item.enabled) {
@@ -209,8 +216,8 @@ export function Navbar() {
           <Link
             href="/about"
             className={cn(
-              "px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors",
-              pathname === "/about" ? "text-white bg-[#122631]" : "text-[#122631]/80 hover:text-[#122631] hover:bg-white"
+              "px-3.5 py-1.5 rounded-full text-xs font-bold transition-all",
+              pathname === "/about" ? "text-white bg-[#122631] shadow-xs" : "text-[#122631] hover:text-[#122631] hover:bg-white/60"
             )}
           >
             About Us
@@ -220,8 +227,8 @@ export function Navbar() {
           <Link
             href="/inquiry"
             className={cn(
-              "px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors",
-              pathname === "/inquiry" ? "text-white bg-[#122631]" : "text-[#122631]/80 hover:text-[#122631] hover:bg-white"
+              "px-3.5 py-1.5 rounded-full text-xs font-bold transition-all",
+              pathname === "/inquiry" ? "text-white bg-[#122631] shadow-xs" : "text-[#122631] hover:text-[#122631] hover:bg-white/60"
             )}
           >
             Contact Us
@@ -232,7 +239,7 @@ export function Navbar() {
         {/* ============================================================
             RIGHT: ACTION BUTTONS (Sign In & Book a Demo)
             ============================================================ */}
-        <div className="flex items-center gap-2 sm:gap-2.5 flex-shrink-0">
+        <div className="flex items-center gap-2 sm:gap-2.5 flex-shrink-0 relative z-10">
           
           {/* Partner Sign In */}
           <Link
@@ -247,7 +254,7 @@ export function Navbar() {
           {/* Book a demo */}
           <Link
             href="/inquiry"
-            className="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-full bg-white hover:bg-[#EEF4F3] text-[#122631] font-bold text-xs shadow-xs transition-all active:scale-95 border border-white/80"
+            className="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-full bg-[#266573] hover:bg-[#122631] text-white font-bold text-xs shadow-xs transition-all active:scale-95 border border-white/30"
           >
             Book a demo
           </Link>
@@ -255,7 +262,7 @@ export function Navbar() {
           {/* Mobile Hamburger Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl bg-white/60 text-[#122631] hover:bg-white transition-colors"
+            className="lg:hidden p-2 rounded-xl bg-white/40 backdrop-blur-md text-[#122631] hover:bg-white/60 transition-colors border border-white/50"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -263,16 +270,16 @@ export function Navbar() {
         </div>
       </div>
 
-        {/* ============================================================
-          MOBILE NAVIGATION DRAWER
+      {/* ============================================================
+          MOBILE NAVIGATION PURE GLASS DRAWER
           ============================================================ */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-4 top-24 z-50 bg-[#6EBCBF] rounded-3xl border border-white/60 p-6 shadow-2xl space-y-5 text-[#122631] animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="lg:hidden fixed inset-x-4 top-24 z-50 bg-white/80 backdrop-blur-3xl rounded-3xl border border-white/70 p-6 shadow-2xl space-y-5 text-[#122631] animate-in fade-in slide-in-from-top-4 duration-200">
           
           <div className="space-y-2">
             <Link
               href="/"
-              className="block p-3 rounded-xl text-sm font-bold text-[#122631] hover:bg-white/40 transition-colors"
+              className="block p-3 rounded-xl text-sm font-bold text-[#122631] hover:bg-white/50 transition-colors"
             >
               Home
             </Link>
@@ -281,7 +288,7 @@ export function Navbar() {
             <div>
               <button
                 onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
-                className="w-full flex items-center justify-between p-3 rounded-xl text-sm font-bold text-[#122631] hover:bg-white/40 transition-colors"
+                className="w-full flex items-center justify-between p-3 rounded-xl text-sm font-bold text-[#122631] hover:bg-white/50 transition-colors"
               >
                 <span>Solutions</span>
                 <ChevronDown className={cn("w-4 h-4 transition-transform", mobileSolutionsOpen && "rotate-180 text-[#266573]")} />
@@ -295,7 +302,7 @@ export function Navbar() {
                         <Link
                           key={item.title}
                           href={item.href}
-                          className="block p-2 rounded-lg text-xs text-[#122631] hover:bg-white/40 font-bold"
+                          className="block p-2 rounded-lg text-xs text-[#122631] hover:bg-white/60 font-bold"
                         >
                           {item.title}
                         </Link>
@@ -325,14 +332,14 @@ export function Navbar() {
 
             <Link
               href="/about"
-              className="block p-3 rounded-xl text-sm font-bold text-[#122631] hover:bg-white/40 transition-colors"
+              className="block p-3 rounded-xl text-sm font-bold text-[#122631] hover:bg-white/50 transition-colors"
             >
               About Us
             </Link>
 
             <Link
               href="/inquiry"
-              className="block p-3 rounded-xl text-sm font-bold text-[#122631] hover:bg-white/40 transition-colors"
+              className="block p-3 rounded-xl text-sm font-bold text-[#122631] hover:bg-white/50 transition-colors"
             >
               Contact Us
             </Link>
@@ -353,9 +360,9 @@ export function Navbar() {
               </Link>
               <Link
                 href="/login?portal=agency"
-                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-white hover:bg-[#EEF4F3] text-[#122631] font-bold text-xs border border-white/80 text-center"
+                className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[#266573] hover:bg-[#122631] text-white font-bold text-xs shadow-md text-center"
               >
-                <Truck className="w-3.5 h-3.5 text-[#266573]" />
+                <Truck className="w-3.5 h-3.5 text-[#6BB0BF]" />
                 <span>Agency Sign In</span>
               </Link>
             </div>
